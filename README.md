@@ -32,7 +32,7 @@ cp .env.example .env
 
 .venv/bin/python manage.py migrate
 .venv/bin/python manage.py import_colab "FAQ_Sobat_Kite_Fix.xlsx"   # sheet Variasi ikut diimpor
-.venv/bin/python -m pytest                # 374 tes
+.venv/bin/python -m pytest                # 564 tes
 ```
 
 Definition of done Fase 0 — pencarian dari shell:
