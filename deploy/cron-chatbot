@@ -4,6 +4,8 @@
 
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+# manage.py default-nya config.settings.dev; .env tidak bisa menimpanya.
+DJANGO_SETTINGS_MODULE=config.settings.prod_admin
 
 # Backup harian + salin keluar VPS
 0 2 * * *  deploy  /srv/chatbot_ubb/deploy/backup.sh >> /var/log/chatbot-backup.log 2>&1
