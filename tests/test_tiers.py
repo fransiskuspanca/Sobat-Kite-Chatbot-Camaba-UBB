@@ -4,7 +4,7 @@ import pytest
 
 from retrieval.tiers import (PESAN_ESKALASI, PESAN_FALLBACK, PESAN_KOSONG,
                              Kandidat, Tipe, cek_sapaan, keputusan_darurat,
-                             putuskan)
+                             putuskan, tampak_lanjutan)
 
 TAU_HIGH, TAU_LOW = 0.72, 0.60
 
@@ -280,3 +280,17 @@ def test_putuskan_skor_rendah_juga_memakai_template():
                  TAU_HIGH, TAU_LOW, template_fallback=t)
     assert k.tipe is Tipe.FALLBACK
     assert "warna gedung telkom" in k.jawaban
+
+
+# --- pertanyaan lanjutan --------------------------------------------------
+
+@pytest.mark.parametrize("teks", ["apa saja?", "kalo prodinya?", "syaratnya",
+                                  "terus kalau mau daftar jalur mandiri gimana caranya kak"])
+def test_tampak_lanjutan(teks):
+    assert tampak_lanjutan(teks)
+
+
+@pytest.mark.parametrize("teks", ["", "???",
+                                  "bagaimana cara daftar jalur mandiri di universitas"])
+def test_bukan_lanjutan(teks):
+    assert not tampak_lanjutan(teks)

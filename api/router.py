@@ -105,6 +105,35 @@ def _ambil_sesi(session_id: str | None):
         return None
 
 
+# Pertanyaan lanjutan hanya disambung ke jawaban yang masih hangat; setelah
+# jeda panjang camaba biasanya sudah berganti topik.
+KONTEKS_MAKS_MENIT = 30
+
+
+def _konteks_sesi(sesi) -> tuple[str, int | None]:
+    """(pertanyaan FAQ, faq_id) yang terakhir dijawab dalam sesi, atau ("", None)."""
+    if sesi is None:
+        return "", None
+    from datetime import timedelta
+
+    from django.utils import timezone
+
+    from percakapan.models import ChatLog
+
+    try:
+        terakhir = (ChatLog.objects
+                    .filter(session_id=sesi.pk, faq__isnull=False,
+                            dibuat__gte=timezone.now()
+                            - timedelta(minutes=KONTEKS_MAKS_MENIT))
+                    .select_related("faq").order_by("-dibuat").first())
+    except Exception:
+        log.exception("Gagal mengambil konteks sesi %s", sesi.pk)
+        return "", None
+    if terakhir is None:
+        return "", None
+    return terakhir.faq.pertanyaan, terakhir.faq_id
+
+
 def _catat_log(*, log_id, query, keputusan, session_id, sesi, index_version,
                latency_ms):
     """Simpan ChatLog. Aset terbesar sistem ini — tapi gagal mencatat TIDAK
@@ -168,8 +197,10 @@ def query(request, payload: ChatQueryRequest):
         except Exception:
             log.exception("Gagal membaca pengaturan identitas")
             pesan_identitas = template_fallback = fallback_tanpa_kunci = ""
+        konteks, faq_sebelumnya = _konteks_sesi(sesi)
         keputusan = engine.jawab(payload.query, _metadata_faq, pesan_identitas,
-                                 template_fallback, fallback_tanpa_kunci)
+                                 template_fallback, fallback_tanpa_kunci,
+                                 konteks=konteks, faq_sebelumnya=faq_sebelumnya)
         versi = engine.snapshot.versi if engine.snapshot else None
 
     latency = int((time.perf_counter() - mulai) * 1000)

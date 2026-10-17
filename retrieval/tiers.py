@@ -148,6 +148,25 @@ def rakit_fallback(query: str, template: str = "", tanpa_kunci: str = "") -> str
         # seluruh endpoint gagal hanya karena salah ketik di admin.
         return PESAN_FALLBACK
 
+# --- Pertanyaan lanjutan ----------------------------------------------
+# "apa saja?", "kalo prodinya?", "syaratnya gimana?" hanya bermakna bila
+# disambung dengan pertanyaan sebelumnya. Yang dianggap lanjutan: pendek,
+# atau dibuka kata penyambung.
+KATA_LANJUTAN_MAKS = 5
+_PEMBUKA_LANJUTAN = re.compile(
+    r"^(kalau|kalo|klo|klw|kl|terus|trus|trs|lalu|lantas|terus kalau|"
+    r"bagaimana dengan|gimana dengan|gmn dengan|selain itu|dan|sama)\b")
+
+
+def tampak_lanjutan(teks: str) -> bool:
+    """Apakah `teks` tampak seperti pertanyaan lanjutan yang tidak utuh?"""
+    t = (teks or "").lower().strip()
+    kata = re.findall(r"\w+", t)
+    if not kata:
+        return False
+    return len(kata) <= KATA_LANJUTAN_MAKS or bool(_PEMBUKA_LANJUTAN.match(t))
+
+
 PANJANG_MAKS = 500   # sejalan dengan client_max_body_size di Nginx
 
 
