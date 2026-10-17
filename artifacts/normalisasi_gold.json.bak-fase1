@@ -1,0 +1,432 @@
+{
+  "_catatan": "Dibangkitkan dari NLP_Chatbot_Camaba_UBB_2026.ipynb sel 4a. Jika tes terhadap file ini merah, JANGAN deploy — retrieval/text.py sudah menyimpang dari notebook.",
+  "sumber_notebook": "NLP_Chatbot_Camaba_UBB_2026.ipynb",
+  "expand_true": [
+    [
+      "Min, brp UKT fak teknik yg S1?",
+      "berapa uang kuliah tunggal fakultas teknik yang s1?"
+    ],
+    [
+      "Prodi TI akreditasinya apa ya kak",
+      "program studi teknologi informasi akreditasinya apa ya"
+    ],
+    [
+      "apa itu UBB",
+      "apa itu universitas bangka belitung"
+    ],
+    [
+      "jadwal PMB kapan",
+      "jadwal penerimaan mahasiswa baru kapan"
+    ],
+    [
+      "prodi apa saja yang ada",
+      "program studi apa saja yang ada"
+    ],
+    [
+      "berapa UKT nya",
+      "berapa uang kuliah tunggal nya"
+    ],
+    [
+      "info buat MABA",
+      "info buat mahasiswa baru"
+    ],
+    [
+      "camaba wajib apa",
+      "calon mahasiswa baru wajib apa"
+    ],
+    [
+      "akre prodi TI apa",
+      "akreditasi program studi teknologi informasi apa"
+    ],
+    [
+      "fak hukum ada?",
+      "fakultas hukum ada?"
+    ],
+    [
+      "kampus kite dimana",
+      "universitas bangka belitung dimana"
+    ],
+    [
+      "kampuskite itu apa",
+      "universitas bangka belitung itu apa"
+    ],
+    [
+      "gak tau nih",
+      "tidak tau nih"
+    ],
+    [
+      "nggak ngerti",
+      "tidak ngerti"
+    ],
+    [
+      "ga paham",
+      "tidak paham"
+    ],
+    [
+      "engga jelas",
+      "tidak jelas"
+    ],
+    [
+      "gimana caranya",
+      "bagaimana caranya"
+    ],
+    [
+      "gmn cara daftar",
+      "bagaimana cara daftar"
+    ],
+    [
+      "bgmn prosedurnya",
+      "bagaimana prosedurnya"
+    ],
+    [
+      "brp biayanya",
+      "berapa biayanya"
+    ],
+    [
+      "kpn pendaftaran",
+      "kapan pendaftaran"
+    ],
+    [
+      "dmn lokasinya",
+      "dimana lokasinya"
+    ],
+    [
+      "yg mana yg benar",
+      "yang mana yang benar"
+    ],
+    [
+      "dgn siapa",
+      "dengan siapa"
+    ],
+    [
+      "sy mau tanya",
+      "saya mau tanya"
+    ],
+    [
+      "kak mau tanya",
+      "mau tanya"
+    ],
+    [
+      "min tolong",
+      "tolong"
+    ],
+    [
+      "bang info dong",
+      "info dong"
+    ],
+    [
+      "kk gimana",
+      "bagaimana"
+    ],
+    [
+      "Ｕｎｉｃｏｄｅ ｌｅｂａｒ",
+      "unicode lebar"
+    ],
+    [
+      "café naïve",
+      "café naïve"
+    ],
+    [
+      "cek di https://ubb.ac.id ya",
+      "cek di ya"
+    ],
+    [
+      "lihat http://pmb.ubb.ac.id/daftar sekarang",
+      "lihat sekarang"
+    ],
+    [
+      "apa-apa saja?",
+      "apa-apa saja?"
+    ],
+    [
+      "tanya: berapa?!",
+      "tanya berapa?"
+    ],
+    [
+      "e-mail saya",
+      "e-mail saya"
+    ],
+    [
+      "(halo) [dunia]",
+      "halo dunia"
+    ],
+    [
+      "   banyak    spasi   ",
+      "banyak spasi"
+    ],
+    [
+      "",
+      ""
+    ],
+    [
+      "   ",
+      ""
+    ],
+    [
+      "\ttab\tdan\nnewline\t",
+      "tab dan newline"
+    ],
+    [
+      "UKT 2026 berapa",
+      "uang kuliah tunggal 2026 berapa"
+    ],
+    [
+      "S1 atau D3?",
+      "s1 atau d3?"
+    ],
+    [
+      "12345",
+      "12345"
+    ],
+    [
+      123,
+      "123"
+    ],
+    [
+      45.6,
+      "45 6"
+    ],
+    [
+      null,
+      "none"
+    ],
+    [
+      "ubbi bukan ubb",
+      "ubbi bukan universitas bangka belitung"
+    ],
+    [
+      "tikus makan",
+      "tikus makan"
+    ],
+    [
+      "gaku bukan gak",
+      "gaku bukan tidak"
+    ],
+    [
+      "prodinya apa",
+      "prodinya apa"
+    ],
+    [
+      "minta tolong",
+      "minta tolong"
+    ],
+    [
+      "kakak saya",
+      "kakak saya"
+    ]
+  ],
+  "expand_false": [
+    [
+      "Min, brp UKT fak teknik yg S1?",
+      "min brp ukt fak teknik yg s1?"
+    ],
+    [
+      "Prodi TI akreditasinya apa ya kak",
+      "prodi ti akreditasinya apa ya kak"
+    ],
+    [
+      "apa itu UBB",
+      "apa itu ubb"
+    ],
+    [
+      "jadwal PMB kapan",
+      "jadwal pmb kapan"
+    ],
+    [
+      "prodi apa saja yang ada",
+      "prodi apa saja yang ada"
+    ],
+    [
+      "berapa UKT nya",
+      "berapa ukt nya"
+    ],
+    [
+      "info buat MABA",
+      "info buat maba"
+    ],
+    [
+      "camaba wajib apa",
+      "camaba wajib apa"
+    ],
+    [
+      "akre prodi TI apa",
+      "akre prodi ti apa"
+    ],
+    [
+      "fak hukum ada?",
+      "fak hukum ada?"
+    ],
+    [
+      "kampus kite dimana",
+      "kampus kite dimana"
+    ],
+    [
+      "kampuskite itu apa",
+      "kampuskite itu apa"
+    ],
+    [
+      "gak tau nih",
+      "gak tau nih"
+    ],
+    [
+      "nggak ngerti",
+      "nggak ngerti"
+    ],
+    [
+      "ga paham",
+      "ga paham"
+    ],
+    [
+      "engga jelas",
+      "engga jelas"
+    ],
+    [
+      "gimana caranya",
+      "gimana caranya"
+    ],
+    [
+      "gmn cara daftar",
+      "gmn cara daftar"
+    ],
+    [
+      "bgmn prosedurnya",
+      "bgmn prosedurnya"
+    ],
+    [
+      "brp biayanya",
+      "brp biayanya"
+    ],
+    [
+      "kpn pendaftaran",
+      "kpn pendaftaran"
+    ],
+    [
+      "dmn lokasinya",
+      "dmn lokasinya"
+    ],
+    [
+      "yg mana yg benar",
+      "yg mana yg benar"
+    ],
+    [
+      "dgn siapa",
+      "dgn siapa"
+    ],
+    [
+      "sy mau tanya",
+      "sy mau tanya"
+    ],
+    [
+      "kak mau tanya",
+      "kak mau tanya"
+    ],
+    [
+      "min tolong",
+      "min tolong"
+    ],
+    [
+      "bang info dong",
+      "bang info dong"
+    ],
+    [
+      "kk gimana",
+      "kk gimana"
+    ],
+    [
+      "Ｕｎｉｃｏｄｅ ｌｅｂａｒ",
+      "unicode lebar"
+    ],
+    [
+      "café naïve",
+      "café naïve"
+    ],
+    [
+      "cek di https://ubb.ac.id ya",
+      "cek di ya"
+    ],
+    [
+      "lihat http://pmb.ubb.ac.id/daftar sekarang",
+      "lihat sekarang"
+    ],
+    [
+      "apa-apa saja?",
+      "apa-apa saja?"
+    ],
+    [
+      "tanya: berapa?!",
+      "tanya berapa?"
+    ],
+    [
+      "e-mail saya",
+      "e-mail saya"
+    ],
+    [
+      "(halo) [dunia]",
+      "halo dunia"
+    ],
+    [
+      "   banyak    spasi   ",
+      "banyak spasi"
+    ],
+    [
+      "",
+      ""
+    ],
+    [
+      "   ",
+      ""
+    ],
+    [
+      "\ttab\tdan\nnewline\t",
+      "tab dan newline"
+    ],
+    [
+      "UKT 2026 berapa",
+      "ukt 2026 berapa"
+    ],
+    [
+      "S1 atau D3?",
+      "s1 atau d3?"
+    ],
+    [
+      "12345",
+      "12345"
+    ],
+    [
+      123,
+      "123"
+    ],
+    [
+      45.6,
+      "45 6"
+    ],
+    [
+      null,
+      "none"
+    ],
+    [
+      "ubbi bukan ubb",
+      "ubbi bukan ubb"
+    ],
+    [
+      "tikus makan",
+      "tikus makan"
+    ],
+    [
+      "gaku bukan gak",
+      "gaku bukan gak"
+    ],
+    [
+      "prodinya apa",
+      "prodinya apa"
+    ],
+    [
+      "minta tolong",
+      "minta tolong"
+    ],
+    [
+      "kakak saya",
+      "kakak saya"
+    ]
+  ]
+}

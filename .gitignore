@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+staticfiles/
+backup/
+# Model ~500 MB — diunduh terpisah di tiap mesin, tidak pernah masuk git.
+# TANPA garis miring: di laptop ini SYMLINK ke cache HuggingFace, dan pola
+# berakhiran "/" hanya cocok untuk direktori sungguhan — symlink-nya lolos
+# dan ikut ter-commit, lalu menunjuk /Users/... yang tidak ada di VPS.
+artifacts/model
+# Direktori model sungguhan yang ditunjuk symlink di atas (~465 MB).
+artifacts/model_finetuned/
+artifacts/model_lokal/
+# Embedding index dari Colab — dibangun ulang oleh `manage.py reindex`.
+artifacts/index_embeddings.npy
+.DS_Store
+.pytest_cache/
+*.egg-info/

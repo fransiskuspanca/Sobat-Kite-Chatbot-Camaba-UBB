@@ -1,0 +1,752 @@
+{
+  "_catatan": "Dibangkitkan dari NLP_Chatbot_Camaba_UBB_2026.ipynb sel 4a, lalu digabung dengan normalisasi_gold.json artefak Colab v1.0 (2026-08-31), yang berformat daftar [masukan, harapan] hasil expand=True dan TIDAK memuat bagian expand_false. Kasus sulit (singkatan, slang) berasal dari gold lama — jangan menimpa berkas ini dengan artefak Colab mentah, cakupannya akan menyusut. Jika tes terhadap file ini merah, JANGAN deploy — retrieval/text.py sudah menyimpang dari notebook.",
+  "sumber_notebook": "NLP_Chatbot_Camaba_UBB_2026.ipynb",
+  "expand_true": [
+    [
+      "Min, brp UKT fak teknik yg S1?",
+      "berapa uang kuliah tunggal fakultas teknik yang s1?"
+    ],
+    [
+      "Prodi TI akreditasinya apa ya kak",
+      "program studi teknologi informasi akreditasinya apa ya"
+    ],
+    [
+      "apa itu UBB",
+      "apa itu universitas bangka belitung"
+    ],
+    [
+      "jadwal PMB kapan",
+      "jadwal penerimaan mahasiswa baru kapan"
+    ],
+    [
+      "prodi apa saja yang ada",
+      "program studi apa saja yang ada"
+    ],
+    [
+      "berapa UKT nya",
+      "berapa uang kuliah tunggal nya"
+    ],
+    [
+      "info buat MABA",
+      "info buat mahasiswa baru"
+    ],
+    [
+      "camaba wajib apa",
+      "calon mahasiswa baru wajib apa"
+    ],
+    [
+      "akre prodi TI apa",
+      "akreditasi program studi teknologi informasi apa"
+    ],
+    [
+      "fak hukum ada?",
+      "fakultas hukum ada?"
+    ],
+    [
+      "kampus kite dimana",
+      "universitas bangka belitung dimana"
+    ],
+    [
+      "kampuskite itu apa",
+      "universitas bangka belitung itu apa"
+    ],
+    [
+      "gak tau nih",
+      "tidak tau nih"
+    ],
+    [
+      "nggak ngerti",
+      "tidak ngerti"
+    ],
+    [
+      "ga paham",
+      "tidak paham"
+    ],
+    [
+      "engga jelas",
+      "tidak jelas"
+    ],
+    [
+      "gimana caranya",
+      "bagaimana caranya"
+    ],
+    [
+      "gmn cara daftar",
+      "bagaimana cara daftar"
+    ],
+    [
+      "bgmn prosedurnya",
+      "bagaimana prosedurnya"
+    ],
+    [
+      "brp biayanya",
+      "berapa biayanya"
+    ],
+    [
+      "kpn pendaftaran",
+      "kapan pendaftaran"
+    ],
+    [
+      "dmn lokasinya",
+      "dimana lokasinya"
+    ],
+    [
+      "yg mana yg benar",
+      "yang mana yang benar"
+    ],
+    [
+      "dgn siapa",
+      "dengan siapa"
+    ],
+    [
+      "sy mau tanya",
+      "saya mau tanya"
+    ],
+    [
+      "kak mau tanya",
+      "mau tanya"
+    ],
+    [
+      "min tolong",
+      "tolong"
+    ],
+    [
+      "bang info dong",
+      "info dong"
+    ],
+    [
+      "kk gimana",
+      "bagaimana"
+    ],
+    [
+      "Ｕｎｉｃｏｄｅ ｌｅｂａｒ",
+      "unicode lebar"
+    ],
+    [
+      "café naïve",
+      "café naïve"
+    ],
+    [
+      "cek di https://ubb.ac.id ya",
+      "cek di ya"
+    ],
+    [
+      "lihat http://pmb.ubb.ac.id/daftar sekarang",
+      "lihat sekarang"
+    ],
+    [
+      "apa-apa saja?",
+      "apa-apa saja?"
+    ],
+    [
+      "tanya: berapa?!",
+      "tanya berapa?"
+    ],
+    [
+      "e-mail saya",
+      "e-mail saya"
+    ],
+    [
+      "(halo) [dunia]",
+      "halo dunia"
+    ],
+    [
+      "   banyak    spasi   ",
+      "banyak spasi"
+    ],
+    [
+      "",
+      ""
+    ],
+    [
+      "   ",
+      ""
+    ],
+    [
+      "\ttab\tdan\nnewline\t",
+      "tab dan newline"
+    ],
+    [
+      "UKT 2026 berapa",
+      "uang kuliah tunggal 2026 berapa"
+    ],
+    [
+      "S1 atau D3?",
+      "s1 atau d3?"
+    ],
+    [
+      "12345",
+      "12345"
+    ],
+    [
+      123,
+      "123"
+    ],
+    [
+      45.6,
+      "45 6"
+    ],
+    [
+      null,
+      "none"
+    ],
+    [
+      "ubbi bukan ubb",
+      "ubbi bukan universitas bangka belitung"
+    ],
+    [
+      "tikus makan",
+      "tikus makan"
+    ],
+    [
+      "gaku bukan gak",
+      "gaku bukan tidak"
+    ],
+    [
+      "prodinya apa",
+      "prodinya apa"
+    ],
+    [
+      "minta tolong",
+      "minta tolong"
+    ],
+    [
+      "kakak saya",
+      "kakak saya"
+    ],
+    [
+      "Apa itu Universitas Bangka Belitung?",
+      "apa itu universitas bangka belitung?"
+    ],
+    [
+      "Kapan Universitas Bangka Belitung berdiri?",
+      "kapan universitas bangka belitung berdiri?"
+    ],
+    [
+      "Universitas Bangka Belitung negeri atau swasta?",
+      "universitas bangka belitung negeri atau swasta?"
+    ],
+    [
+      "Akreditasi Universitas Bangka Belitung apa?",
+      "akreditasi universitas bangka belitung apa?"
+    ],
+    [
+      "Dimana lokasi kampus?",
+      "dimana lokasi kampus?"
+    ],
+    [
+      "Berapa luas kampus?",
+      "berapa luas kampus?"
+    ],
+    [
+      "Apa visi Universitas Bangka Belitung?",
+      "apa visi universitas bangka belitung?"
+    ],
+    [
+      "Apa misi Universitas Bangka Belitung?",
+      "apa misi universitas bangka belitung?"
+    ],
+    [
+      "Apa slogan Universitas Bangka Belitung?",
+      "apa slogan universitas bangka belitung?"
+    ],
+    [
+      "Apa keunggulan Universitas Bangka Belitung?",
+      "apa keunggulan universitas bangka belitung?"
+    ],
+    [
+      "Mengapa saya harus kuliah di UBB?",
+      "mengapa saya harus kuliah di universitas bangka belitung?"
+    ],
+    [
+      "Apa saja prestasi Universitas Bangka Belitung?",
+      "apa saja prestasi universitas bangka belitung?"
+    ],
+    [
+      "Apakah UBB sudah terakreditasi?",
+      "apakah universitas bangka belitung sudah terakreditasi?"
+    ],
+    [
+      "Apakah ijazah UBB diakui?",
+      "apakah ijazah universitas bangka belitung diakui?"
+    ],
+    [
+      "Apakah UBB memiliki kampus cabang?",
+      "apakah universitas bangka belitung memiliki kampus cabang?"
+    ],
+    [
+      "Bagaimana sejarah UBB?",
+      "bagaimana sejarah universitas bangka belitung?"
+    ],
+    [
+      "Siapa rektor UBB saat ini?",
+      "siapa rektor universitas bangka belitung saat ini?"
+    ],
+    [
+      "Berapa jumlah mahasiswa UBB?",
+      "berapa jumlah mahasiswa universitas bangka belitung?"
+    ],
+    [
+      "Berapa jumlah dosen?",
+      "berapa jumlah dosen?"
+    ],
+    [
+      "Berapa jumlah profesor?",
+      "berapa jumlah profesor?"
+    ],
+    [
+      "Berapa jumlah fakultas?",
+      "berapa jumlah fakultas?"
+    ],
+    [
+      "Berapa jumlah program studi?",
+      "berapa jumlah program studi?"
+    ],
+    [
+      "Apakah UBB memiliki rumah sakit pendidikan?",
+      "apakah universitas bangka belitung memiliki rumah sakit pendidikan?"
+    ],
+    [
+      "Apakah UBB memiliki laboratorium lengkap?",
+      "apakah universitas bangka belitung memiliki laboratorium lengkap?"
+    ],
+    [
+      "Apakah kampus memiliki perpustakaan?",
+      "apakah kampus memiliki perpustakaan?"
+    ],
+    [
+      "Apakah tersedia akses internet gratis?",
+      "apakah tersedia akses internet gratis?"
+    ],
+    [
+      "Apakah tersedia area parkir?",
+      "apakah tersedia area parkir?"
+    ],
+    [
+      "Fakultas apa saja yang ada di UBB?",
+      "fakultas apa saja yang ada di universitas bangka belitung?"
+    ],
+    [
+      "Ada berapa fakultas?",
+      "ada berapa fakultas?"
+    ],
+    [
+      "Fakultas Sains dan Teknik ada jurusan apa saja?",
+      "fakultas sains dan teknik ada jurusan apa saja?"
+    ],
+    [
+      "Fakultas Ekonomi memiliki program studi apa saja?",
+      "fakultas ekonomi memiliki program studi apa saja?"
+    ],
+    [
+      "Fakultas Hukum ada?",
+      "fakultas hukum ada?"
+    ],
+    [
+      "Fakultas Pertanian ada?",
+      "fakultas pertanian ada?"
+    ],
+    [
+      "Fakultas Perikanan ada?",
+      "fakultas perikanan ada?"
+    ],
+    [
+      "Fakultas MIPA ada?",
+      "fakultas mipa ada?"
+    ],
+    [
+      "Fakultas Kedokteran ada?",
+      "fakultas kedokteran ada?"
+    ],
+    [
+      "Fakultas Kesehatan ada?",
+      "fakultas kesehatan ada?"
+    ],
+    [
+      "Fakultas Ilmu Sosial ada?",
+      "fakultas ilmu sosial ada?"
+    ],
+    [
+      "Apa saja prodi S1?",
+      "apa saja program studi s1?"
+    ],
+    [
+      "Ada D3?",
+      "ada d3?"
+    ],
+    [
+      "Ada S2?",
+      "ada s2?"
+    ],
+    [
+      "Ada S3?",
+      "ada s3?"
+    ],
+    [
+      "Jurusan Informatika ada?",
+      "jurusan informatika ada?"
+    ],
+    [
+      "Jurusan Sistem Informasi ada?",
+      "jurusan sistem informasi ada?"
+    ],
+    [
+      "Jurusan Teknik Sipil ada?",
+      "jurusan teknik sipil ada?"
+    ],
+    [
+      "Jurusan Teknik Elektro ada?",
+      "jurusan teknik elektro ada?"
+    ],
+    [
+      "Jurusan Teknik Mesin ada?",
+      "jurusan teknik mesin ada?"
+    ],
+    [
+      "Jurusan Agroteknologi ada?",
+      "jurusan agroteknologi ada?"
+    ],
+    [
+      "Jurusan Akuakultur ada?",
+      "jurusan akuakultur ada?"
+    ],
+    [
+      "Jurusan Manajemen ada?",
+      "jurusan manajemen ada?"
+    ],
+    [
+      "Jurusan Akuntansi ada?",
+      "jurusan akuntansi ada?"
+    ],
+    [
+      "Jurusan Hukum ada?",
+      "jurusan hukum ada?"
+    ],
+    [
+      "Jurusan Sosiologi ada?",
+      "jurusan sosiologi ada?"
+    ],
+    [
+      "Jurusan Kimia ada?",
+      "jurusan kimia ada?"
+    ],
+    [
+      "Jurusan Fisika ada?",
+      "jurusan fisika ada?"
+    ],
+    [
+      "Jurusan Matematika ada?",
+      "jurusan matematika ada?"
+    ],
+    [
+      "Jurusan Biologi ada?",
+      "jurusan biologi ada?"
+    ],
+    [
+      "Jurusan apa yang paling diminati?",
+      "jurusan apa yang paling diminati?"
+    ],
+    [
+      "Jurusan apa yang peluang kerjanya tinggi?",
+      "jurusan apa yang peluang kerjanya tinggi?"
+    ],
+    [
+      "Jurusan apa yang memiliki akreditasi unggul?",
+      "jurusan apa yang memiliki akreditasi unggul?"
+    ],
+    [
+      "Akreditasi universitas apa?",
+      "akreditasi universitas apa?"
+    ],
+    [
+      "Akreditasi jurusan saya apa?",
+      "akreditasi jurusan saya apa?"
+    ],
+    [
+      "Apakah semua jurusan sudah terakreditasi?",
+      "apakah semua jurusan sudah terakreditasi?"
+    ],
+    [
+      "Bagaimana cara melihat akreditasi jurusan?",
+      "bagaimana cara melihat akreditasi jurusan?"
+    ],
+    [
+      "Akreditasi berlaku sampai kapan?",
+      "akreditasi berlaku sampai kapan?"
+    ],
+    [
+      "Apa itu SNBP?",
+      "apa itu snbp?"
+    ],
+    [
+      "Bagaimana syarat SNBP?",
+      "bagaimana syarat snbp?"
+    ],
+    [
+      "Siapa yang bisa ikut SNBP?",
+      "siapa yang bisa ikut snbp?"
+    ],
+    [
+      "Kapan SNBP dibuka?",
+      "kapan snbp dibuka?"
+    ],
+    [
+      "Bagaimana cara daftar SNBP?",
+      "bagaimana cara daftar snbp?"
+    ],
+    [
+      "Apa itu SNBT?",
+      "apa itu snbt?"
+    ],
+    [
+      "Bagaimana syarat SNBT?",
+      "bagaimana syarat snbt?"
+    ],
+    [
+      "Siapa yang bisa ikut SNBT?",
+      "siapa yang bisa ikut snbt?"
+    ],
+    [
+      "Kapan SNBT dibuka?",
+      "kapan snbt dibuka?"
+    ],
+    [
+      "Bagaimana cara daftar SNBT?",
+      "bagaimana cara daftar snbt?"
+    ],
+    [
+      "Berapa biaya SNBT?",
+      "berapa biaya snbt?"
+    ],
+    [
+      "Nilai minimal SNBT berapa?",
+      "nilai minimal snbt berapa?"
+    ],
+    [
+      "Jadwal UTBK kapan?",
+      "jadwal utbk kapan?"
+    ],
+    [
+      "Apakah UBB membuka jalur mandiri?",
+      "apakah universitas bangka belitung membuka jalur mandiri?"
+    ],
+    [
+      "Bagaimana syarat jalur mandiri?",
+      "bagaimana syarat jalur mandiri?"
+    ]
+  ],
+  "expand_false": [
+    [
+      "Min, brp UKT fak teknik yg S1?",
+      "min brp ukt fak teknik yg s1?"
+    ],
+    [
+      "Prodi TI akreditasinya apa ya kak",
+      "prodi ti akreditasinya apa ya kak"
+    ],
+    [
+      "apa itu UBB",
+      "apa itu ubb"
+    ],
+    [
+      "jadwal PMB kapan",
+      "jadwal pmb kapan"
+    ],
+    [
+      "prodi apa saja yang ada",
+      "prodi apa saja yang ada"
+    ],
+    [
+      "berapa UKT nya",
+      "berapa ukt nya"
+    ],
+    [
+      "info buat MABA",
+      "info buat maba"
+    ],
+    [
+      "camaba wajib apa",
+      "camaba wajib apa"
+    ],
+    [
+      "akre prodi TI apa",
+      "akre prodi ti apa"
+    ],
+    [
+      "fak hukum ada?",
+      "fak hukum ada?"
+    ],
+    [
+      "kampus kite dimana",
+      "kampus kite dimana"
+    ],
+    [
+      "kampuskite itu apa",
+      "kampuskite itu apa"
+    ],
+    [
+      "gak tau nih",
+      "gak tau nih"
+    ],
+    [
+      "nggak ngerti",
+      "nggak ngerti"
+    ],
+    [
+      "ga paham",
+      "ga paham"
+    ],
+    [
+      "engga jelas",
+      "engga jelas"
+    ],
+    [
+      "gimana caranya",
+      "gimana caranya"
+    ],
+    [
+      "gmn cara daftar",
+      "gmn cara daftar"
+    ],
+    [
+      "bgmn prosedurnya",
+      "bgmn prosedurnya"
+    ],
+    [
+      "brp biayanya",
+      "brp biayanya"
+    ],
+    [
+      "kpn pendaftaran",
+      "kpn pendaftaran"
+    ],
+    [
+      "dmn lokasinya",
+      "dmn lokasinya"
+    ],
+    [
+      "yg mana yg benar",
+      "yg mana yg benar"
+    ],
+    [
+      "dgn siapa",
+      "dgn siapa"
+    ],
+    [
+      "sy mau tanya",
+      "sy mau tanya"
+    ],
+    [
+      "kak mau tanya",
+      "kak mau tanya"
+    ],
+    [
+      "min tolong",
+      "min tolong"
+    ],
+    [
+      "bang info dong",
+      "bang info dong"
+    ],
+    [
+      "kk gimana",
+      "kk gimana"
+    ],
+    [
+      "Ｕｎｉｃｏｄｅ ｌｅｂａｒ",
+      "unicode lebar"
+    ],
+    [
+      "café naïve",
+      "café naïve"
+    ],
+    [
+      "cek di https://ubb.ac.id ya",
+      "cek di ya"
+    ],
+    [
+      "lihat http://pmb.ubb.ac.id/daftar sekarang",
+      "lihat sekarang"
+    ],
+    [
+      "apa-apa saja?",
+      "apa-apa saja?"
+    ],
+    [
+      "tanya: berapa?!",
+      "tanya berapa?"
+    ],
+    [
+      "e-mail saya",
+      "e-mail saya"
+    ],
+    [
+      "(halo) [dunia]",
+      "halo dunia"
+    ],
+    [
+      "   banyak    spasi   ",
+      "banyak spasi"
+    ],
+    [
+      "",
+      ""
+    ],
+    [
+      "   ",
+      ""
+    ],
+    [
+      "\ttab\tdan\nnewline\t",
+      "tab dan newline"
+    ],
+    [
+      "UKT 2026 berapa",
+      "ukt 2026 berapa"
+    ],
+    [
+      "S1 atau D3?",
+      "s1 atau d3?"
+    ],
+    [
+      "12345",
+      "12345"
+    ],
+    [
+      123,
+      "123"
+    ],
+    [
+      45.6,
+      "45 6"
+    ],
+    [
+      null,
+      "none"
+    ],
+    [
+      "ubbi bukan ubb",
+      "ubbi bukan ubb"
+    ],
+    [
+      "tikus makan",
+      "tikus makan"
+    ],
+    [
+      "gaku bukan gak",
+      "gaku bukan gak"
+    ],
+    [
+      "prodinya apa",
+      "prodinya apa"
+    ],
+    [
+      "minta tolong",
+      "minta tolong"
+    ],
+    [
+      "kakak saya",
+      "kakak saya"
+    ]
+  ]
+}

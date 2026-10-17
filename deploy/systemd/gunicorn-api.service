@@ -1,0 +1,19 @@
+[Unit]
+Description=Chatbot UBB — API publik
+After=network.target postgresql.service
+
+[Service]
+User=deploy
+Group=deploy
+WorkingDirectory=/srv/chatbot_ubb
+EnvironmentFile=/srv/chatbot_ubb/.env
+Environment=DJANGO_SETTINGS_MODULE=config.settings.prod_api
+Environment=MUAT_MODEL=1
+ExecStart=/srv/chatbot_ubb/.venv/bin/gunicorn \
+    --config deploy/gunicorn_api.py config.wsgi_api:application
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

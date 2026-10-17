@@ -1,0 +1,104 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div style="max-width:78rem">
+
+  {% if total %}
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
+              gap:1rem;margin-bottom:1.5rem">
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">Total percakapan</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">{{ total }}</div>
+    </div>
+
+    {# Rasio fallback: satu-satunya angka yang benar-benar perlu diawasi. #}
+    <div style="border:1px solid {% if rasio_gagal > 25 %}#fecaca{% else %}#e2e8f0{% endif %};
+                border-radius:10px;padding:1rem;
+                background:{% if rasio_gagal > 25 %}#fef2f2{% else %}#fff{% endif %}">
+      <div style="color:#64748b;font-size:.8rem">Tidak terjawab</div>
+      <div style="font-size:1.6rem;font-weight:600;
+                  color:{% if rasio_gagal > 25 %}#dc2626{% else %}#0f172a{% endif %}">
+        {{ rasio_gagal|floatformat:1 }}%
+      </div>
+      <div style="color:#94a3b8;font-size:.75rem;margin-top:.2rem">
+        naik tiba-tiba = ada yang salah
+      </div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">Kepuasan 👍</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">
+        {% if rasio_puas is not None %}{{ rasio_puas|floatformat:0 }}%{% else %}—{% endif %}
+      </div>
+      <div style="color:#94a3b8;font-size:.75rem;margin-top:.2rem">
+        {{ n_up }} 👍 · {{ n_down }} 👎
+      </div>
+    </div>
+
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">Latensi p95</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">
+        {% if p95 %}{{ p95 }} ms{% else %}—{% endif %}
+      </div>
+      <div style="color:#94a3b8;font-size:.75rem;margin-top:.2rem">
+        median {{ median|default:"—" }} ms
+      </div>
+    </div>
+  </div>
+
+  <h2 style="font-size:1rem;margin:1.5rem 0 .6rem;color:#0f172a">Sebaran hasil</h2>
+  <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px">
+    <table style="width:100%;border-collapse:collapse;background:#fff">
+      <thead><tr style="background:#f8fafc;text-align:left">
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Tipe</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Jumlah</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Porsi</th>
+      </tr></thead>
+      <tbody>
+        {% for t in per_tipe %}
+        <tr style="border-top:1px solid #f1f5f9">
+          <td style="padding:.6rem 1rem">{{ t.tipe }}</td>
+          <td style="padding:.6rem 1rem"><b>{{ t.n }}</b></td>
+          <td style="padding:.6rem 1rem;color:#64748b">
+            {% widthratio t.n total 100 %}%
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="font-size:1rem;margin:1.5rem 0 .6rem;color:#0f172a">14 hari terakhir</h2>
+  <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px">
+    <table style="width:100%;border-collapse:collapse;background:#fff">
+      <thead><tr style="background:#f8fafc;text-align:left">
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Tanggal</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Percakapan</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Tidak terjawab</th>
+      </tr></thead>
+      <tbody>
+        {% for h in per_hari %}
+        <tr style="border-top:1px solid #f1f5f9">
+          <td style="padding:.6rem 1rem">{{ h.tanggal|date:"d M Y" }}</td>
+          <td style="padding:.6rem 1rem">{{ h.n }}</td>
+          <td style="padding:.6rem 1rem;
+                     color:{% if h.rasio > 25 %}#dc2626{% else %}#64748b{% endif %}">
+            {{ h.gagal }} ({{ h.rasio|floatformat:0 }}%)
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% else %}
+  <div style="border:1px dashed #cbd5e1;border-radius:10px;padding:2.5rem;
+              text-align:center;color:#64748b;background:#f8fafc">
+    <p style="margin:0 0 .4rem;font-weight:600;color:#0f172a">Belum ada data</p>
+    <p style="margin:0;line-height:1.6">
+      Statistik terisi sendiri setelah camaba mulai bertanya lewat widget.
+    </p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

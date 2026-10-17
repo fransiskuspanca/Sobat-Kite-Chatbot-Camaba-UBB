@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{# Menimpa site_logo unfold: membuang mr-4 karena wadah di navigation_header #}
+{# sudah memberi jarak lewat gap-3 — kalau tidak, jaraknya jadi dobel.       #}
+
+<a href="{% url "admin:index" %}" class="shrink-0">
+    {% if site_logo.light and site_logo.dark %}
+        <img src="{{ site_logo.dark }}" alt="{% trans 'Home' %}" class="h-8 hidden dark:block"/>
+        <img src="{{ site_logo.light }}" alt="{% trans 'Home' %}" class="block h-8 dark:hidden" />
+    {% else %}
+        <img src="{{ site_logo }}" class="h-8" alt="{% trans 'Home' %}" />
+    {% endif %}
+</a>

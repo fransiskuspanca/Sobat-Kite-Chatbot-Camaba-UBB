@@ -1,0 +1,11 @@
+{
+  "versi": "1.0-fase0",
+  "model_dasar": "LazarusNLP/all-indo-e5-small-v4",
+  "query_prefix": "",
+  "doc_prefix": "",
+  "tau_high": 0.72,
+  "tau_low": 0.60,
+  "top_k": 3,
+  "_catatan": "Ambang di sini adalah DEFAULT SEMENTARA, bukan hasil kalibrasi. Notebook sel 8 menghitung TAU_HIGH lewat sweep F1 terhadap query di luar domain, lalu TAU_LOW = TAU_HIGH - 0.12. Ganti nilai di sini dengan config.json asli dari artefak Colab sebelum go-live.",
+  "_model": "artifacts/model/ saat ini berisi MODEL DASAR, bukan hasil fine-tuning. Ganti dengan artifacts/model/ dari notebook untuk akurasi produksi."
+}
