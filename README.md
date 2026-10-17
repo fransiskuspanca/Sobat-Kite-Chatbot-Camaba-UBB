@@ -31,8 +31,8 @@ python3.12 -m venv .venv
 cp .env.example .env
 
 .venv/bin/python manage.py migrate
-.venv/bin/python manage.py import_colab "Daftar Pertanyaan NLP Chatbot Camaba 2026 UBB.xlsx"
-.venv/bin/python -m pytest                # 369 tes
+.venv/bin/python manage.py import_colab "FAQ_Sobat_Kite_Fix.xlsx"   # sheet Variasi ikut diimpor
+.venv/bin/python -m pytest                # 564 tes
 ```
 
 Definition of done Fase 0 — pencarian dari shell:
