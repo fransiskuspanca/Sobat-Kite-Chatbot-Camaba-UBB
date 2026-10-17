@@ -20,7 +20,8 @@ from pathlib import Path
 import numpy as np
 
 from .text import normalize
-from .tiers import Kandidat, Keputusan, keputusan_darurat, putuskan
+from .tiers import (Kandidat, Keputusan, Tipe, keputusan_darurat, putuskan,
+                    tampak_lanjutan)
 
 log = logging.getLogger(__name__)
 
@@ -134,41 +135,66 @@ class Engine:
 
     # --- keputusan lengkap ----------------------------------------------
 
+    def _kandidat(self, teks: str, pengambil_metadata,
+                  abaikan: int | None = None) -> list[Kandidat]:
+        """Cari `teks` lalu lengkapi dengan metadata. `abaikan` dibuang dari hasil."""
+        hits = self.cari(teks, top_k=self.top_k + (1 if abaikan else 0))
+        hits = [(fid, s) for fid, s in hits if fid != abaikan][:self.top_k]
+        if not hits:
+            return []
+        meta = pengambil_metadata([fid for fid, _ in hits])
+        # FAQ yang dihapus setelah index dibangun tidak punya metadata.
+        return [Kandidat(faq_id=fid, skor=skor, **meta[fid])
+                for fid, skor in hits if fid in meta]
+
     def jawab(self, query: str, pengambil_metadata,
               pesan_identitas: str = "", template_fallback: str = "",
-              fallback_tanpa_kunci: str = "") -> Keputusan:
+              fallback_tanpa_kunci: str = "", konteks: str = "",
+              faq_sebelumnya: int | None = None) -> Keputusan:
         """Pencarian + empat tier.
 
         `pengambil_metadata` adalah callable(list[faq_id]) -> dict[faq_id, dict].
         `pesan_identitas` dan `template_fallback` berasal dari pengaturan
         admin. Semuanya disuntikkan dari luar supaya modul ini tetap tidak
         mengenal Django.
+
+        `konteks` adalah pertanyaan FAQ yang terakhir dijawab dalam sesi yang
+        sama (`faq_sebelumnya` id-nya). Pertanyaan lanjutan yang tidak utuh
+        ("apa saja?", "kalau biayanya?") tidak bisa dijawab sendirian; bila
+        pencarian biasa gagal, ia dicari ulang bersama konteks itu. FAQ yang
+        sudah dijawab dilewati, karena pertanyaan lanjutan menanyakan hal baru.
         """
         if not self.siap:
             return keputusan_darurat()
 
+        def _putuskan(kandidat):
+            return putuskan(query, kandidat, self.tau_high, self.tau_low,
+                            pesan_identitas, template_fallback,
+                            fallback_tanpa_kunci)
+
         try:
-            hits = self.cari(query)
+            keputusan = _putuskan(self._kandidat(query, pengambil_metadata))
         except Exception:                      # prinsip #6: jangan HTTP 500
             log.exception("Pencarian gagal untuk query %r", query[:80])
             return keputusan_darurat()
 
-        if not hits:
-            return putuskan(query, [], self.tau_high, self.tau_low,
-                            pesan_identitas, template_fallback,
-                            fallback_tanpa_kunci)
+        if not (konteks and keputusan.tipe in (Tipe.FALLBACK, Tipe.KLARIFIKASI)
+                and tampak_lanjutan(query)):
+            return keputusan
 
-        meta = pengambil_metadata([fid for fid, _ in hits])
-        kandidat = []
-        for fid, skor in hits:
-            m = meta.get(fid)
-            if m is None:                      # FAQ dihapus setelah index dibangun
-                continue
-            kandidat.append(Kandidat(faq_id=fid, skor=skor, **m))
+        try:
+            lanjutan = _putuskan(self._kandidat(f"{konteks} {query}",
+                                                pengambil_metadata,
+                                                abaikan=faq_sebelumnya))
+        except Exception:
+            log.exception("Pencarian lanjutan gagal untuk query %r", query[:80])
+            return keputusan
 
-        return putuskan(query, kandidat, self.tau_high, self.tau_low,
-                        pesan_identitas, template_fallback,
-                        fallback_tanpa_kunci)
+        # Konteks hanya dipakai bila hasilnya lebih pasti dari pencarian biasa.
+        lebih_pasti = (lanjutan.tipe in (Tipe.JAWABAN, Tipe.ESKALASI)
+                       or (lanjutan.tipe == Tipe.KLARIFIKASI
+                           and keputusan.tipe == Tipe.FALLBACK))
+        return lanjutan if lebih_pasti else keputusan
 
 
 # --- engine global (satu per proses) -------------------------------------

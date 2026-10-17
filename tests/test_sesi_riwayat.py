@@ -284,3 +284,42 @@ def test_riwayat_mengirim_gelembung_yang_sama(client):
     sesi = buat_sesi(client, "Budi Santoso", "L").json()["data"]
     r = client.get(f"{URL_RIWAYAT}?session_id={sesi['session_id']}")
     assert r.json()["data"]["pembuka"] == sesi["pembuka"]
+
+
+# --- pertanyaan lanjutan dalam satu sesi -----------------------------------
+
+@pytest.fixture
+def kb_prodi(kb):
+    from faq.models import Faq
+    Faq.objects.create(pertanyaan="berapa jumlah program studi",
+                       jawaban="Ada 36 program studi.")
+    Faq.objects.create(pertanyaan="apa saja program studi",
+                       jawaban="Daftar program studi: ...")
+    return kb
+
+
+def test_lanjutan_memakai_pertanyaan_sebelumnya(client, kb_prodi, engine_tiruan):
+    sid = buat_sesi(client).json()["data"]["session_id"]
+    assert tanya(client, "berapa jumlah program studi",
+                 session_id=sid).json()["data"]["tipe"] == "jawaban"
+    d = tanya(client, "apa saja", session_id=sid).json()["data"]
+    assert d["tipe"] == "jawaban"
+    assert d["jawaban"].startswith("Daftar program studi")
+
+
+def test_lanjutan_tanpa_sesi_tidak_tersambung(client, kb_prodi, engine_tiruan):
+    tanya(client, "berapa jumlah program studi")
+    d = tanya(client, "apa saja").json()["data"]
+    assert d["tipe"] != "jawaban"
+
+
+def test_konteks_kedaluwarsa_tidak_dipakai(client, kb_prodi, engine_tiruan):
+    from datetime import timedelta
+
+    from django.utils import timezone
+    sid = buat_sesi(client).json()["data"]["session_id"]
+    tanya(client, "berapa jumlah program studi", session_id=sid)
+    ChatLog.objects.filter(session_id=sid).update(
+        dibuat=timezone.now() - timedelta(hours=2))
+    d = tanya(client, "apa saja", session_id=sid).json()["data"]
+    assert d["tipe"] != "jawaban"
