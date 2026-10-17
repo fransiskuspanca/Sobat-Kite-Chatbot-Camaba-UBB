@@ -156,3 +156,79 @@ def test_json_rusak_ditolak_dengan_jelas(tmp_path):
 
     with pytest.raises(CommandError, match="bukan JSON yang sah"):
         call_command("import_colab", str(p))
+
+
+# --- variasi cara bertanya -------------------------------------------------
+
+def tulis_excel(tmp_path, variasi):
+    from openpyxl import Workbook
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "FAQ"
+    ws.append(["A. Informasi Umum"])
+    ws.append(["No", "Pertanyaan", "Jawaban", "Sumber"])
+    ws.append([1, "Apa itu UBB?", "PTN di Babel.", "Profil UBB"])
+    ws.append([2, "Berapa UKT UBB?", "Sesuai kelompok UKT.", "—"])
+    vs = wb.create_sheet("Variasi")
+    vs.append(["No", "Kategori", "Pertanyaan utama", "Variasi"])
+    for baris in variasi:
+        vs.append(baris)
+    p = tmp_path / "faq.xlsx"
+    wb.save(p)
+    return p
+
+
+def test_impor_excel_dengan_sheet_variasi(tmp_path):
+    from faq.models import FaqVariasi
+
+    p = tulis_excel(tmp_path, [
+        [1, "A", "Apa itu UBB?", "ubb itu apa"],
+        [1, "A", "apa itu  ubb?", "Universitas Bangka Belitung itu kampus apa?"],
+        [1, "A", "Apa itu UBB?", "Apa itu UBB?"],          # sama dgn pertanyaan
+        [2, "A", "Berapa UKT UBB?", "ukt ubb brp"],
+        [None, None, None, None],
+    ])
+    call_command("import_colab", str(p))
+
+    assert Faq.objects.count() == 2
+    ubb = Faq.objects.get(pertanyaan="Apa itu UBB?")
+    assert set(ubb.variasi.values_list("teks", flat=True)) == {
+        "ubb itu apa", "Universitas Bangka Belitung itu kampus apa?"}
+    assert FaqVariasi.objects.count() == 3
+
+
+def test_impor_ulang_variasi_tidak_menggandakan(tmp_path):
+    from faq.models import FaqVariasi
+
+    p = tulis_excel(tmp_path, [[1, "A", "Apa itu UBB?", "ubb itu apa"]])
+    call_command("import_colab", str(p))
+    call_command("import_colab", str(p))
+    assert FaqVariasi.objects.count() == 1
+
+
+def test_variasi_tanpa_faq_dilewati(tmp_path, capsys):
+    from faq.models import FaqVariasi
+
+    p = tulis_excel(tmp_path, [[9, "A", "Pertanyaan yang tidak ada?", "x"]])
+    call_command("import_colab", str(p))
+    assert FaqVariasi.objects.count() == 0
+    assert "variasi tanpa FAQ" in capsys.readouterr().err
+
+
+def test_dry_run_tidak_menulis_variasi(tmp_path):
+    from faq.models import FaqVariasi
+
+    p = tulis_excel(tmp_path, [[1, "A", "Apa itu UBB?", "ubb itu apa"]])
+    call_command("import_colab", str(p), "--dry-run")
+    assert FaqVariasi.objects.count() == 0
+
+
+def test_impor_json_backup_kb_membawa_variasi(tmp_path):
+    """Keluaran backup_kb menyimpan variasi; impor ulang tidak boleh membuangnya."""
+    p = tulis_kb(tmp_path, [
+        {"pertanyaan": "Apa itu UBB?", "jawaban": "PTN di Babel.",
+         "variasi": ["ubb itu apa", "Apa sih UBB?"]},
+    ])
+    call_command("import_colab", str(p))
+    assert Faq.objects.get().variasi.count() == 2

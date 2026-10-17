@@ -6,6 +6,10 @@ Menerima dua bentuk masukan:
 
 Parser Excel dan aturan flag `butuh_verifikasi` disalin dari notebook (sel 2
 dan 3b) supaya isi basis data identik dengan yang dipakai saat melatih model.
+
+Variasi cara bertanya ikut diimpor bila ada: dari sheet "Variasi" di Excel
+(kolom "Pertanyaan utama" + "Variasi"), atau dari kunci "variasi" di JSON
+keluaran backup_kb. Variasi yang sudah ada di basis data tidak dihapus.
 """
 
 import json
@@ -75,6 +79,49 @@ def parse_faq_excel(path, sheet=0):
     return rows, warns
 
 
+SHEET_VARIASI = "Variasi"
+
+
+def _norm(teks) -> str:
+    return " ".join(str(teks or "").lower().split())
+
+
+def parse_variasi_excel(path, sheet=SHEET_VARIASI):
+    """Baca sheet variasi: satu baris = satu variasi untuk satu pertanyaan.
+
+    Kolom dicari lewat judul di baris pertama ("Pertanyaan utama" dan
+    "Variasi"), jadi urutan dan kolom tambahan seperti No/Kategori bebas.
+    Mengembalikan (list_of_(pertanyaan, variasi), list_of_warnings); list
+    kosong bila sheet tidak ada.
+    """
+    from openpyxl import load_workbook
+
+    wb = load_workbook(path, read_only=True, data_only=True)
+    if sheet not in wb.sheetnames:
+        return [], []
+    ws = wb[sheet]
+
+    baris = ws.iter_rows(values_only=True)
+    judul = [_norm(c) for c in next(baris, ())]
+    if "pertanyaan utama" not in judul or "variasi" not in judul:
+        return [], [f"Sheet {sheet!r} dilewati: butuh kolom 'Pertanyaan utama' "
+                    "dan 'Variasi' di baris pertama"]
+    i_tanya, i_var = judul.index("pertanyaan utama"), judul.index("variasi")
+
+    hasil, warns = [], []
+    for i, raw in enumerate(baris, start=2):
+        raw = list(raw) + [None] * (max(i_tanya, i_var) + 1 - len(raw))
+        tanya = " ".join(str(raw[i_tanya] or "").split())
+        var = " ".join(str(raw[i_var] or "").split())
+        if not tanya and not var:
+            continue
+        if not tanya or not var:
+            warns.append(f"Variasi baris {i}: kolom kosong -> {(tanya or var)[:70]!r}")
+            continue
+        hasil.append((tanya, var))
+    return hasil, warns
+
+
 def flag_butuh_verifikasi(jawaban: str) -> bool:
     """Aturan notebook sel 3b — jawaban placeholder tidak boleh tampil."""
     return bool(re.search(PLACEHOLDER_PAT, (jawaban or "").lower()))
@@ -117,6 +164,8 @@ class Command(BaseCommand):
             except (TypeError, ValueError):
                 pass
             baris, warns = parse_faq_excel(path, sheet)
+            variasi, warns_var = parse_variasi_excel(path)
+            warns += warns_var
             for w in warns[:10]:
                 self.stderr.write(self.style.WARNING(f"  ⚠️  {w}"))
             if len(warns) > 10:
@@ -139,6 +188,9 @@ class Command(BaseCommand):
             if not isinstance(baris, list):
                 raise CommandError(
                     f"{path} berisi {type(baris).__name__}, seharusnya daftar FAQ.")
+            variasi = [(r.get("pertanyaan", ""), v)
+                       for r in baris if isinstance(r, dict)
+                       for v in (r.get("variasi") or [])]
         else:
             raise CommandError(f"Format tidak dikenali: {path.suffix}")
 
@@ -172,6 +224,7 @@ class Command(BaseCommand):
         self.stdout.write(f"Kembar dilewati    : {len(kembar)}")
         self.stdout.write(f"Butuh verifikasi   : {n_flag} "
                           f"({n_flag / len(terlihat):.1%})")
+        self.stdout.write(f"Variasi di berkas  : {len(variasi)}")
         for k in kembar[:5]:
             self.stdout.write(self.style.WARNING(f"  ⚠️  kembar: {k[:70]}"))
 
@@ -201,10 +254,39 @@ class Command(BaseCommand):
                 dibuat += baru
                 diperbarui += not baru
 
+            var_baru, var_yatim = self._impor_variasi(variasi)
+
         self.stdout.write(self.style.SUCCESS(
             f"\n✅ {dibuat} dibuat, {diperbarui} diperbarui. "
             f"Total FAQ: {Faq.objects.count()}, "
-            f"variasi: {FaqVariasi.objects.count()}"))
+            f"variasi: {FaqVariasi.objects.count()} ({var_baru} baru)"))
+        for t in var_yatim[:5]:
+            self.stderr.write(self.style.WARNING(
+                f"  ⚠️  variasi tanpa FAQ: {t[:70]}"))
+        if len(var_yatim) > 5:
+            self.stderr.write(self.style.WARNING(
+                f"  ... dan {len(var_yatim) - 5} pertanyaan utama lain tidak ditemukan"))
         self.stdout.write(
             "Catatan: entri butuh_verifikasi TETAP masuk index; jawabannya "
             "diganti pesan eskalasi saat runtime (prinsip #4).")
+
+    def _impor_variasi(self, variasi):
+        """Tambahkan variasi ke FAQ yang pertanyaannya cocok (abaikan besar
+        kecil huruf & spasi). Mengembalikan (jumlah_baru, pertanyaan_yatim)."""
+        faq_per_teks = {_norm(f.pertanyaan): f for f in Faq.objects.all()}
+        baru, yatim = 0, []
+        for tanya, teks in variasi:
+            faq = faq_per_teks.get(_norm(tanya))
+            teks = " ".join(str(teks or "").split())
+            if faq is None:
+                if tanya not in yatim:
+                    yatim.append(tanya)
+                continue
+            # Variasi yang sama dengan pertanyaannya sendiri hanya
+            # menggandakan vektor yang sudah ada.
+            if not teks or _norm(teks) == _norm(faq.pertanyaan):
+                continue
+            _, dibuat = FaqVariasi.objects.get_or_create(
+                faq=faq, teks=teks, defaults={"asal": "admin"})
+            baru += dibuat
+        return baru, yatim
