@@ -5,9 +5,9 @@ melihat -> konten ditambahkan -> camaba berikutnya terjawab. Inilah alasan
 utama sistem membaik seiring waktu (Bagian 7.3).
 """
 
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.db.models import Avg, Count, Max, Q
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import path, reverse
 from django.utils.html import format_html
 from django.utils.timesince import timesince
@@ -18,6 +18,29 @@ from percakapan.models import ChatLog, Feedback, Sesi
 
 # Tipe yang menandakan sistem TIDAK berhasil menjawab.
 TIPE_GAGAL = ("fallback", "klarifikasi")
+
+# Jawaban yang diberi 👎 juga gagal — chatbot yakin, tapi tidak nyambung.
+FILTER_GAGAL = Q(tipe__in=TIPE_GAGAL) | Q(feedback__rating="down")
+
+SARAN_MAKS = 3
+
+
+def _saran_faq(query: str) -> list[dict]:
+    """FAQ terdekat untuk `query`, supaya panitia cukup memilih, bukan mencari.
+
+    Engine mati tidak boleh membuat antrean gagal dibuka — saran kosong saja.
+    """
+    from faq.models import Faq
+    from faq.services import engine_siap
+
+    try:
+        engine = engine_siap()
+        hits = engine.cari(query, top_k=SARAN_MAKS) if engine else []
+    except Exception:
+        return []
+    peta = Faq.objects.in_bulk([fid for fid, _ in hits])
+    return [{"id": fid, "pertanyaan": peta[fid].pertanyaan, "skor": s}
+            for fid, s in hits if fid in peta]
 
 
 @admin.register(ChatLog)
@@ -85,6 +108,9 @@ class ChatLogAdmin(ModelAdmin):
         return [
             path("antrean/", self.admin_site.admin_view(self.antrean_konten),
                  name="antrean_konten"),
+            path("antrean/tautkan/",
+                 self.admin_site.admin_view(self.tautkan_ke_faq),
+                 name="antrean_tautkan"),
             path("statistik/", self.admin_site.admin_view(self.statistik),
                  name="statistik_percakapan"),
         ] + super().get_urls()
@@ -145,24 +171,35 @@ class ChatLogAdmin(ModelAdmin):
         """Pertanyaan camaba yang gagal dijawab, dikelompokkan & diurutkan.
 
         Frekuensi tinggi = kekosongan konten yang paling merugikan. Itu yang
-        harus dikerjakan panitia lebih dulu.
+        harus dikerjakan panitia lebih dulu. Pertanyaan yang sudah ditautkan
+        sebagai variasi tidak tampil lagi.
         """
+        from faq.models import FaqVariasi
+
+        sudah = {" ".join(t.lower().split())
+                 for t in FaqVariasi.objects.values_list("teks", flat=True)}
         baris = (ChatLog.objects
-                 .filter(tipe__in=TIPE_GAGAL)
+                 .filter(FILTER_GAGAL)
                  .values("query")
-                 .annotate(frekuensi=Count("log_id"),
+                 .annotate(frekuensi=Count("log_id", distinct=True),
+                           jempol_bawah=Count("log_id", distinct=True,
+                                              filter=Q(feedback__rating="down")),
                            skor_rata=Avg("skor"),
                            terakhir=Max("dibuat"))
-                 .order_by("-frekuensi", "-terakhir")[:100])
+                 .order_by("-frekuensi", "-terakhir")[:200])
+        baris = [b for b in baris
+                 if " ".join(b["query"].lower().split()) not in sudah][:100]
 
         tambah_url = reverse("admin:faq_faq_add")
         antrean = [{
             "query": b["query"],
             "frekuensi": b["frekuensi"],
+            "jempol_bawah": b["jempol_bawah"],
             "skor_rata": b["skor_rata"] or 0.0,
             "terakhir": timesince(b["terakhir"]) + " lalu" if b["terakhir"] else "—",
             # Tombol membuka form tambah dengan pertanyaan SUDAH TERISI.
             "url_buat": f"{tambah_url}?pertanyaan={b['query']}",
+            "saran": _saran_faq(b["query"]),
         } for b in baris]
 
         konteks = {
@@ -170,8 +207,39 @@ class ChatLogAdmin(ModelAdmin):
             "title": "Antrean konten — pertanyaan yang belum terjawab",
             "antrean": antrean,
             "total": len(antrean),
+            "url_tautkan": reverse("admin:antrean_tautkan"),
         }
         return render(request, "admin/percakapan/antrean_konten.html", konteks)
+
+    def tautkan_ke_faq(self, request):
+        """Jadikan pertanyaan camaba sebagai variasi FAQ yang dipilih panitia.
+
+        Index baru terpasang pada reindex berikutnya (cron malam), lewat
+        regression gate seperti biasa.
+        """
+        from faq.models import Faq, FaqVariasi
+
+        tujuan = reverse("admin:antrean_konten")
+        if request.method != "POST":
+            return redirect(tujuan)
+        if not request.user.has_perm("faq.add_faqvariasi"):
+            messages.error(request, "Anda tidak berhak menambah variasi.")
+            return redirect(tujuan)
+
+        query = " ".join(request.POST.get("query", "").split())[:500]
+        faq = Faq.objects.filter(pk=request.POST.get("faq_id") or 0).first()
+        if not query or faq is None:
+            messages.error(request, "Pertanyaan atau FAQ tujuan tidak valid.")
+            return redirect(tujuan)
+
+        _, baru = FaqVariasi.objects.get_or_create(
+            faq=faq, teks=query, defaults={"asal": "log"})
+        messages.success(
+            request,
+            f"“{query}” ditautkan ke “{faq.pertanyaan}”. "
+            "Berlaku setelah reindex berikutnya." if baru else
+            f"“{query}” sudah menjadi variasi “{faq.pertanyaan}”.")
+        return redirect(tujuan)
 
 
 @admin.register(Feedback)
