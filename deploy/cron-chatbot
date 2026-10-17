@@ -16,3 +16,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # Reindex malam hari — imbau agar tidak dijalankan saat jam sibuk
 30 2 * * *  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py reindex >> /var/log/chatbot-cron.log 2>&1
+
+# Simulasi mingguan (Senin 03:00): variasi rawan direbut + pertanyaan gagal/👎
+# 7 hari terakhir. Laporan ditimpa tiap minggu; buka lewat SFTP/scp.
+0 3 * * 1  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py simulasi --log-hari 7 --keluar /srv/chatbot_ubb/laporan_simulasi.xlsx >> /var/log/chatbot-cron.log 2>&1

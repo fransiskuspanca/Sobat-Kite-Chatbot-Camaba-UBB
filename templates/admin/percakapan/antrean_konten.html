@@ -7,7 +7,11 @@
     Pertanyaan yang <b>gagal dijawab</b> chatbot, diurutkan dari yang paling
     sering ditanyakan. Setiap baris di sini adalah kekosongan konten yang
     nyata — camaba sudah mencarinya dan tidak menemukan jawaban.
-    Tombol <b>Buat FAQ</b> membuka form baru dengan pertanyaannya sudah terisi.
+    Jawaban yang diberi 👎 oleh camaba juga masuk ke sini.
+    Kalau salah satu <b>saran FAQ</b> sudah tepat, klik <b>Tautkan</b>: pertanyaan
+    itu menjadi variasi FAQ tersebut dan berlaku setelah reindex berikutnya.
+    Kalau belum ada FAQ yang cocok, <b>Buat FAQ</b> membuka form baru dengan
+    pertanyaannya sudah terisi.
   </p>
 
   {% if antrean %}
@@ -16,6 +20,7 @@
       <thead>
         <tr style="background:#f8fafc;text-align:left">
           <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569">Pertanyaan camaba</th>
+          <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569">Saran FAQ</th>
           <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:7rem">Frekuensi</th>
           <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:8rem">Skor rata-rata</th>
           <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:9rem">Terakhir</th>
@@ -26,7 +31,27 @@
         {% for b in antrean %}
         <tr style="border-top:1px solid #f1f5f9">
           <td style="padding:.7rem 1rem;color:#0f172a">{{ b.query }}</td>
-          <td style="padding:.7rem 1rem"><b>{{ b.frekuensi }}</b></td>
+          <td style="padding:.7rem 1rem;font-size:.85rem">
+            {% for s in b.saran %}
+            <form method="post" action="{{ url_tautkan }}"
+                  style="display:flex;gap:.5rem;align-items:center;margin:0 0 .35rem">
+              {% csrf_token %}
+              <input type="hidden" name="query" value="{{ b.query }}">
+              <input type="hidden" name="faq_id" value="{{ s.id }}">
+              <button type="submit"
+                      style="padding:.25rem .6rem;border:1px solid #3b7dd8;background:#fff;
+                             color:#3b7dd8;border-radius:6px;cursor:pointer;
+                             font-size:.8rem;white-space:nowrap">Tautkan</button>
+              <span style="color:#0f172a">{{ s.pertanyaan }}</span>
+              <span style="color:#94a3b8">{{ s.skor|floatformat:2 }}</span>
+            </form>
+            {% empty %}
+            <span style="color:#94a3b8">—</span>
+            {% endfor %}
+          </td>
+          <td style="padding:.7rem 1rem"><b>{{ b.frekuensi }}</b>
+            {% if b.jempol_bawah %}<span title="diberi 👎" style="color:#dc2626"> · 👎 {{ b.jempol_bawah }}</span>{% endif %}
+          </td>
           <td style="padding:.7rem 1rem;color:#64748b">{{ b.skor_rata|floatformat:2 }}</td>
           <td style="padding:.7rem 1rem;color:#64748b;font-size:.9rem">{{ b.terakhir }}</td>
           <td style="padding:.7rem 1rem">

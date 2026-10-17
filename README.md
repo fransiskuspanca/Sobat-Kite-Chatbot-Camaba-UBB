@@ -32,7 +32,7 @@ cp .env.example .env
 
 .venv/bin/python manage.py migrate
 .venv/bin/python manage.py import_colab "FAQ_Sobat_Kite_Fix.xlsx"   # sheet Variasi ikut diimpor
-.venv/bin/python -m pytest                # 579 tes
+.venv/bin/python -m pytest                # 592 tes
 ```
 
 Definition of done Fase 0 — pencarian dari shell:
@@ -42,6 +42,17 @@ MUAT_MODEL=1 .venv/bin/python manage.py shell -c "
 from retrieval.engine import get_engine
 print(get_engine().cari('apa itu ubb'))"
 ```
+
+Simulasi pertanyaan (tidak mengubah index aktif):
+
+```bash
+.venv/bin/python manage.py simulasi                                # variasi rawan direbut + hard eval
+.venv/bin/python manage.py simulasi --berkas uji.xlsx --log-hari 7 --keluar laporan.xlsx
+```
+
+Pertanyaan yang gagal dijawab atau diberi 👎 tampil di admin *Antrean konten*
+beserta 3 saran FAQ; tombol **Tautkan** menjadikannya variasi FAQ tersebut,
+berlaku setelah reindex malam (lewat regression gate).
 
 ## Struktur
 
