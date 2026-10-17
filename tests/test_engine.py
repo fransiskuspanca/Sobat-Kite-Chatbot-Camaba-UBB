@@ -203,3 +203,51 @@ def test_muat_engine_global_tanpa_model_mengembalikan_none(tmp_path):
     artefak = tmp_path / "artifacts"
     artefak.mkdir()
     assert muat_engine_global(artefak) is None
+
+
+# --- pertanyaan lanjutan --------------------------------------------------
+
+KB_PRODI = [(1, "berapa jumlah program studi"),
+            (2, "apa saja program studi"),
+            (3, "kapan pendaftaran dibuka")]
+
+
+def _meta(ids):
+    teks = dict(KB_PRODI)
+    return {i: {"pertanyaan": teks[i], "jawaban": f"jawaban {i}"} for i in ids}
+
+
+def test_lanjutan_tanpa_konteks_tidak_terjawab():
+    k = bangun(KB_PRODI).jawab("apa saja", _meta)
+    assert k.tipe != Tipe.JAWABAN
+
+
+def test_lanjutan_disambung_ke_konteks_sesi():
+    """"apa saja?" setelah "berapa jumlah program studi" = daftar program studi."""
+    k = bangun(KB_PRODI).jawab("apa saja", _meta,
+                               konteks="berapa jumlah program studi",
+                               faq_sebelumnya=1)
+    assert k.tipe == Tipe.JAWABAN
+    assert k.faq_id == 2
+
+
+def test_lanjutan_tidak_mengulang_jawaban_sebelumnya():
+    k = bangun(KB_PRODI).jawab("program studi", _meta,
+                               konteks="berapa jumlah program studi",
+                               faq_sebelumnya=1)
+    assert k.faq_id != 1
+
+
+def test_jawaban_yakin_tidak_diubah_konteks():
+    k = bangun(KB_PRODI).jawab("kapan pendaftaran dibuka", _meta,
+                               konteks="berapa jumlah program studi",
+                               faq_sebelumnya=1)
+    assert k.tipe == Tipe.JAWABAN
+    assert k.faq_id == 3
+
+
+def test_query_panjang_tidak_disambung_konteks():
+    q = "resep rendang padang yang enak sekali untuk makan malam"
+    k = bangun(KB_PRODI).jawab(q, _meta, konteks="apa saja program studi",
+                               faq_sebelumnya=1)
+    assert k.tipe == Tipe.FALLBACK
