@@ -1,0 +1,16 @@
+# Patokan lingkungan pengembangan macOS 13 Intel (x86_64).
+# JANGAN dipakai di VPS — lihat catatan di pyproject.toml.
+Django==5.1.14
+django-ninja==1.4.3
+django-unfold==0.59.0
+django-cors-headers==4.9.0
+psycopg2-binary==2.9.11
+python-dotenv==1.2.1
+openpyxl==3.1.5
+numpy==1.26.4
+torch==2.2.2
+transformers==4.45.2
+sentence-transformers==3.2.1
+huggingface_hub==0.26.5
+pytest==9.0.1
+pytest-django==4.12.0

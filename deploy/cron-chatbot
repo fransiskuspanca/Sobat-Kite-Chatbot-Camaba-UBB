@@ -1,0 +1,18 @@
+# Salin ke /etc/cron.d/chatbot-ubb (Bagian 11.2)
+#
+# Semua tugas berjalan sebagai pengguna `deploy`, bukan root.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Backup harian + salin keluar VPS
+0 2 * * *  deploy  /srv/chatbot_ubb/deploy/backup.sh >> /var/log/chatbot-backup.log 2>&1
+
+# Bersihkan log percakapan > 12 bulan (bulanan, tanggal 1)
+0 3 1 * *  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py bersihkan_log >> /var/log/chatbot-cron.log 2>&1
+
+# Pengingat FAQ kedaluwarsa (mingguan, Senin 07:00)
+0 7 * * 1  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py ingatkan_kedaluwarsa --email panitia-pmb@ubb.ac.id >> /var/log/chatbot-cron.log 2>&1
+
+# Reindex malam hari — imbau agar tidak dijalankan saat jam sibuk
+30 2 * * *  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py reindex >> /var/log/chatbot-cron.log 2>&1

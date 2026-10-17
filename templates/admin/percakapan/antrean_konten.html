@@ -1,0 +1,58 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div style="max-width:78rem">
+
+  <p style="color:#475569;margin:0 0 1.25rem;line-height:1.6">
+    Pertanyaan yang <b>gagal dijawab</b> chatbot, diurutkan dari yang paling
+    sering ditanyakan. Setiap baris di sini adalah kekosongan konten yang
+    nyata — camaba sudah mencarinya dan tidak menemukan jawaban.
+    Tombol <b>Buat FAQ</b> membuka form baru dengan pertanyaannya sudah terisi.
+  </p>
+
+  {% if antrean %}
+  <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px">
+    <table style="width:100%;border-collapse:collapse;background:#fff">
+      <thead>
+        <tr style="background:#f8fafc;text-align:left">
+          <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569">Pertanyaan camaba</th>
+          <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:7rem">Frekuensi</th>
+          <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:8rem">Skor rata-rata</th>
+          <th style="padding:.7rem 1rem;font-size:.8rem;color:#475569;width:9rem">Terakhir</th>
+          <th style="padding:.7rem 1rem;width:8rem"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for b in antrean %}
+        <tr style="border-top:1px solid #f1f5f9">
+          <td style="padding:.7rem 1rem;color:#0f172a">{{ b.query }}</td>
+          <td style="padding:.7rem 1rem"><b>{{ b.frekuensi }}</b></td>
+          <td style="padding:.7rem 1rem;color:#64748b">{{ b.skor_rata|floatformat:2 }}</td>
+          <td style="padding:.7rem 1rem;color:#64748b;font-size:.9rem">{{ b.terakhir }}</td>
+          <td style="padding:.7rem 1rem">
+            <a href="{{ b.url_buat }}"
+               style="display:inline-block;padding:.4rem .8rem;background:#3b7dd8;
+                      color:#fff;border-radius:6px;text-decoration:none;
+                      font-size:.85rem;white-space:nowrap">+ Buat FAQ</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:1rem;color:#64748b;font-size:.9rem">
+    Menampilkan {{ total }} pertanyaan teratas.
+  </p>
+  {% else %}
+  <div style="border:1px dashed #cbd5e1;border-radius:10px;padding:2.5rem;
+              text-align:center;color:#64748b;background:#f8fafc">
+    <p style="margin:0 0 .4rem;font-weight:600;color:#0f172a">Antrean kosong</p>
+    <p style="margin:0;line-height:1.6">
+      Belum ada pertanyaan camaba yang gagal dijawab.<br>
+      Halaman ini akan terisi sendiri setelah API berjalan (Fase 2) dan camaba
+      mulai bertanya.
+    </p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block content %}
+<div style="margin-bottom:1.25rem">
+
+  {# --- status regression gate (Bagian 9.4) --- #}
+  {% if gate_aktif %}
+    <div style="border-left:4px solid #16a34a;background:#f0fdf4;padding:.8rem 1rem;
+                border-radius:6px;margin-bottom:1rem;color:#14532d">
+      <b>Regression gate aktif.</b> Index kandidat harus mencapai
+      Acc@1 &ge; {{ ambang_acc }} sebelum dipasang. Bila gagal, versi lama
+      tetap melayani camaba.
+    </div>
+  {% else %}
+    <div style="border-left:4px solid #f59e0b;background:#fffbeb;padding:.8rem 1rem;
+                border-radius:6px;margin-bottom:1rem;color:#78350f">
+      <b>Regression gate TIDAK aktif.</b> Berkas
+      <code>artifacts/hard_eval.json</code> tidak ditemukan, jadi index baru
+      dipasang tanpa diuji. Jangan mengira sistem terlindungi.
+    </div>
+  {% endif %}
+
+  {# --- panel reindex --- #}
+  <div id="panel-reindex"
+       style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem 1.25rem;
+              background:#fff;display:flex;align-items:center;gap:1rem;
+              flex-wrap:wrap">
+    <div style="flex:1;min-width:16rem">
+      <div style="font-weight:600;color:#0f172a">Bangun ulang index</div>
+      <div id="teks-status" style="color:#64748b;font-size:.9rem;margin-top:.2rem">
+        {% if status_reindex.berjalan %}
+          Sedang berjalan — {{ status_reindex.tahap }}…
+        {% elif status_reindex.berhasil %}
+          {{ status_reindex.pesan }}
+        {% endif %}
+      </div>
+    </div>
+
+    <form method="post" action="{% url 'admin:faq_indexversion_reindex' %}"
+          style="display:flex;gap:.5rem;align-items:center">
+      {% csrf_token %}
+      <button type="submit" id="tombol-reindex"
+              {% if status_reindex.berjalan %}disabled{% endif %}
+              style="padding:.5rem 1rem;background:#3b7dd8;color:#fff;border:0;
+                     border-radius:6px;font-size:.9rem;cursor:pointer">
+        ⟳ Bangun Ulang Index
+      </button>
+
+      {# Memasang index walau di bawah ambang. Dipisah dari tombol utama dan
+         diberi konfirmasi supaya pengaman tidak terlewati satu klik. #}
+      <button type="submit" name="paksa" value="1" id="tombol-paksa"
+              {% if status_reindex.berjalan %}disabled{% endif %}
+              onclick="return confirm('Pasang index walau kualitasnya belum memenuhi ambang?\n\nChatbot bisa lebih sering salah menjawab camaba. Gunakan hanya untuk pengujian.')"
+              style="padding:.5rem .9rem;background:#fff;color:#b45309;
+                     border:1px solid #fbbf24;border-radius:6px;
+                     font-size:.85rem;cursor:pointer;white-space:nowrap">
+        Pasang paksa
+      </button>
+    </form>
+  </div>
+
+</div>
+
+{{ block.super }}
+
+<script>
+(function () {
+  var berjalan = {{ status_reindex.berjalan|yesno:"true,false" }};
+  if (!berjalan) return;
+
+  var urlStatus = "{% url 'admin:faq_indexversion_status' %}";
+  var teks = document.getElementById("teks-status");
+
+  function tampilkanHasil(s) {
+    teks.textContent = "";
+    var kotak = document.createElement("div");
+    kotak.style.cssText =
+      "margin-top:1rem;padding:.8rem 1.1rem;border-radius:8px;" +
+      "background:#fffbeb;border:1px solid #fde68a;color:#78350f;" +
+      "font-size:.9rem;line-height:1.6";
+    kotak.innerHTML =
+      "<b>Index belum dipasang.</b> Kualitasnya belum memenuhi ambang, " +
+      "jadi versi yang sekarang tetap melayani camaba.<br>" +
+      "<span style='color:#92400e'>Variasi yang Anda tambahkan sudah " +
+      "tersimpan dan ikut terhitung — angkanya membaik, tapi belum cukup.</span>";
+    var panel = document.getElementById("panel-reindex");
+    if (panel && panel.parentNode) {
+      panel.parentNode.insertBefore(kotak, panel.nextSibling);
+    }
+  }
+
+  // Reindex 20-40 detik; polling 2 detik cukup responsif tanpa membebani.
+  var timer = setInterval(function () {
+    fetch(urlStatus, {credentials: "same-origin"})
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.berjalan) {
+          teks.textContent = "Sedang berjalan — " + (s.tahap || "…");
+        } else {
+          clearInterval(timer);
+          if (s.berhasil) {
+            // Berhasil: muat ulang agar versi baru muncul di tabel.
+            location.reload();
+          } else {
+            // Ditolak gate: JANGAN muat ulang — hasilnya akan terhapus dan
+            // tombol terlihat seolah tidak berfungsi. Tampilkan sebagai
+            // pemberitahuan sementara, bukan teks permanen di panel.
+            tampilkanHasil(s);
+          }
+        }
+      })
+      .catch(function () { clearInterval(timer); });
+  }, 2000);
+})();
+</script>
+{% endblock %}

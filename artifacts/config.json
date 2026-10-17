@@ -1,0 +1,46 @@
+{
+  "versi": "1.0",
+  "dibuat": "2026-08-31T00:08:27",
+  "model_dasar": "LazarusNLP/all-indo-e5-small-v4",
+  "query_prefix": "",
+  "doc_prefix": "",
+  "tau_high": 0.72,
+  "tau_low": 0.6,
+  "top_k": 3,
+  "jumlah_faq": 260,
+  "butuh_verifikasi": 70,
+  "metrik": {
+    "TF-IDF (word+char)": {
+      "Acc@1 [augment]": 0.9916,
+      "Acc@3 [augment]": 1.0,
+      "MRR@5 [augment]": 0.9958,
+      "Acc@1 [hard]": 0.0556,
+      "Acc@3 [hard]": 0.0833,
+      "MRR@5 [hard]": 0.0694
+    },
+    "Bi-encoder (zero-shot)": {
+      "Acc@1 [augment]": 0.979,
+      "Acc@3 [augment]": 1.0,
+      "MRR@5 [augment]": 0.9895,
+      "Acc@1 [hard]": 0.1389,
+      "Acc@3 [hard]": 0.3333,
+      "MRR@5 [hard]": 0.2574
+    },
+    "Bi-encoder (fine-tuned)": {
+      "Acc@1 [augment]": 0.9916,
+      "Acc@3 [augment]": 1.0,
+      "MRR@5 [augment]": 0.9958,
+      "Acc@1 [hard]": 0.0833,
+      "Acc@3 [hard]": 0.2778,
+      "MRR@5 [hard]": 0.2037
+    }
+  },
+  "kalibrasi_artefak_asli": {
+    "tau_high": 0.3,
+    "tau_low": 0.18,
+    "top_k": 5,
+    "_alasan_tidak_dipakai": "Sweep sel 32 memilih 0.30 — nilai TERENDAH di grid np.arange(0.30, 0.96). Optimum di tepi grid menandakan skor in-domain dan OOD tidak terpisah, bukan bahwa 0.30 optimal. F1 pada sel itu hanya mengukur diterima-vs-ditolak dan TIDAK mengecek kebenaran jawaban, sehingga F1=0.973 tercapai sambil menjawab salah. Diukur ulang pada hard set: tau=0.30 menjawab 36/36 query dengan hanya 13.9% benar dan meloloskan 15/25 query di luar domain. Untuk chatbot PMB resmi, salah-jawab-dengan-yakin lebih berbahaya daripada eskalasi ke petugas (prinsip #4)."
+  },
+  "_catatan_ambang": "tau_high/tau_low SENGAJA dikembalikan ke 0.72/0.60 (nilai Fase 0), BUKAN nilai hasil sweep artefak Colab v1.0. Lihat kalibrasi_artefak_asli untuk nilai asli beserta alasannya. Jangan menimpa berkas ini dengan config.json artefak mentah. Kalibrasi ulang baru sah setelah ada parafrase camaba ASLI di hard_eval.json — ambang yang disetel terhadap data augmentasi sintetis tidak mencerminkan runtime.",
+  "_catatan_model": "Metrik di bawah berasal dari notebook. Pada hard set, fine-tuning JUSTRU TURUN (0.1389 zero-shot -> 0.0833 fine-tuned) karena data latih augment() hanya transformasi permukaan (Jaccard 0.44 thd kanonik) sedangkan bahasa camaba asli hampir tidak berbagi kata (Jaccard 0.05; 69% tanpa kata sama). Pakai model dasar sampai tersedia parafrase asli."
+}

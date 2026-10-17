@@ -1,0 +1,146 @@
+[
+  {
+    "query": "ubb tuh kampus apa sih",
+    "answer_id": 0
+  },
+  {
+    "query": "ceritain dong tentang kampus ini",
+    "answer_id": 0
+  },
+  {
+    "query": "sejak tahun berapa kampus ini ada",
+    "answer_id": 1
+  },
+  {
+    "query": "ubb punya pemerintah atau yayasan",
+    "answer_id": 2
+  },
+  {
+    "query": "alamat lengkapnya di mana ya",
+    "answer_id": 4
+  },
+  {
+    "query": "kampusnya di daerah mana",
+    "answer_id": 4
+  },
+  {
+    "query": "yang mimpin kampus sekarang siapa",
+    "answer_id": 16
+  },
+  {
+    "query": "lulusan sini gampang keterima kerja gak ijazahnya",
+    "answer_id": 13
+  },
+  {
+    "query": "tempat pinjam buku ada gak",
+    "answer_id": 24
+  },
+  {
+    "query": "bawa motor ditaruh di mana",
+    "answer_id": 26
+  },
+  {
+    "query": "jalur lewat nilai rapor tanpa tes itu apa namanya",
+    "answer_id": 65
+  },
+  {
+    "query": "jalur yang pakai utbk maksudnya gimana",
+    "answer_id": 70
+  },
+  {
+    "query": "kalau gagal utbk masih bisa masuk lewat seleksi kampus sendiri",
+    "answer_id": 78
+  },
+  {
+    "query": "bantuan dana kuliah yang bisa diambil apa aja",
+    "answer_id": 128
+  },
+  {
+    "query": "keringanan biaya buat yang kurang mampu ada?",
+    "answer_id": 128
+  },
+  {
+    "query": "ada tempat tinggal buat anak rantau gak",
+    "answer_id": 138
+  },
+  {
+    "query": "sewa kamar di dalam kampus harganya berapa",
+    "answer_id": 140
+  },
+  {
+    "query": "makan siang bisa di mana kalau di kampus",
+    "answer_id": 150
+  },
+  {
+    "query": "lapangan buat main futsal atau basket ada",
+    "answer_id": 153
+  },
+  {
+    "query": "ukm sama bem apa aja yang bisa diikuti",
+    "answer_id": 157
+  },
+  {
+    "query": "bisa kerja praktek di perusahaan gak",
+    "answer_id": 178
+  },
+  {
+    "query": "durasi kerja praktek berapa bulan",
+    "answer_id": 180
+  },
+  {
+    "query": "biar bisa ikut prosesi kelulusan harus memenuhi apa",
+    "answer_id": 187
+  },
+  {
+    "query": "lulusan sini gampang dapat pekerjaan gak",
+    "answer_id": 191
+  },
+  {
+    "query": "orang luar negeri boleh kuliah di sini",
+    "answer_id": 209
+  },
+  {
+    "query": "bisa kuliah sementara di kampus lain gak",
+    "answer_id": 210
+  },
+  {
+    "query": "teman saya pakai kursi roda, kampusnya bisa diakses",
+    "answer_id": 223
+  },
+  {
+    "query": "ada antar jemput ke kampus",
+    "answer_id": 201
+  },
+  {
+    "query": "boleh gabung riset dosen gak",
+    "answer_id": 213
+  },
+  {
+    "query": "bisa lanjut doktor di sini",
+    "answer_id": 41
+  },
+  {
+    "query": "program diploma tersedia gak",
+    "answer_id": 39
+  },
+  {
+    "query": "kalau mau belajar konstruksi bangunan masuk prodi apa",
+    "answer_id": 44
+  },
+  {
+    "query": "budidaya ikan ada jurusannya",
+    "answer_id": 48
+  },
+  {
+    "query": "minat di bidang pertanian masuk prodi mana",
+    "answer_id": 47
+  },
+  {
+    "query": "nilai mutu kampus ini dari ban-pt apa",
+    "answer_id": 60
+  },
+  {
+    "query": "cek peringkat mutu prodi lewat mana",
+    "answer_id": 63
+  }
+]
