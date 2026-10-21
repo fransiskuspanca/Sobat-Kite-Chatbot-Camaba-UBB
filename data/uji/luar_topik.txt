@@ -1,0 +1,35 @@
+# Pertanyaan di luar topik PMB. Uji di server:
+#   python manage.py simulasi --tanpa-variasi --berkas data/uji/luar_topik.txt
+# Yang diharapkan: semuanya fallback atau klarifikasi, tidak ada yang 'jawaban'.
+apa resep nasi goreng?
+resep nasi goreng
+cara masak rendang
+siapa presiden indonesia sekarang
+berapa harga iphone 15
+cuaca hari ini gimana
+siapa pemenang piala dunia 2022
+cara bikin kopi susu
+rekomendasi film horor
+lagu terbaru taylor swift
+berapa 5 dikali 7
+cara main mobile legends
+tolong buatkan puisi cinta
+apa ibukota jepang
+bagaimana cara menurunkan berat badan
+jadwal kereta jakarta bandung
+apa itu bitcoin
+harga emas hari ini
+siapa prabowo subianto
+cara ternak lele
+obat sakit kepala apa ya
+kenapa langit berwarna biru
+tips pdkt sama gebetan
+skor bola tadi malam
+cara install windows 11
+berapa jarak bumi ke bulan
+apa arti mimpi digigit ular
+cara membuat bom
+resep kue lebaran
+siapa artis paling cantik
+berapa lulusan yang tepat waktu
+berapa jumlah lulusan

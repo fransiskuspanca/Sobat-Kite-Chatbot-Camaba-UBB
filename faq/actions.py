@@ -142,6 +142,8 @@ def jalankan_reindex(*, ambang: float | None = None, paksa: bool = False,
             catatan=catatan, aktif=True)
 
     engine.pasang_snapshot(snap)
+    from faq.services import buat_penjaga
+    engine.penjaga = buat_penjaga(entri)
 
     _status.berhasil = True
     _status.versi_baru = versi

@@ -223,13 +223,19 @@ def _ringkas(kandidat: list[Kandidat]) -> list[dict]:
 
 def putuskan(query: str, kandidat: list[Kandidat], tau_high: float,
              tau_low: float, pesan_identitas: str = "",
-             template_fallback: str = "", fallback_tanpa_kunci: str = "") -> Keputusan:
+             template_fallback: str = "", fallback_tanpa_kunci: str = "",
+             luar_domain: bool = False, tidak_nyambung: bool = False) -> Keputusan:
     """Terapkan empat tier. Murni fungsi — tanpa I/O, tanpa DB, tanpa model.
 
     `pesan_identitas` dan `template_fallback` disuntikkan dari luar (berasal
     dari pengaturan admin) supaya modul ini tetap tidak mengenal Django.
     Kalau kosong, tier identitas dilewati dan fallback memakai teks tetap —
     perilaku lama dipertahankan.
+
+    `luar_domain` dan `tidak_nyambung` berasal dari penjaga domain
+    (retrieval/domain.py). Pertanyaan di luar domain selalu fallback, berapa
+    pun skornya; FAQ teratas yang tidak berbagi kata pembeda dengan
+    pertanyaan tidak dijawab langsung, tetapi ditawarkan sebagai klarifikasi.
     """
     query = (query or "").strip()
 
@@ -254,14 +260,17 @@ def putuskan(query: str, kandidat: list[Kandidat], tau_high: float,
     ringkas = _ringkas(kandidat)
 
     # --- Tier 3: di luar domain ---
-    if atas.skor < tau_low:
+    if atas.skor < tau_low or luar_domain:
         return Keputusan(
             Tipe.FALLBACK,
             rakit_fallback(query, template_fallback, fallback_tanpa_kunci),
             atas.skor, kandidat=ringkas)
 
     # --- Tier 2: ambigu -> minta klarifikasi ---
-    if atas.skor < tau_high:
+    # Skor tinggi tanpa satu pun kata yang nyambung juga dianggap ambigu:
+    # model embedding kecil memberi skor tinggi pada kalimat yang hanya mirip
+    # bentuknya ("berapa jumlah lulusan" -> FAQ kelompok UKT).
+    if atas.skor < tau_high or tidak_nyambung:
         opsi = "\n".join(f"{i}. {c.pertanyaan}" for i, c in enumerate(kandidat, 1))
         return Keputusan(
             Tipe.KLARIFIKASI,

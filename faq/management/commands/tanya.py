@@ -47,6 +47,8 @@ class Command(BaseCommand):
 
         engine.pasang_snapshot(Snapshot(
             iv.versi, dari_bytes(bytes(iv.vektor), iv.dim), iv.pemilik, iv.dim))
+        from faq.services import pasang_penjaga
+        pasang_penjaga(engine)
         return engine, iv
 
     @staticmethod

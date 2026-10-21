@@ -39,11 +39,15 @@ def siapkan_penguji(engine, entri: list[dict]):
     from retrieval.engine import Engine
     from retrieval.indexer import bangun_snapshot
 
+    from faq.services import buat_penjaga
+
     snap = bangun_snapshot(engine, entri, versi=0)
-    return Engine(engine.model, snap, tau_high=engine.tau_high,
-                  tau_low=engine.tau_low, top_k=engine.top_k,
-                  query_prefix=engine.query_prefix,
-                  doc_prefix=engine.doc_prefix)
+    penguji = Engine(engine.model, snap, tau_high=engine.tau_high,
+                     tau_low=engine.tau_low, top_k=engine.top_k,
+                     query_prefix=engine.query_prefix,
+                     doc_prefix=engine.doc_prefix)
+    penguji.penjaga = buat_penjaga(entri)
+    return penguji
 
 
 def uji_variasi(penguji, entri: list[dict]) -> tuple[float, list[dict]]:
