@@ -1,0 +1,543 @@
+{
+ "variasi": {
+  "Apa itu Universitas Bangka Belitung?": [
+   "ubb tu kampus ape sebenernye",
+   "can you explain about universitas bangka belitung kampusnya kayak apa"
+  ],
+  "Kapan Universitas Bangka Belitung berdiri?": [
+   "ubb berdiri taun berape",
+   "Mohon maaf Bapak/Ibu, sejak tahun berapa Universitas Bangka Belitung resmi didirikan?",
+   "ubb didiriin tgl brp bln apa"
+  ],
+  "Universitas Bangka Belitung negeri atau swasta?": [
+   "ubb ni negeri ape swasta",
+   "Mohon informasinya, apakah Universitas Bangka Belitung berstatus perguruan tinggi negeri?",
+   "anak sy mau kuliah yg negeri aja ubb ini negeri atau swasta ya",
+   "ubb public university or private",
+   "ubb negri ap swasta sih"
+  ],
+  "Dimana lokasi kampus UBB?": [
+   "alamat ubb dimana lengkapnya",
+   "Mohon informasi alamat lengkap kampus Universitas Bangka Belitung, Bapak/Ibu",
+   "ubb location address nya dimana",
+   "kampus ubb masuk wilayah kabupaten bangka atau kota pangkalpinang"
+  ],
+  "Berapa luas kampus UBB?": [
+   "luas kampus ubb tu berape hektar",
+   "kampus balunijuk luas nya brp hektar"
+  ],
+  "Apa visi Universitas Bangka Belitung?": [
+   "visi ubb tu ape",
+   "Mohon informasinya mengenai visi Universitas Bangka Belitung"
+  ],
+  "Apa misi Universitas Bangka Belitung?": [
+   "misi ubb ade berape",
+   "what is the mission of ubb misinya apa aja"
+  ],
+  "Apa slogan Universitas Bangka Belitung?": [
+   "kampus kite tu slogan ubb ke",
+   "slogan ubb unggul membangun peradaban artinya apa"
+  ],
+  "Apa keunggulan Universitas Bangka Belitung?": [
+   "ubb unggul nye di bidang ape",
+   "keunggulan ubb dibanding kampus lain di sumatera apa",
+   "Mohon dijelaskan keunggulan Universitas Bangka Belitung sebagai kampus"
+  ],
+  "Mengapa saya harus kuliah di UBB?": [
+   "ngape aku harus pilih kuliah di ubb",
+   "saya masih galau antara kuliah di jawa atau di ubb kenapa harus pilih ubb",
+   "Mohon pertimbangannya, apa alasan anak saya sebaiknya kuliah di UBB?",
+   "why should i choose ubb alasan milih ubb apa"
+  ],
+  "Apa saja prestasi Universitas Bangka Belitung?": [
+   "prestasi kampus ubb ape bae",
+   "ubb sebagai universitas pernah dapat penghargaan apa"
+  ],
+  "Apakah ijazah UBB diakui?": [
+   "ijazah ubb dak diakui ke",
+   "Mohon informasinya, apakah ijazah lulusan UBB diakui secara nasional?",
+   "ijazah ubb kepake ga kalo mau kerja di jakarta"
+  ],
+  "Apakah UBB memiliki kampus cabang?": [
+   "ubb ade kampus di belitung dak",
+   "kampus ubb di tanjung pandan ada ga",
+   "saya org belitung ubb punya cabang di pulau belitung gak",
+   "Mohon informasinya, apakah UBB memiliki kampus cabang di luar Balunijuk?",
+   "kampus ubb yg di air itam pangkalpinang buat prodi apa"
+  ],
+  "Bagaimana sejarah UBB?": [
+   "sejarah ubb kek mane",
+   "history of ubb gimana awalnya berdiri"
+  ],
+  "Siapa rektor UBB saat ini?": [
+   "rektor ubb sape",
+   "Mohon informasi nama rektor Universitas Bangka Belitung saat ini"
+  ],
+  "Berapa jumlah mahasiswa aktif UBB?": [
+   "mahasiswa ubb ade berape urang",
+   "total mahasiswa aktif ubb skrg brp"
+  ],
+  "Berapa jumlah dosen UBB?": [
+   "dosen ubb ade berape",
+   "jumlah dosen tetap ubb brp orang"
+  ],
+  "Berapa jumlah profesor di UBB?": [
+   "guru besar di ubb ade berape"
+  ],
+  "Berapa jumlah fakultas di UBB?": [
+   "fakultas di ubb ade berape",
+   "total fakultas ubb skrg ada brp"
+  ],
+  "Berapa jumlah program studi di UBB?": [
+   "prodi di ubb ade berape",
+   "jumlah prodi s1 ubb ada brp",
+   "how many jurusan di ubb"
+  ],
+  "Apakah UBB memiliki rumah sakit pendidikan?": [
+   "ubb ade rumah sakit pendidikan dak",
+   "anak koas fk ubb praktek di rs pendidikan mana",
+   "Mohon informasinya, apakah fakultas kedokteran UBB sudah memiliki rumah sakit pendidikan?"
+  ],
+  "Apakah UBB memiliki laboratorium yang lengkap?": [
+   "lab di ubb lengkap dak",
+   "laboratorium ubb lengkap gak buat praktikum tiap fakultas"
+  ],
+  "Apakah kampus UBB memiliki perpustakaan?": [
+   "perpus ubb ade dak"
+  ],
+  "Apakah di kampus UBB tersedia area parkir?": [
+   "parkiran motor ubb ade dak"
+  ],
+  "Fakultas apa saja yang ada di UBB?": [
+   "fakultas di ubb ape bae",
+   "Mohon informasinya, Bapak/Ibu, fakultas apa saja yang tersedia di Universitas Bangka Belitung?",
+   "list of faculty di ubb apa aja",
+   "saya blm tau mau ambil apa fakultas di ubb ada apa aja",
+   "fakultas ubb ad apa aj"
+  ],
+  "Fakultas Sains dan Teknik ada jurusan apa saja?": [
+   "fst ubb ade jurusan ape bae",
+   "fakultas teknik ubb punya jurusan teknik apa aja",
+   "teknik pertambangan ubb ada ga masuk fakultas sains dan teknik ya",
+   "jurusan arsitektur ubb ada di fakultas sains dan teknik ga",
+   "prodi perencanaan wilayah dan kota ubb masuk fst ya",
+   "saya anak SMK jurusan TKJ mau lanjut ke teknik, di FST UBB ada prodi apa aja"
+  ],
+  "Fakultas Ekonomi memiliki program studi apa saja?": [
+   "feb ubb ade prodi ape bae",
+   "jurusan bisnis digital ubb ada di fakultas ekonomi ga",
+   "prodi ilmu ekonomi di fakultas ekonomi ubb ada ga",
+   "Mohon informasinya, program studi apa saja yang dibuka Fakultas Ekonomi dan Bisnis UBB?"
+  ],
+  "Fakultas Hukum ada?": [
+   "ubb ade fakultas hukum dak",
+   "aku nak kuliah hukum, di ubb ade dak",
+   "saya pengen jadi pengacara bisa kuliah hukum di ubb ga",
+   "Mohon maaf Bapak/Ibu, anak saya ingin kuliah hukum, apakah di UBB tersedia?",
+   "is there law faculty di ubb"
+  ],
+  "Program studi apa saja di Fakultas Hukum UBB?": [
+   "fh ubb ade prodi ape bae",
+   "fakultas hukum ubb selain s1 hukum ada prodi lain ga",
+   "Mohon informasi program studi apa saja yang tersedia di Fakultas Hukum UBB, baik S1 maupun S2"
+  ],
+  "Fakultas Pertanian ada?": [
+   "ubb ade fakultas pertanian dak",
+   "kuliah pertanian di ubb masuk fppk kan",
+   "Bapak/Ibu, anak saya berminat di bidang pertanian, apakah UBB punya fakultasnya?"
+  ],
+  "Jurusan Agroteknologi ada?": [
+   "prodi agroteknologi ubb ade dak"
+  ],
+  "Fakultas Perikanan ada?": [
+   "ubb ade fakultas perikanan dak",
+   "aku anak nelayan nak kuliah perikanan, ubb ade fakultas e dak",
+   "kuliah ilmu kelautan di ubb ada ga masuk fakultas apa",
+   "jurusan perikanan tangkap ubb ada gak",
+   "fakultas perikanan ubb ad gk",
+   "Mohon informasinya, apakah di UBB ada fakultas perikanan dan kelautan?",
+   "prodi manajemen sumber daya perairan ubb ada di fakultas perikanan ga"
+  ],
+  "Program studi apa saja di FPPK UBB?": [
+   "fppk ubb ade jurusan ape bae",
+   "fppk ubb prodi nya ap aj",
+   "Mohon informasi daftar program studi di Fakultas Pertanian, Perikanan, dan Kelautan UBB"
+  ],
+  "Jurusan Akuakultur ada?": [
+   "prodi akuakultur ubb ade dak",
+   "jurusan budidaya perairan ubb ad gk"
+  ],
+  "Fakultas Kedokteran ada?": [
+   "ubb ade fakultas kedokteran dak",
+   "aku nak jadi dokter, ubb ade fk dak",
+   "saya anak IPA nilai lumayan cita2 jadi dokter, di ubb bisa kuliah kedokteran ga",
+   "Mohon informasinya Bapak/Ibu, apakah Universitas Bangka Belitung memiliki fakultas kedokteran untuk anak saya?",
+   "is there medical school di ubb",
+   "fk ubb ad gk sih"
+  ],
+  "Fakultas Kesehatan ada?": [
+   "ubb ade fakultas kesehatan dak",
+   "fakultas ilmu kesehatan ubb ad gk"
+  ],
+  "Program studi apa saja di FKIK UBB?": [
+   "fkik ubb ade prodi ape bae",
+   "selain kedokteran fkik ubb ada prodi apa lagi",
+   "di fkik ubb ada prodi farmasi atau kebidanan gak"
+  ],
+  "Apakah UBB membuka program Diploma (D3)?": [
+   "d3 keperawatan ubb ade dak",
+   "ubb ad program diploma gk",
+   "saya lulusan smk kesehatan mau ambil d3 keperawatan di ubb ada?"
+  ],
+  "Fakultas Ilmu Sosial ada?": [
+   "ubb ade fisip dak",
+   "fisip ubb ad gk"
+  ],
+  "Program studi apa saja di FISIP UBB?": [
+   "fisip ubb ade jurusan ape bae",
+   "jurusan hubungan internasional ubb ada ga di fisip",
+   "prodi ilmu komunikasi ubb ada di fisip kan",
+   "jurusan pendidikan bahasa inggris ubb masuk fisip ya",
+   "ubb gak ada fkip ya, prodi pendidikan nya di fisip?"
+  ],
+  "Fakultas MIPA ada?": [
+   "ubb ade fmipa dak",
+   "fakultas mipa ubb ad gk"
+  ],
+  "Apa saja program studi (jurusan) di UBB?": [
+   "jurusan di ubb ape bae",
+   "saya masih bingung mau ambil jurusan apa, boleh minta daftar semua prodi di ubb",
+   "list of majors di ubb apa aja",
+   "jurusan ubb ap aj sih lengkap nya",
+   "ubb buka jurusan apa aja taun ini"
+  ],
+  "Apakah UBB membuka program Magister (S2)?": [
+   "s2 di ubb ade dak",
+   "ubb ad magister gk"
+  ],
+  "Apakah UBB membuka program Doktor (S3)?": [
+   "s3 di ubb ade dak"
+  ],
+  "Jurusan Informatika ada?": [
+   "jurusan IT di ubb ade dak",
+   "saya anak SMK jurusan TKJ nilai pas-pasan, kalau mau ambil informatika di ubb ada ga jurusannya",
+   "ubb ada jurusan teknik informatika atau computer science gak",
+   "Mohon informasinya, apakah UBB memiliki program studi Informatika?",
+   "jurusan teknologi informasi ubb sama aja kayak informatika ya",
+   "aku suka coding, ubb ada jurusan informatika?"
+  ],
+  "Jurusan Sistem Informasi ada?": [
+   "jurusan sistem informasi ubb ade dak",
+   "prodi sistem informasi ubb ad gk",
+   "ubb ada jurusan information system?"
+  ],
+  "Jurusan Teknik Sipil ada?": [
+   "teknik sipil ubb ade dak",
+   "tekni sipil ubb ad gk",
+   "saya mau jadi kontraktor, ubb ada jurusan teknik sipil?"
+  ],
+  "Jurusan Teknik Mesin ada?": [
+   "teknik mesin ubb ade dak",
+   "jurusan mesin ubb ad gk",
+   "saya anak smk otomotif mau lanjut teknik mesin, ubb ada prodinya?"
+  ],
+  "Jurusan Teknik Elektro ada?": [
+   "teknik elektro ubb ade dak",
+   "jurusan elektro ubb ad gk",
+   "anak smk listrik mau ambil teknik elektro di ubb ada ga"
+  ],
+  "Jurusan Manajemen ada?": [
+   "prodi manajemen ubb ade dak"
+  ],
+  "Jurusan Akuntansi ada?": [
+   "prodi akuntansi ubb ade dak"
+  ],
+  "Jurusan Sosiologi ada?": [
+   "prodi sosiologi ubb ade dak"
+  ],
+  "Jurusan Kimia ada?": [
+   "prodi kimia ubb ade dak"
+  ],
+  "Jurusan Fisika ada?": [
+   "prodi fisika ubb ade dak"
+  ],
+  "Jurusan Matematika ada?": [
+   "prodi matematika ubb ade dak"
+  ],
+  "Jurusan Biologi ada?": [
+   "prodi biologi ubb ade dak"
+  ],
+  "Jurusan apa yang memiliki akreditasi unggul?": [
+   "jurusan ubb yg akreditasi e unggul ape bae",
+   "which major ubb accredited unggul",
+   "Bapak/Ibu, saya ingin anak saya masuk prodi terbaik, prodi mana yang akreditasinya Unggul di UBB?",
+   "prodi akreditasi unggul ubb ap aj"
+  ],
+  "Akreditasi universitas apa?": [
+   "akreditasi ubb ape",
+   "Mohon informasinya, akreditasi institusi Universitas Bangka Belitung saat ini apa?",
+   "ubb accreditation nya apa baik sekali ya",
+   "akreditasi kampus ubb udh baik sekali blm"
+  ],
+  "Apa akreditasi program studi saya di UBB?": [
+   "akreditasi prodi kedokteran ubb ape",
+   "jurusan hukum ubb akreditasi nya apa",
+   "akreditasi prodi teknologi informasi ubb apa ya",
+   "Mohon informasinya, akreditasi program studi Manajemen di UBB apa?",
+   "akreditasi prodi teknik sipil ubb brp",
+   "akreditasi prodi perikanan tangkap ubb apa",
+   "saya mau ambil akuntansi tapi takut akreditasinya jelek, akreditasi prodi akuntansi ubb apa"
+  ],
+  "Apakah semua program studi di UBB sudah terakreditasi?": [
+   "prodi di ubb udah terakreditasi semue ke",
+   "semua jurusan ubb accredited ga",
+   "Bapak/Ibu, apakah masih ada program studi di UBB yang belum memiliki akreditasi?"
+  ],
+  "Bagaimana cara melihat akreditasi program studi di UBB?": [
+   "cek akreditasi prodi ubb kek mane",
+   "link lpmpp ubb buat cek akreditasi jurusan",
+   "Mohon petunjuknya, di mana saya dapat melihat sertifikat akreditasi program studi UBB?",
+   "where to check akreditasi prodi ubb"
+  ],
+  "Sampai kapan akreditasi UBB berlaku?": [
+   "akreditasi ubb sampe kapan berlaku e",
+   "Bapak/Ibu, apakah akreditasi UBB masih berlaku sampai anak saya lulus nanti?"
+  ],
+  "Bagaimana cara menuju kampus UBB?": [
+   "kek mane cara ke kampus ubb dari pangkalpinang",
+   "dari pelabuhan pangkalbalam ke kampus ubb naik ape",
+   "saya dari palembang naik kapal, sampai bangka gimana cara ke kampus ubb balunijuk",
+   "Mohon informasinya, bagaimana akses menuju Kampus UBB Balunijuk dari Pangkalpinang?",
+   "rute dri pkp ke ubb lewat jalan mana",
+   "how to get to ubb campus from pangkalpinang"
+  ],
+  "Berapa jarak kampus UBB dari bandara?": [
+   "dari bandara depati amir ke ubb jauh dak",
+   "jarak bandara ke kampus ubb brp lama nyetir",
+   "Bapak/Ibu, kami akan mengantar anak dari bandara, berapa lama perjalanan ke kampus UBB?",
+   "airport ke ubb berapa km"
+  ],
+  "Apakah ada transportasi umum ke kampus UBB?": [
+   "ade angkot ke ubb dak",
+   "ada bus umum ke ubb gk dari pangkalpinang",
+   "Mohon informasinya, apakah anak saya bisa ke kampus UBB dengan angkutan umum?",
+   "public transport ke ubb ada ga",
+   "saya gak punya motor, mau ke kampus ubb naik angkutan umum ada ga"
+  ],
+  "Apakah ada shuttle bus ke kampus UBB?": [
+   "ubb ade bus kampus dak",
+   "ada shuttle bus gratis ke ubb ga dari kota",
+   "bus kampus ubb buat antar jemput mahasiswa ada gk"
+  ],
+  "Berapa nomor telepon panitia PMB UBB?": [
+   "nomor telpon pmb ubb ape",
+   "Mohon informasinya, nomor telepon kantor PMB UBB yang dapat saya hubungi?",
+   "phone number pmb ubb berapa",
+   "saya orang tua mau nelpon langsung panitia pmb ubb, nomor teleponnya berapa"
+  ],
+  "Berapa nomor WhatsApp panitia PMB UBB?": [
+   "nomor wa pmb ubb ape",
+   "Mohon maaf Bapak/Ibu, boleh saya minta nomor WhatsApp helpdesk PMB UBB?",
+   "contact person wa pmb ubb brp",
+   "nmr wa admin pmb ubb dong",
+   "mau chat wa panitia pmb ubb nomor nya berapa",
+   "whatsapp helpdesk pmb ubb number"
+  ],
+  "Apa alamat email panitia PMB UBB?": [
+   "email pmb ubb ape",
+   "Mohon informasinya, alamat email resmi untuk menanyakan PMB UBB?",
+   "email address pmb ubb apa",
+   "alamat email bakk ubb apa"
+  ],
+  "Apa akun Instagram PMB UBB?": [
+   "ig pmb ubb ape",
+   "pmb ubb ada akun instagram resmi gk",
+   "Mohon informasinya, akun Instagram resmi untuk informasi PMB UBB apa?"
+  ],
+  "Apa akun Facebook PMB UBB?": [
+   "fb pmb ubb ape",
+   "halaman facebook ubb buat info pendaftaran apa"
+  ],
+  "Apa akun TikTok PMB UBB?": [
+   "tiktok pmb ubb ape",
+   "akun tiktok ubb buat info pendaftaran ada gk"
+  ],
+  "Apa alamat website resmi UBB?": [
+   "website resmi ubb ape",
+   "situs resmi ubb alamat nya apa",
+   "Mohon informasinya, alamat situs web resmi Universitas Bangka Belitung?",
+   "official website ubb apa",
+   "web info pmb ubb yg resmi apa biar gak ketipu"
+  ],
+  "Bagaimana cara menghubungi panitia?": [
+   "kek mane cara ngubungi panitia pmb ubb",
+   "Mohon informasinya, melalui apa saja saya dapat menghubungi panitia PMB UBB?",
+   "how to contact panitia pmb ubb",
+   "saya bingung mau nanya pendaftaran ke siapa, panitia pmb ubb bisa dihubungi lewat apa aja",
+   "kontak panitia pmb ubb ad apa aj"
+  ],
+  "Berapa biaya kuliah di UBB?": [
+   "biaya kuliah di ubb tu berape",
+   "Mohon informasinya, kira-kira berapa biaya kuliah di Universitas Bangka Belitung?",
+   "tuition fee ubb berapa",
+   "kuliah di ubb mahal dak",
+   "saya dari keluarga pas-pasan, biaya kuliah di ubb kira2 brp ya"
+  ],
+  "Apakah ada beasiswa?": [
+   "ubb ade beasiswa dak",
+   "is there scholarship di ubb",
+   "ad beasiswa gk di ubb"
+  ],
+  "Apakah harus ikut UTBK?": [
+   "masuk ubb wajib utbk dak",
+   "Mohon informasinya, apakah anak saya wajib mengikuti UTBK untuk kuliah di UBB?",
+   "is utbk required buat masuk ubb",
+   "saya gap year gak ikut utbk tahun ini, masih bisa masuk ubb tanpa utbk?"
+  ],
+  "Kalau tidak lolos SNBT, apakah masih bisa masuk UBB?": [
+   "dak lolos snbt masih pacak masuk ubb dak",
+   "gagal snbt msh bs masuk ubb lwt mandiri gk",
+   "Mohon informasinya, jika anak saya tidak lolos SNBT, apakah masih ada jalur ke UBB?"
+  ],
+  "Apakah bisa pindah program studi?": [
+   "pacak dak pindah prodi di ubb",
+   "udah kuliah di ubb tapi ngerasa salah jurusan, boleh pindah prodi ga",
+   "Mohon informasinya, apakah mahasiswa UBB diperbolehkan pindah program studi?",
+   "can i change major di ubb"
+  ],
+  "Apakah bisa transfer dari kampus lain?": [
+   "pindahan dari kampus laen ke ubb pacak dak",
+   "transfer from other university ke ubb bisa?"
+  ],
+  "Apakah menerima mahasiswa Paket C?": [
+   "lulusan paket c pacak daftar ubb dak",
+   "Mohon informasinya, anak saya lulusan Paket C, apakah bisa mendaftar di UBB?",
+   "ijazah paket c bisa apply ubb ga"
+  ],
+  "Apakah menerima lulusan SMK?": [
+   "anak smk pacak masuk ubb dak",
+   "saya lulusan smk jurusan akuntansi apakah boleh daftar ubb",
+   "Bapak/Ibu, anak saya lulusan SMK, apakah diterima di UBB?"
+  ],
+  "Apakah ada batas usia?": [
+   "ade batas umur dak daftar ubb",
+   "umur sy 25 thn msh bs daftar ubb gk",
+   "is there age limit daftar ubb"
+  ],
+  "Apakah boleh bekerja sambil kuliah?": [
+   "pacak dak kuliah sambil gawe di ubb",
+   "kuliah sambil kerja part time di ubb boleh ga",
+   "Mohon informasinya, apakah anak saya boleh bekerja sambil kuliah di UBB?"
+  ],
+  "Apakah tersedia kelas malam?": [
+   "ubb ade kelas malam dak"
+  ],
+  "Apakah tersedia kelas karyawan?": [
+   "ubb ade kelas karyawan dak",
+   "kls karyawan ubb ad gk buat yg udh kerja"
+  ],
+  "Apakah ada kuliah online?": [
+   "ubb ade kuliah online dak",
+   "kuliah full online di ubb bisa gk dari luar kota",
+   "online class di ubb ada ga"
+  ]
+ },
+ "faq_baru": [
+  {
+   "pertanyaan": "Bagaimana cara memilih jurusan yang tepat di UBB?",
+   "jawaban": "Pilihlah program studi yang sesuai dengan minat, kemampuan, dan rencana karier Anda. Daftar program studi UBB beserta status akreditasinya dapat dijadikan bahan pertimbangan. Bila masih ragu, Anda dapat berkonsultasi dengan guru BK di sekolah, dan informasi rinci tentang setiap program studi dapat ditanyakan kepada panitia PMB UBB.",
+   "kategori": "B. Fakultas Dan Program Studi",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "aku bingung mau ambil jurusan apa di ubb",
+    "belom tau nak ambil jurusan ape di ubb, kek mane milih e",
+    "gimana cara milih jurusan yg cocok buat aku di ubb",
+    "saya anak IPS nilai biasa aja belum tau mau kuliah jurusan apa, saran jurusan di ubb dong",
+    "Mohon sarannya Bapak/Ibu, anak saya belum menentukan jurusan, bagaimana sebaiknya memilih program studi di UBB?",
+    "tips milih prodi di ubb biar gak salah jurusan",
+    "how to choose the right major di ubb",
+    "jurusan yang cocok untuk saya di ubb apa ya",
+    "masih galau pilih prodi buat daftar ubb gmn nentuinnya",
+    "sy gk tau bakat sy apa jurusan ubb mana yg pas",
+    "bingung milih jurusan teknik atau ekonomi di ubb gimana nentuinnya"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah lulusan IPS bisa memilih program studi saintek (lintas jurusan) di UBB?",
+   "jawaban": "Ketentuan lintas jurusan, misalnya lulusan IPS yang ingin memilih program studi saintek atau sebaliknya, mengikuti aturan pada setiap jalur seleksi dan persyaratan program studi yang dipilih. Karena ketentuannya dapat berbeda antarjalur dan antarprogram studi, informasi rinci dapat ditanyakan kepada panitia PMB UBB.",
+   "kategori": "B. Fakultas Dan Program Studi",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "anak ips bisa ambil kedokteran di ubb gak",
+    "lulusan ips boleh daftar teknik di ubb ga",
+    "lintas jurusan di ubb bisa ga",
+    "aku jurusan ips di sma, pacak dak ambil prodi teknik sipil di ubb",
+    "Mohon informasinya, apakah anak saya yang dari jurusan IPS dapat memilih program studi saintek di UBB?",
+    "anak ipa boleh ambil hukum atau manajemen di ubb ga, lintas jurusan",
+    "can ips student apply informatika di ubb",
+    "lintas jurusan ips ke ipa di ubb dibolehin gak",
+    "sy dr ips mau ambil teknologi informasi di ubb blh gk",
+    "dari jurusan bahasa bisa pilih prodi saintek di ubb?",
+    "kurikulum merdeka gak ada penjurusan ips ipa, boleh pilih prodi apa aja di ubb?"
+   ]
+  },
+  {
+   "pertanyaan": "Program studi apa yang paling banyak peminatnya di UBB?",
+   "jawaban": "Jumlah peminat dan tingkat keketatan setiap program studi di UBB berbeda dan dapat berubah setiap tahun, tergantung jalur seleksi dan daya tampung. Data peminat terbaru dapat dilihat pada informasi resmi jalur seleksi atau ditanyakan kepada panitia PMB UBB.",
+   "kategori": "B. Fakultas Dan Program Studi",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "jurusan paling favorit di ubb apa",
+    "prodi ubb yg peminatnya paling banyak apa ya",
+    "jurusan ape yang paling banyak diminati di ubb",
+    "jurusan paling ketat persaingannya di ubb apa",
+    "Mohon informasinya, program studi apa di UBB yang paling banyak diminati calon mahasiswa?",
+    "most popular major di ubb apa",
+    "jurusan sepi peminat di ubb apa aja biar peluang lolos besar",
+    "keketatan prodi ubb tiap jurusan brp persen",
+    "prodi di ubb yg paling susah masuknya apa",
+    "jurusan rame peminat ubb taun lalu apa",
+    "peminat prodi kedokteran ubb banyak gak, ketat ga persaingannya"
+   ]
+  },
+  {
+   "pertanyaan": "Berapa jarak kampus UBB dari pusat Kota Pangkalpinang?",
+   "jawaban": "Kampus Terpadu UBB berada di Desa Balunijuk, Kecamatan Merawang, Kabupaten Bangka, dan dapat dijangkau dari Kota Pangkalpinang menggunakan kendaraan pribadi, taksi, maupun transportasi berbasis aplikasi. Jarak dan waktu tempuh bergantung pada titik keberangkatan dan kondisi lalu lintas; informasi rinci dapat ditanyakan kepada panitia PMB UBB.",
+   "kategori": "T. Lokasi Kampus",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "jarak ubb dari pangkalpinang brp km",
+    "dari kota pangkalpinang ke ubb jauh dak",
+    "kampus ubb jauh gak dari pusat kota pangkalpinang",
+    "berapa lama perjalanan dari pangkalpinang ke kampus ubb",
+    "Mohon informasinya, berapa jarak dari pusat Kota Pangkalpinang ke kampus UBB Balunijuk?",
+    "how far ubb from pangkalpinang city",
+    "kalau ngekos di pangkalpinang ke kampus ubb jauh ga",
+    "pkp ke balunijuk brp menit",
+    "kampus ubb dari kota pangkalpinang brp kilo",
+    "dari alun2 taman merdeka pkp ke ubb jauh gk",
+    "jarak kota pangkal pinang ke kampus ubb berape"
+   ]
+  },
+  {
+   "pertanyaan": "Bagaimana cara menghubungi fakultas atau program studi di UBB?",
+   "jawaban": "Informasi umum mengenai fakultas dan program studi dapat diakses melalui website resmi UBB di https://ubb.ac.id. Untuk pertanyaan seputar penerimaan mahasiswa baru, calon mahasiswa dapat menghubungi panitia PMB UBB, dan kontak rinci fakultas atau program studi tertentu juga dapat ditanyakan kepada panitia PMB.",
+   "kategori": "U. Kontak",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "kontak prodi kedokteran ubb ada gak",
+    "nomor admin fakultas hukum ubb brp",
+    "mau nanya langsung ke prodi teknologi informasi ubb hubunginnya lewat mana",
+    "kek mane cara ngubungi fakultas di ubb",
+    "Mohon informasinya, bagaimana saya dapat menghubungi pihak fakultas di UBB untuk bertanya tentang program studi?",
+    "contact person jurusan perikanan ubb ada?",
+    "website fakultas di ubb alamatnya apa",
+    "email fakultas sains dan teknik ubb apa",
+    "saya mau tanya kurikulum ke prodi manajemen ubb, kontaknya mana",
+    "kontak tata usaha fakultas ubb",
+    "nomor hp kaprodi akuntansi ubb boleh minta"
+   ]
+  }
+ ],
+ "keterangan": "Putaran 2: info umum, prodi, akreditasi, kontak (ulang, tanpa variasi perebut soal Teknik Sipil)"
+}
