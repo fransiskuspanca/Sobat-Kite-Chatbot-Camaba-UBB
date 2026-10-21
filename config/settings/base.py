@@ -100,6 +100,10 @@ SINKRON_SUMBER = os.environ.get(
     "https://raw.githubusercontent.com/fransiskuspanca/"
     "Sobat-Kite-Chatbot-Camaba-UBB/main/data/sinkron/")
 
+# Penjaga domain (retrieval/domain.py): pertanyaan di luar topik PMB dijawab
+# fallback walau skornya tinggi. PENJAGA_DOMAIN=0 di .env untuk mematikannya.
+PENJAGA_DOMAIN = os.environ.get("PENJAGA_DOMAIN", "1").lower() not in {"0", "false", "tidak"}
+
 # Fase 0 belum menjalankan server; model dimuat mulai Fase 2.
 MUAT_MODEL = os.environ.get("MUAT_MODEL", "0") == "1"
 

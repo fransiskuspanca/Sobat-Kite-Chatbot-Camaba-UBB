@@ -64,6 +64,7 @@ class Engine:
         self.top_k = top_k
         self.query_prefix = query_prefix
         self.doc_prefix = doc_prefix
+        self.penjaga = None       # PenjagaDomain; None = penjaga mati
         self._lock = threading.Lock()
 
     # --- snapshot -------------------------------------------------------
@@ -167,25 +168,33 @@ class Engine:
         if not self.siap:
             return keputusan_darurat()
 
-        def _putuskan(kandidat):
+        def _putuskan(kandidat, teks):
+            p = self.penjaga
+            luar = bool(p) and p.di_luar_domain(teks)
+            lepas = (bool(p) and not luar and bool(kandidat)
+                     and not p.nyambung(teks, kandidat[0].faq_id))
             return putuskan(query, kandidat, self.tau_high, self.tau_low,
                             pesan_identitas, template_fallback,
-                            fallback_tanpa_kunci)
+                            fallback_tanpa_kunci, luar_domain=luar,
+                            tidak_nyambung=lepas)
 
         try:
-            keputusan = _putuskan(self._kandidat(query, pengambil_metadata))
+            keputusan = _putuskan(self._kandidat(query, pengambil_metadata), query)
         except Exception:                      # prinsip #6: jangan HTTP 500
             log.exception("Pencarian gagal untuk query %r", query[:80])
             return keputusan_darurat()
 
+        # Pertanyaan di luar domain tidak boleh "diselamatkan" konteks:
+        # "resep nasi goreng" setelah bertanya UKT tetap di luar domain.
+        luar_domain = bool(self.penjaga) and self.penjaga.di_luar_domain(query)
         if not (konteks and keputusan.tipe in (Tipe.FALLBACK, Tipe.KLARIFIKASI)
-                and tampak_lanjutan(query)):
+                and tampak_lanjutan(query) and not luar_domain):
             return keputusan
 
         try:
-            lanjutan = _putuskan(self._kandidat(f"{konteks} {query}",
-                                                pengambil_metadata,
-                                                abaikan=faq_sebelumnya))
+            gabungan = f"{konteks} {query}"
+            lanjutan = _putuskan(self._kandidat(gabungan, pengambil_metadata,
+                                                abaikan=faq_sebelumnya), gabungan)
         except Exception:
             log.exception("Pencarian lanjutan gagal untuk query %r", query[:80])
             return keputusan

@@ -36,7 +36,36 @@ def pasang_index_aktif(engine) -> int | None:
 
     engine.pasang_snapshot(Snapshot(
         iv.versi, dari_bytes(bytes(iv.vektor), iv.dim), iv.pemilik, iv.dim))
+    pasang_penjaga(engine)
     return iv.versi
+
+
+def buat_penjaga(entri: list[dict]):
+    """Penjaga domain dari entri index, atau None bila dimatikan/gagal.
+
+    Gagal membangun penjaga tidak boleh menghentikan layanan (prinsip #6):
+    chatbot tetap menjawab, hanya tanpa penjagaan kata.
+    """
+    if not getattr(settings, "PENJAGA_DOMAIN", True):
+        return None
+    try:
+        from retrieval.domain import PenjagaDomain
+        return PenjagaDomain(entri)
+    except Exception:
+        log.exception("Penjaga domain gagal dibangun — dilewati")
+        return None
+
+
+def pasang_penjaga(engine) -> None:
+    """Bangun penjaga dari FAQ + variasi di basis data dan pasang ke engine."""
+    from faq.actions import kumpulkan_entri
+
+    try:
+        entri, _ = kumpulkan_entri()
+    except Exception:
+        log.exception("Gagal mengumpulkan entri untuk penjaga domain")
+        entri = []
+    engine.penjaga = buat_penjaga(entri) if entri else None
 
 
 # Deteksi versi antar-proses (Bagian 9.3).
