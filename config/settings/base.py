@@ -173,6 +173,9 @@ UNFOLD = {
                      "icon": "format_quote",
                      "link": lambda r: reverse_lazy(
                          "admin:faq_faqvariasi_changelist")},
+                    {"title": "Laporan data simulasi",
+                     "icon": "science",
+                     "link": lambda r: reverse_lazy("admin:laporan_simulasi")},
                     {"title": "Kata pengantar pembuka",
                      "icon": "waving_hand",
                      "link": lambda r: reverse_lazy(

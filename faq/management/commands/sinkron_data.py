@@ -6,7 +6,7 @@
 
 Dijalankan cron tiap 15 menit. Tanpa paket baru, perintah ini hanya membaca
 daftar.json lalu selesai. Reindex memakai regression gate biasa: kalau gagal,
-index lama tetap melayani dan reindex malam mencoba lagi. Lihat faq/sinkron.py.
+paket itu dibatalkan dan index lama tetap melayani. Lihat faq/sinkron.py.
 """
 
 from django.conf import settings
@@ -28,20 +28,21 @@ class Command(BaseCommand):
 
         hard = muat_hard_eval(settings.ARTIFACTS_DIR / "hard_eval.json") or {}
         terlarang = {sinkron._norm(q) for qs in hard.values() for q in qs}
+        uji = None if opts["tanpa_reindex"] else self._uji
         try:
-            n = sinkron.jalankan(opts["sumber"], terlarang, tulis=self.stdout.write)
+            sinkron.jalankan(opts["sumber"], terlarang, tulis=self.stdout.write, uji=uji)
         except (OSError, ValueError) as e:
             raise CommandError(f"Gagal membaca paket dari {opts['sumber']}: {e}")
-        if not n or opts["tanpa_reindex"]:
-            return
 
+    def _uji(self):
+        """Reindex dengan regression gate. Lolos = index baru sudah aktif."""
         from faq import actions
         try:
             st = actions.jalankan_reindex(pengguna="sinkron")
         except RuntimeError as e:
-            raise CommandError(str(e))
-        if st.berhasil is False:
-            raise CommandError(
-                f"Data tersimpan, tetapi regression gate gagal ({st.pesan}). "
-                "Index lama tetap melayani; reindex malam akan mencoba lagi.")
-        self.stdout.write(self.style.SUCCESS(f"✅ {st.pesan}"))
+            return False, {"pesan": str(e)[:300]}
+        info = {"pesan": st.pesan[:300], "acc_at_1": st.acc_at_1,
+                "versi_index": st.versi_baru if st.berhasil else None}
+        if st.berhasil:
+            self.stdout.write(self.style.SUCCESS(f"✅ {st.pesan}"))
+        return bool(st.berhasil), info

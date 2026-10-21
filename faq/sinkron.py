@@ -17,6 +17,11 @@ Bentuk paket:
       ]
     }
 
+Setiap paket diuji sendiri-sendiri: setelah diterapkan, reindex dijalankan.
+Kalau regression gate gagal, semua yang ditambahkan paket itu dihapus lagi
+dan paket ditandai "ditolak", jadi satu paket buruk tidak pernah menahan
+reindex berikutnya.
+
 Paket hanya MENAMBAH: jawaban FAQ yang sudah ada tidak pernah ditimpa,
 supaya suntingan panitia di admin aman. FAQ baru tanpa kunci
 "butuh_verifikasi" dianggap belum disetujui (jawabannya diganti pesan
@@ -79,6 +84,13 @@ class HasilPaket:
     faq_baru: int = 0
     variasi_baru: int = 0
     peringatan: list = field(default_factory=list)
+    faq_ids: list = field(default_factory=list)
+    variasi_ids: list = field(default_factory=list)
+
+    def batalkan(self) -> None:
+        with transaction.atomic():
+            FaqVariasi.objects.filter(id__in=self.variasi_ids).delete()
+            Faq.objects.filter(id__in=self.faq_ids).delete()
 
     def ringkas(self) -> str:
         return f"{self.faq_baru} FAQ baru, {self.variasi_baru} variasi baru"
@@ -110,7 +122,8 @@ def terapkan_paket(data: dict, terlarang: set[str] = frozenset()) -> HasilPaket:
                 if n in terlarang:
                     hasil.peringatan.append(f"variasi = soal hard eval, dilewati: {teks[:60]}")
                     continue
-                FaqVariasi.objects.create(faq=faq, teks=teks, asal="augmentasi")
+                v = FaqVariasi.objects.create(faq=faq, teks=teks, asal="augmentasi")
+                hasil.variasi_ids.append(v.id)
                 terpakai.add(n)
                 hasil.variasi_baru += 1
 
@@ -133,6 +146,7 @@ def terapkan_paket(data: dict, terlarang: set[str] = frozenset()) -> HasilPaket:
                     butuh_verifikasi=(bool(r.get("butuh_verifikasi", True))
                                       or flag_butuh_verifikasi(jawab)))
                 faq_per_teks[_norm(tanya)] = faq
+                hasil.faq_ids.append(faq.id)
                 terpakai.add(_norm(tanya))
                 hasil.faq_baru += 1
             else:
@@ -149,12 +163,36 @@ def terapkan_paket(data: dict, terlarang: set[str] = frozenset()) -> HasilPaket:
     return hasil
 
 
-def jalankan(sumber: str, terlarang: set[str] = frozenset(), tulis=print) -> int:
+def data_keterangan(isi: bytes) -> str:
+    try:
+        return json.loads(isi).get("keterangan", "")
+    except (ValueError, AttributeError):
+        return ""
+
+
+def ringkasan_status() -> dict:
+    """Angka untuk halaman laporan di admin."""
+    status = muat_status()
+    ok = [s for s in status.values() if s.get("hasil") == "ok"]
+    return {
+        "paket": sorted(({"nama": n, **s} for n, s in status.items()),
+                        key=lambda s: s.get("waktu", ""), reverse=True),
+        "paket_ok": len(ok),
+        "faq_baru": sum(s.get("faq_baru", 0) for s in ok),
+        "variasi_baru": sum(s.get("variasi_baru", 0) for s in ok),
+    }
+
+
+def jalankan(sumber: str, terlarang: set[str] = frozenset(), tulis=print,
+             uji=None) -> int:
     """Terapkan semua paket baru di `sumber`. Kembalikan jumlah perubahan.
 
-    Paket yang sudah diterapkan dilewati. Paket yang gagal dicatat dan baru
-    dicoba lagi bila isinya berubah, supaya cron tidak mengulang galat yang
-    sama tiap 15 menit.
+    `uji()` dipanggil setelah tiap paket yang mengubah data dan mengembalikan
+    (lolos, keterangan_dict); paket yang tidak lolos dibatalkan.
+
+    Paket yang sudah diterapkan dilewati. Paket yang gagal atau ditolak
+    dicatat dan baru dicoba lagi bila isinya berubah, supaya cron tidak
+    mengulang hal yang sama tiap 15 menit.
     """
     daftar = json.loads(baca(sumber, BERKAS_DAFTAR))
     if not isinstance(daftar, list):
@@ -176,9 +214,19 @@ def jalankan(sumber: str, terlarang: set[str] = frozenset(), tulis=print) -> int
             catatan.update(hasil="gagal", pesan=str(e)[:300])
             tulis(f"✗ {nama}: {e}")
         else:
-            catatan.update(hasil="ok", ringkasan=h.ringkas())
-            perubahan += h.faq_baru + h.variasi_baru
-            tulis(f"✓ {nama}: {h.ringkas()}")
+            catatan.update(hasil="ok", ringkasan=h.ringkas(), faq_baru=h.faq_baru,
+                           variasi_baru=h.variasi_baru,
+                           keterangan=str(data_keterangan(isi))[:200])
+            n = h.faq_baru + h.variasi_baru
+            lolos, info = (True, {}) if (uji is None or not n) else uji()
+            catatan.update(info)
+            if lolos:
+                perubahan += n
+                tulis(f"✓ {nama}: {h.ringkas()}")
+            else:
+                h.batalkan()
+                catatan["hasil"] = "ditolak"
+                tulis(f"✗ {nama} ditolak regression gate, dibatalkan: {info.get('pesan', '')}")
             for p in h.peringatan[:10]:
                 tulis(f"    ⚠️  {p}")
         status[nama] = catatan
