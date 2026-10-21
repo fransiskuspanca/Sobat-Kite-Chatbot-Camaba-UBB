@@ -192,12 +192,19 @@ class Engine:
             return keputusan
 
         try:
-            gabungan = f"{konteks} {query}"
-            lanjutan = _putuskan(self._kandidat(gabungan, pengambil_metadata,
-                                                abaikan=faq_sebelumnya), gabungan)
+            kandidat = self._kandidat(f"{konteks} {query}", pengambil_metadata,
+                                      abaikan=faq_sebelumnya)
         except Exception:
             log.exception("Pencarian lanjutan gagal untuk query %r", query[:80])
             return keputusan
+
+        # Kata pembeda pertanyaan itu sendiri harus nyambung dengan FAQ hasil
+        # konteks. Tanpa ini "berapa jumlah lulusan" setelah bertanya UKT
+        # dijawab FAQ kelompok UKT: konteksnya yang cocok, bukan pertanyaannya.
+        if (kandidat and self.penjaga
+                and not self.penjaga.nyambung(query, kandidat[0].faq_id)):
+            return keputusan
+        lanjutan = _putuskan(kandidat, query)
 
         # Konteks hanya dipakai bila hasilnya lebih pasti dari pencarian biasa.
         lebih_pasti = (lanjutan.tipe in (Tipe.JAWABAN, Tipe.ESKALASI)

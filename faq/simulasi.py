@@ -132,7 +132,7 @@ def baca_berkas(path: str | Path) -> list[tuple[str, str | None]]:
         return [(r[0].strip(), r[1].strip() if len(r) > 1 and r[1].strip() else None)
                 for r in baris]
     return [(t.strip(), None) for t in p.read_text(encoding="utf-8").splitlines()
-            if t.strip()]
+            if t.strip() and not t.lstrip().startswith("#")]
 
 
 def tulis_laporan(path: str | Path, ringkasan: list[tuple[str, object]],
