@@ -80,6 +80,7 @@ def parse_faq_excel(path, sheet=0):
 
 
 SHEET_VARIASI = "Variasi"
+ASAL_DIPERTAHANKAN = ("log", "augmentasi")
 
 
 def _norm(teks) -> str:
@@ -233,7 +234,13 @@ class Command(BaseCommand):
             return
 
         with transaction.atomic():
+            simpan = []
             if opts["hapus_dulu"]:
+                # Variasi dari log camaba (tombol Tautkan) dan paket sinkron
+                # hanya ada di basis data, tidak di Excel. Ikut terhapus
+                # bersama FAQ-nya, jadi dipasang kembali setelah impor.
+                simpan = list(FaqVariasi.objects.filter(asal__in=ASAL_DIPERTAHANKAN)
+                              .values_list("faq__pertanyaan", "teks", "asal"))
                 n = Faq.objects.count()
                 Faq.objects.all().delete()
                 self.stdout.write(self.style.WARNING(f"{n} entri lama dihapus."))
@@ -255,11 +262,16 @@ class Command(BaseCommand):
                 diperbarui += not baru
 
             var_baru, var_yatim = self._impor_variasi(variasi)
+            dipulihkan = self._pulihkan_variasi(simpan)
 
         self.stdout.write(self.style.SUCCESS(
             f"\n✅ {dibuat} dibuat, {diperbarui} diperbarui. "
             f"Total FAQ: {Faq.objects.count()}, "
             f"variasi: {FaqVariasi.objects.count()} ({var_baru} baru)"))
+        if simpan:
+            self.stdout.write(
+                f"Variasi log/sinkron dipulihkan: {dipulihkan} dari {len(simpan)} "
+                "(sisanya milik FAQ yang tidak ada lagi di berkas)")
         for t in var_yatim[:5]:
             self.stderr.write(self.style.WARNING(
                 f"  ⚠️  variasi tanpa FAQ: {t[:70]}"))
@@ -269,6 +281,18 @@ class Command(BaseCommand):
         self.stdout.write(
             "Catatan: entri butuh_verifikasi TETAP masuk index; jawabannya "
             "diganti pesan eskalasi saat runtime (prinsip #4).")
+
+    def _pulihkan_variasi(self, simpan):
+        faq_per_teks = {_norm(f.pertanyaan): f for f in Faq.objects.all()}
+        n = 0
+        for tanya, teks, asal in simpan:
+            faq = faq_per_teks.get(_norm(tanya))
+            if faq is None:
+                continue
+            _, dibuat = FaqVariasi.objects.get_or_create(
+                faq=faq, teks=teks, defaults={"asal": asal})
+            n += dibuat
+        return n
 
     def _impor_variasi(self, variasi):
         """Tambahkan variasi ke FAQ yang pertanyaannya cocok (abaikan besar

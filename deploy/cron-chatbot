@@ -17,7 +17,12 @@ DJANGO_SETTINGS_MODULE=config.settings.prod_admin
 0 7 * * 1  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py ingatkan_kedaluwarsa --email panitia-pmb@ubb.ac.id >> /var/log/chatbot-cron.log 2>&1
 
 # Reindex malam hari — imbau agar tidak dijalankan saat jam sibuk
-30 2 * * *  deploy  cd /srv/chatbot_ubb && .venv/bin/python manage.py reindex >> /var/log/chatbot-cron.log 2>&1
+30 2 * * *  deploy  cd /srv/chatbot_ubb && flock -w 900 /tmp/chatbot-index.lock .venv/bin/python manage.py reindex >> /var/log/chatbot-cron.log 2>&1
+
+# Paket data tambahan hasil simulasi (data/sinkron/ di GitHub), tiap 15 menit.
+# Tanpa paket baru hanya membaca daftar.json. Kunci yang sama dengan reindex
+# malam supaya dua reindex tidak berjalan bersamaan.
+*/15 * * * *  deploy  cd /srv/chatbot_ubb && flock -n /tmp/chatbot-index.lock .venv/bin/python manage.py sinkron_data >> /var/log/chatbot-cron.log 2>&1
 
 # Simulasi mingguan (Senin 03:00): variasi rawan direbut + pertanyaan gagal/👎
 # 7 hari terakhir. Laporan ditimpa tiap minggu; buka lewat SFTP/scp.
