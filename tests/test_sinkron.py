@@ -110,6 +110,7 @@ class StatusTiruan:
         self.pesan = "Index v2 aktif" if berhasil else "Acc@1 0.700 < 0.85"
         self.acc_at_1 = 0.9 if berhasil else 0.7
         self.versi_baru = 2
+        self.gagal = []
 
 
 def test_perintah_reindex_hanya_bila_ada_perubahan(kb, tmp_path, monkeypatch):
@@ -184,3 +185,78 @@ def test_laporan_menampilkan_waktu_lokal(kb, tmp_path, settings):
     c.force_login(User.objects.create_superuser("op", "op@ubb.ac.id", "rahasia"))
     isi = c.get(reverse("admin:laporan_simulasi")).content.decode()
     assert "22 Okt 2026 00:00" in isi or "22 Oct 2026 00:00" in isi
+
+
+def test_paket_dipangkas_otomatis_lalu_diterapkan(kb, tmp_path, monkeypatch):
+    """Variasi paket yang merebut soal uji dibuang, sisanya tetap masuk."""
+    import faq.services as svc
+    from faq import actions
+    from retrieval.engine import Engine
+    from tests.test_engine import ModelTiruan
+
+    lain = Faq.objects.create(pertanyaan="Kapan daftar dibuka?", jawaban="Maret.")
+    monkeypatch.setattr(svc, "muat_engine",
+                        lambda: Engine(ModelTiruan(), None, tau_high=0.72, tau_low=0.60))
+    hasil = iter([StatusTiruan(False), StatusTiruan(True)])
+
+    def reindex(**kw):
+        st = next(hasil)
+        st.gagal = [] if st.berhasil else [
+            {"query": "biaya pendaftaran berapa", "harapan": "Kapan daftar dibuka?",
+             "dapat_faq_id": kb.id}]
+        return st
+
+    monkeypatch.setattr(actions, "jalankan_reindex", reindex)
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["biaya pendaftaran berapa ya",
+                                                          "uang kuliah per semester"],
+                                 "Kapan daftar dibuka?": ["pendaftaran mulai kapan"]},
+                faq_baru=[{"pertanyaan": "Ada asrama?", "jawaban": "Ada.",
+                           "variasi": ["asrama ubb"]}])
+    call_command("sinkron_data", "--sumber", str(folder))
+
+    st = sinkron.muat_status()["paket1.json"]
+    assert st["hasil"] == "ok"
+    assert st["variasi_baru"] == 3 and st["dipangkas"] == ["'biaya pendaftaran berapa ya'"]
+    assert not FaqVariasi.objects.filter(teks="biaya pendaftaran berapa ya").exists()
+    assert lain.variasi.filter(teks="pendaftaran mulai kapan").exists()
+    assert Faq.objects.filter(pertanyaan="Ada asrama?").exists()
+
+
+def test_faq_baru_paket_yang_merebut_dibuang(kb, tmp_path, monkeypatch):
+    from faq import actions
+    hasil = iter([StatusTiruan(False), StatusTiruan(True)])
+
+    def reindex(**kw):
+        st = next(hasil)
+        asrama = Faq.objects.filter(pertanyaan="Ada asrama?").first()
+        st.gagal = [] if st.berhasil else [
+            {"query": "x", "harapan": "Berapa biaya kuliah?", "dapat_faq_id": asrama.id}]
+        return st
+
+    monkeypatch.setattr(actions, "jalankan_reindex", reindex)
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["uang kuliah per semester"]},
+                faq_baru=[{"pertanyaan": "Ada asrama?", "jawaban": "Ada.",
+                           "variasi": ["asrama ubb"]}])
+    call_command("sinkron_data", "--sumber", str(folder))
+    st = sinkron.muat_status()["paket1.json"]
+    assert st["hasil"] == "ok" and st["faq_baru"] == 0 and st["variasi_baru"] == 1
+    assert not Faq.objects.filter(pertanyaan="Ada asrama?").exists()
+    assert not FaqVariasi.objects.filter(teks="asrama ubb").exists()
+
+
+def test_tetap_gagal_setelah_dipangkas_dibatalkan(kb, tmp_path, monkeypatch):
+    from faq import actions
+
+    def reindex(**kw):
+        st = StatusTiruan(False)
+        st.gagal = [{"query": "x", "harapan": "y", "dapat_faq_id": None}]
+        return st
+
+    monkeypatch.setattr(actions, "jalankan_reindex", reindex)
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["uang kuliah per semester"]})
+    call_command("sinkron_data", "--sumber", str(folder))
+    assert sinkron.muat_status()["paket1.json"]["hasil"] == "ditolak"
+    assert FaqVariasi.objects.count() == 1

@@ -87,6 +87,22 @@ class HasilPaket:
     faq_ids: list = field(default_factory=list)
     variasi_ids: list = field(default_factory=list)
 
+    def buang(self, faq_id: int | None = None, variasi_id: int | None = None) -> None:
+        """Hapus satu tambahan paket ini (dipakai saat pemangkasan otomatis)."""
+        with transaction.atomic():
+            if faq_id is not None:
+                ids = list(FaqVariasi.objects.filter(faq_id=faq_id).values_list("id", flat=True))
+                Faq.objects.filter(id=faq_id).delete()
+                self.faq_ids.remove(faq_id)
+                self.faq_baru -= 1
+                buang_v = [i for i in self.variasi_ids if i in ids]
+            else:
+                FaqVariasi.objects.filter(id=variasi_id).delete()
+                buang_v = [variasi_id]
+            for i in buang_v:
+                self.variasi_ids.remove(i)
+            self.variasi_baru -= len(buang_v)
+
     def batalkan(self) -> None:
         with transaction.atomic():
             FaqVariasi.objects.filter(id__in=self.variasi_ids).delete()
@@ -183,12 +199,18 @@ def ringkasan_status() -> dict:
     }
 
 
+PANGKAS_MAKS = 3
+
+
 def jalankan(sumber: str, terlarang: set[str] = frozenset(), tulis=print,
-             uji=None) -> int:
+             uji=None, pangkas=None) -> int:
     """Terapkan semua paket baru di `sumber`. Kembalikan jumlah perubahan.
 
     `uji()` dipanggil setelah tiap paket yang mengubah data dan mengembalikan
-    (lolos, keterangan_dict); paket yang tidak lolos dibatalkan.
+    (lolos, keterangan_dict); keterangan boleh memuat "gagal" (soal hard eval
+    yang salah). Bila tidak lolos dan `pangkas(hasil, gagal)` diberikan,
+    tambahan paket yang merebut soal itu dibuang lalu diuji lagi, paling
+    banyak PANGKAS_MAKS putaran. Paket yang tetap tidak lolos dibatalkan.
 
     Paket yang sudah diterapkan dilewati. Paket yang gagal atau ditolak
     dicatat dan baru dicoba lagi bila isinya berubah, supaya cron tidak
@@ -219,7 +241,22 @@ def jalankan(sumber: str, terlarang: set[str] = frozenset(), tulis=print,
                            keterangan=str(data_keterangan(isi))[:200])
             n = h.faq_baru + h.variasi_baru
             lolos, info = (True, {}) if (uji is None or not n) else uji()
+            dipangkas = []
+            for _ in range(PANGKAS_MAKS if pangkas else 0):
+                if lolos or not info.get("gagal"):
+                    break
+                dibuang = pangkas(h, info["gagal"])
+                if not dibuang:
+                    break
+                dipangkas += dibuang
+                tulis(f"    ✂️  {nama}: dibuang karena merebut soal uji: " + "; ".join(dibuang))
+                lolos, info = uji()
+            info.pop("gagal", None)
             catatan.update(info)
+            if dipangkas:
+                n = h.faq_baru + h.variasi_baru
+                catatan.update(ringkasan=h.ringkas(), faq_baru=h.faq_baru,
+                               variasi_baru=h.variasi_baru, dipangkas=dipangkas[:20])
             if lolos:
                 perubahan += n
                 tulis(f"✓ {nama}: {h.ringkas()}")
