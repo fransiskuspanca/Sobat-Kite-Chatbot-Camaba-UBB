@@ -196,3 +196,57 @@ def test_contoh_nyata_dari_server():
 
     assert p.tolak("apa resep nasi goreng?", faq("apa perbedaan ukt dan ipi"))
     assert p.tolak("berapa jumlah lulusan", faq("bagaimana ubb menentukan kelompok ukt"))
+
+
+class ModelUkt:
+    """Arah vektor ditentukan kata kunci: UKT, wisuda, atau lainnya.
+
+    Meniru pertanyaan lanjutan: "berapa jumlah lulusan" sendirian tidak cocok
+    dengan FAQ mana pun, tetapi begitu disambung konteks sesi ("... kelompok
+    UKT ...") skornya 1 terhadap FAQ UKT.
+    """
+
+    def encode(self, teks, **_):
+        def arah(t):
+            if "uang kuliah tunggal" in t:
+                return [1.0, 0.0, 0.0]
+            if "wisuda" in t:
+                return [0.0, 1.0, 0.0]
+            return [0.0, 0.0, 1.0]
+        return np.array([arah(t) for t in teks], dtype=np.float32)
+
+
+ENTRI_UKT = [e for e in ENTRI if e["faq_id"] in (1, 2)] + [
+    {"faq_id": 5, "teks": "jadwal wisuda dan jumlah lulusan"},
+    {"faq_id": 5, "teks": "kapan wisuda lulusan"},
+]
+
+
+def _engine_ukt():
+    from retrieval.text import normalize
+    m = ModelUkt()
+    vek = m.encode([normalize(e["teks"]) for e in ENTRI_UKT])
+    snap = Snapshot(versi=1, vektor=vek, pemilik=[e["faq_id"] for e in ENTRI_UKT], dim=3)
+    e = Engine(m, snap, tau_high=0.72, tau_low=0.60)
+    e.penjaga = PenjagaDomain(ENTRI_UKT)
+    return e
+
+
+def _meta_ukt(ids):
+    return {i: {"pertanyaan": f"faq {i}", "jawaban": f"jawaban {i}"} for i in ids}
+
+
+def test_lanjutan_tidak_nyambung_tidak_diselamatkan_konteks():
+    """Kasus nyata: "berapa jumlah lulusan" setelah bertanya kelompok UKT."""
+    k = _engine_ukt().jawab("berapa jumlah lulusan", _meta_ukt,
+                            konteks="Bagaimana UBB menentukan kelompok UKT?",
+                            faq_sebelumnya=2)
+    assert k.tipe != Tipe.JAWABAN
+
+
+def test_lanjutan_yang_nyambung_tetap_dijawab():
+    k = _engine_ukt().jawab("kalau biayanya?", _meta_ukt,
+                            konteks="Bagaimana UBB menentukan kelompok UKT?",
+                            faq_sebelumnya=2)
+    assert k.tipe == Tipe.JAWABAN
+    assert k.faq_id == 1
