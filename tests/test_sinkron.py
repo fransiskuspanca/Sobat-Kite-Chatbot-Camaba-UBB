@@ -170,3 +170,17 @@ def test_halaman_laporan_simulasi(kb, tmp_path, monkeypatch):
     assert r.status_code == 200
     isi = r.content.decode()
     assert "Simulasi jalur mandiri" in isi and "1 variasi baru" in isi
+
+
+def test_laporan_menampilkan_waktu_lokal(kb, tmp_path, settings):
+    from django.contrib.auth.models import User
+    from django.test import Client
+    from django.urls import reverse
+
+    settings.TIME_ZONE = "Asia/Jakarta"
+    sinkron.simpan_status({"p.json": {"hasil": "ok", "waktu": "2026-10-21T17:00:00+00:00",
+                                      "ringkasan": "1 variasi baru"}})
+    c = Client()
+    c.force_login(User.objects.create_superuser("op", "op@ubb.ac.id", "rahasia"))
+    isi = c.get(reverse("admin:laporan_simulasi")).content.decode()
+    assert "22 Okt 2026 00:00" in isi or "22 Oct 2026 00:00" in isi
