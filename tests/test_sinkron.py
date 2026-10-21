@@ -122,7 +122,8 @@ def test_perintah_reindex_hanya_bila_ada_perubahan(kb, tmp_path, monkeypatch):
     tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["ukt berapa"]})  # tidak mengubah apa pun
     call_command("sinkron_data", "--sumber", str(folder))
     call_command("sinkron_data", "--sumber", str(folder))
-    assert dipanggil == [{"pengguna": "sinkron"}]
+    assert [kw["pengguna"] for kw in dipanggil] == ["sinkron"]
+    assert dipanggil[0]["ambang"] == pytest.approx(0.85)
     st = sinkron.muat_status()["paket1.json"]
     assert st["acc_at_1"] == 0.9 and st["variasi_baru"] == 1
 
@@ -138,6 +139,20 @@ def test_paket_yang_menurunkan_akurasi_dibatalkan(kb, tmp_path, monkeypatch):
     assert list(Faq.objects.values_list("pertanyaan", flat=True)) == ["Berapa biaya kuliah?"]
     assert FaqVariasi.objects.count() == 1
     assert sinkron.muat_status()["paket1.json"]["hasil"] == "ditolak"
+
+
+def test_ambang_paket_adalah_akurasi_index_aktif(kb, tmp_path, monkeypatch):
+    from faq import actions
+    from faq.models import IndexVersion
+    IndexVersion.objects.create(versi=1, vektor=b"", pemilik=[], dim=1, jumlah_vektor=0,
+                                jumlah_answer=0, acc_at_1=0.9167, aktif=True)
+    ambang = []
+    monkeypatch.setattr(actions, "jalankan_reindex",
+                        lambda **kw: ambang.append(kw["ambang"]) or StatusTiruan(True))
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["biaya semester"]})
+    call_command("sinkron_data", "--sumber", str(folder))
+    assert ambang and abs(ambang[0] - 0.9167) < 1e-6
 
 
 def test_halaman_laporan_simulasi(kb, tmp_path, monkeypatch):
