@@ -31,7 +31,8 @@ class Command(BaseCommand):
         terlarang = {sinkron._norm(q) for qs in hard.values() for q in qs}
         uji = None if opts["tanpa_reindex"] else self._uji
         try:
-            sinkron.jalankan(opts["sumber"], terlarang, tulis=self.stdout.write, uji=uji)
+            sinkron.jalankan(opts["sumber"], terlarang, tulis=self.stdout.write,
+                             uji=uji, pangkas=self._pangkas)
         except (OSError, ValueError) as e:
             raise CommandError(f"Gagal membaca paket dari {opts['sumber']}: {e}")
 
@@ -53,7 +54,40 @@ class Command(BaseCommand):
         except RuntimeError as e:
             return False, {"pesan": str(e)[:300]}
         info = {"pesan": st.pesan[:300], "acc_at_1": st.acc_at_1,
-                "versi_index": st.versi_baru if st.berhasil else None}
+                "versi_index": st.versi_baru if st.berhasil else None,
+                "gagal": list(st.gagal or [])}
         if st.berhasil:
             self.stdout.write(self.style.SUCCESS(f"✅ {st.pesan}"))
         return bool(st.berhasil), info
+
+    def _pangkas(self, hasil, gagal):
+        """Buang tambahan paket yang merebut soal hard eval.
+
+        Soal yang dimenangi FAQ baru dari paket: FAQ itu dibuang. Soal yang
+        dimenangi FAQ lama: variasi paket di FAQ itu yang paling mirip dengan
+        soalnya dibuang. Soal yang dimenangi FAQ tanpa tambahan paket memang
+        sudah salah sebelumnya, jadi dibiarkan.
+        """
+        import numpy as np
+
+        from faq.models import Faq, FaqVariasi
+        from faq.services import muat_engine
+
+        engine = muat_engine()
+        dibuang = []
+        for g in gagal:
+            fid = g.get("dapat_faq_id")
+            if fid in hasil.faq_ids:
+                dibuang.append(f"FAQ baru {Faq.objects.get(id=fid).pertanyaan[:60]!r}")
+                hasil.buang(faq_id=fid)
+                continue
+            calon = list(FaqVariasi.objects.filter(id__in=hasil.variasi_ids, faq_id=fid)
+                         .values_list("id", "teks"))
+            if not calon or engine is None:
+                continue
+            q = engine.encode([g["query"]], is_query=True)
+            v = engine.encode([t for _, t in calon], is_query=False)
+            i = int(np.argmax(v @ q[0]))
+            dibuang.append(repr(calon[i][1][:60]))
+            hasil.buang(variasi_id=calon[i][0])
+        return dibuang

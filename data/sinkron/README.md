@@ -4,7 +4,9 @@ Hasil simulasi pertanyaan camaba. Server menjalankan `manage.py sinkron_data`
 tiap 15 menit (lihat `deploy/cron-chatbot`): paket yang tercantum di
 `daftar.json` dan belum pernah diterapkan akan diimpor, lalu reindex dengan
 regression gate biasa. Bentuk paket dijelaskan di `faq/sinkron.py`.
-Paket yang membuat regression gate gagal dibatalkan otomatis. Riwayatnya
+Paket yang membuat regression gate gagal dipangkas otomatis (variasi atau FAQ
+baru yang merebut soal uji dibuang, lalu diuji lagi); bila tetap gagal, paket
+dibatalkan. Riwayatnya
 terlihat di admin: menu **Laporan data simulasi**.
 
 - Paket hanya menambah. Jawaban FAQ yang sudah ada tidak pernah ditimpa.
