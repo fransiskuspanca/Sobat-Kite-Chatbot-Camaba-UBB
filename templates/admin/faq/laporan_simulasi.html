@@ -1,0 +1,64 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div style="max-width:78rem">
+  <p style="color:#64748b;margin-bottom:1rem">
+    Data tambahan hasil simulasi pertanyaan camaba. Server mengambil paket baru dari
+    GitHub tiap 15 menit; paket yang menurunkan akurasi otomatis dibatalkan.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
+              gap:1rem;margin-bottom:1.5rem">
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">Paket diterapkan</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">{{ paket_ok }}</div>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">Variasi dari simulasi</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">
+        <a href="{{ url_variasi }}">{{ variasi_aktif }}</a></div>
+      <div style="color:#94a3b8;font-size:.75rem;margin-top:.2rem">
+        {{ variasi_log }} lagi dari tombol Tautkan</div>
+    </div>
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem;background:#fff">
+      <div style="color:#64748b;font-size:.8rem">FAQ baru dari simulasi</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">{{ faq_baru }}</div>
+    </div>
+    <div style="border:1px solid {% if menunggu %}#fde68a{% else %}#e2e8f0{% endif %};
+                border-radius:10px;padding:1rem;background:{% if menunggu %}#fffbeb{% else %}#fff{% endif %}">
+      <div style="color:#64748b;font-size:.8rem">Jawaban menunggu persetujuan</div>
+      <div style="font-size:1.6rem;font-weight:600;color:#0f172a">
+        <a href="{{ url_menunggu }}">{{ menunggu }}</a></div>
+    </div>
+  </div>
+
+  <h2 style="font-size:1rem;margin:1.5rem 0 .6rem;color:#0f172a">Riwayat paket</h2>
+  <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px">
+    <table style="width:100%;border-collapse:collapse;background:#fff">
+      <thead><tr style="background:#f8fafc;text-align:left">
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Waktu</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Paket</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Hasil</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Tambahan</th>
+        <th style="padding:.6rem 1rem;font-size:.8rem;color:#475569">Akurasi uji</th>
+      </tr></thead>
+      <tbody>
+        {% for p in paket %}
+        <tr style="border-top:1px solid #f1f5f9">
+          <td style="padding:.6rem 1rem;white-space:nowrap">{{ p.waktu|slice:":16"|cut:"T"|default:"—" }}</td>
+          <td style="padding:.6rem 1rem">{{ p.keterangan|default:p.nama }}
+            <div style="color:#94a3b8;font-size:.75rem">{{ p.nama }}</div></td>
+          <td style="padding:.6rem 1rem;color:{% if p.hasil == 'ok' %}#15803d{% else %}#dc2626{% endif %}">
+            {% if p.hasil == "ok" %}diterapkan{% elif p.hasil == "ditolak" %}dibatalkan (akurasi turun){% else %}gagal dibaca{% endif %}
+            {% if p.hasil != "ok" and p.pesan %}<div style="color:#94a3b8;font-size:.75rem">{{ p.pesan }}</div>{% endif %}</td>
+          <td style="padding:.6rem 1rem">{{ p.ringkasan|default:"—" }}</td>
+          <td style="padding:.6rem 1rem">{% if p.acc_at_1 is not None %}{{ p.acc_at_1|floatformat:3 }}{% else %}—{% endif %}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" style="padding:1rem;color:#64748b">Belum ada paket yang diterapkan.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

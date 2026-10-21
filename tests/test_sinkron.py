@@ -104,17 +104,54 @@ def test_paket_gagal_dicoba_lagi_hanya_bila_berubah(kb, tmp_path):
     assert sinkron.jalankan(str(folder)) == 1
 
 
+class StatusTiruan:
+    def __init__(self, berhasil):
+        self.berhasil = berhasil
+        self.pesan = "Index v2 aktif" if berhasil else "Acc@1 0.700 < 0.85"
+        self.acc_at_1 = 0.9 if berhasil else 0.7
+        self.versi_baru = 2
+
+
 def test_perintah_reindex_hanya_bila_ada_perubahan(kb, tmp_path, monkeypatch):
     from faq import actions
     dipanggil = []
-
-    class St:
-        berhasil, pesan = True, "Index v2 aktif"
-
     monkeypatch.setattr(actions, "jalankan_reindex",
-                        lambda **kw: dipanggil.append(kw) or St())
+                        lambda **kw: dipanggil.append(kw) or StatusTiruan(True))
     folder = tmp_path / "sinkron"
     tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["biaya semester"]})
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["ukt berapa"]})  # tidak mengubah apa pun
     call_command("sinkron_data", "--sumber", str(folder))
     call_command("sinkron_data", "--sumber", str(folder))
     assert dipanggil == [{"pengguna": "sinkron"}]
+    st = sinkron.muat_status()["paket1.json"]
+    assert st["acc_at_1"] == 0.9 and st["variasi_baru"] == 1
+
+
+def test_paket_yang_menurunkan_akurasi_dibatalkan(kb, tmp_path, monkeypatch):
+    from faq import actions
+    monkeypatch.setattr(actions, "jalankan_reindex", lambda **kw: StatusTiruan(False))
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, variasi={"Berapa biaya kuliah?": ["biaya semester"]},
+                faq_baru=[{"pertanyaan": "Ada asrama?", "jawaban": "Ada.",
+                           "variasi": ["asrama ubb"]}])
+    call_command("sinkron_data", "--sumber", str(folder))
+    assert list(Faq.objects.values_list("pertanyaan", flat=True)) == ["Berapa biaya kuliah?"]
+    assert FaqVariasi.objects.count() == 1
+    assert sinkron.muat_status()["paket1.json"]["hasil"] == "ditolak"
+
+
+def test_halaman_laporan_simulasi(kb, tmp_path, monkeypatch):
+    from django.contrib.auth.models import User
+    from django.test import Client
+    from django.urls import reverse
+
+    folder = tmp_path / "sinkron"
+    tulis_paket(folder, keterangan="Simulasi jalur mandiri",
+                variasi={"Berapa biaya kuliah?": ["biaya semester"]})
+    sinkron.jalankan(str(folder))
+    c = Client()
+    c.force_login(User.objects.create_superuser("op", "op@ubb.ac.id", "rahasia"))
+    r = c.get(reverse("admin:laporan_simulasi"))
+    assert r.status_code == 200
+    isi = r.content.decode()
+    assert "Simulasi jalur mandiri" in isi and "1 variasi baru" in isi

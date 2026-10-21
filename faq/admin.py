@@ -11,7 +11,7 @@ from django.contrib import admin, messages
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, JsonResponse
 from django.middleware.csrf import get_token
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.db import models
 from django.db.models import Count
 from django.urls import path, reverse
@@ -294,11 +294,37 @@ class FaqAdmin(ModelAdmin):
 
 @admin.register(FaqVariasi)
 class FaqVariasiAdmin(ModelAdmin):
-    list_display = ("teks_singkat", "faq_terkait", "asal")
-    list_filter = ("asal",)
+    list_display = ("teks_singkat", "faq_terkait", "asal", "dibuat")
+    list_filter = ("asal", "dibuat")
     search_fields = ("teks", "faq__pertanyaan")
     list_per_page = 50
     autocomplete_fields = ("faq",)
+
+    def get_urls(self):
+        return [
+            path("laporan-simulasi/",
+                 self.admin_site.admin_view(self.laporan_simulasi),
+                 name="laporan_simulasi"),
+        ] + super().get_urls()
+
+    def laporan_simulasi(self, request):
+        """Berapa data hasil simulasi yang sudah masuk (manage.py sinkron_data)."""
+        from faq import sinkron
+
+        if not self.has_view_permission(request):
+            raise PermissionDenied
+        ring = sinkron.ringkasan_status()
+        konteks = {
+            **self.admin_site.each_context(request),
+            "title": "Laporan data simulasi",
+            **ring,
+            "variasi_aktif": FaqVariasi.objects.filter(asal="augmentasi").count(),
+            "variasi_log": FaqVariasi.objects.filter(asal="log").count(),
+            "menunggu": Faq.objects.filter(butuh_verifikasi=True, aktif=True).count(),
+            "url_variasi": reverse("admin:faq_faqvariasi_changelist") + "?asal__exact=augmentasi",
+            "url_menunggu": reverse("admin:faq_faq_changelist") + "?butuh_verifikasi__exact=1",
+        }
+        return render(request, "admin/faq/laporan_simulasi.html", konteks)
 
     @display(description="Variasi", ordering="teks")
     def teks_singkat(self, obj):
