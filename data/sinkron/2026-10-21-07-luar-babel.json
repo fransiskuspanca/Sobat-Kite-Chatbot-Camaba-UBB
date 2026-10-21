@@ -1,0 +1,200 @@
+{
+ "variasi": {
+  "Apakah tersedia asrama?": [
+   "Anak saya dari Palembang, apakah UBB menyediakan asrama?",
+   "ortu nanya, ubb punya asrama buat mahasiswa dari luar pulau ga?",
+   "aku dari lampung, ada asrama kampus ubb gak kak?",
+   "Apakah mahasiswa baru dari Jakarta bisa tinggal di asrama UBB?",
+   "asrama maba luar babel di ubb ada?",
+   "min, wisma ubb bisa dipake mahasiswa dari luar daerah ga?"
+  ],
+  "Apakah kampus UBB aman?": [
+   "Saya orang tua dari Jakarta, apakah kampus UBB aman untuk anak saya?",
+   "anak cewe merantau ke ubb, kampusnya aman gak ya kak?",
+   "ortu khawatir, keamanan kampus ubb gimana buat mahasiswa luar daerah?",
+   "kampus ubb aman ga buat anak perantau dari palembang?",
+   "Apakah lingkungan Kampus Balunijuk aman bagi mahasiswa yang jauh dari orang tua?"
+  ],
+  "Apakah kampus UBB dijaga satpam 24 jam?": [
+   "orang tua mau tau, kampus ubb ada satpam jaga malam ga?",
+   "Bagi mahasiswa perantau, apakah kampus UBB dijaga petugas keamanan 24 jam?"
+  ],
+  "Bagaimana cara menuju kampus UBB?": [
+   "sampai pangkalpinang, lanjut ke kampus ubb naik apa?",
+   "dari pelabuhan pangkalbalam ke kampus ubb naik apa kak?",
+   "bisa naik ojol ke kampus ubb balunijuk gak?",
+   "Dari Jakarta ke UBB naik apa?",
+   "Rute dari Lampung menuju Universitas Bangka Belitung bagaimana?",
+   "kak, dari jawa ke kampus ubb transportasinya apa aja?",
+   "Bisa naik kapal laut dari Palembang ke Bangka untuk ke UBB?",
+   "ke ubb dari kalimantan gimana caranya",
+   "Pelabuhan apa yang terdekat dari kampus UBB untuk pendatang dari luar pulau?"
+  ],
+  "Berapa jarak kampus UBB dari bandara?": [
+   "baru turun pesawat di pangkalpinang, ke ubb jauh ga?",
+   "Orang tua yang mengantar naik pesawat, berapa lama dari bandara ke kampus UBB?",
+   "jarak depati amir ke kampus balunijuk brp km"
+  ],
+  "Apakah UBB memiliki kampus cabang?": [
+   "ubb ada kampus cabang di jakarta atau palembang ga?",
+   "Apakah UBB punya kampus di luar Pulau Bangka?",
+   "aku di lampung, ada kampus ubb cabang terdekat gak?",
+   "kuliah ubb harus di bangka atau ada cabang di kota lain?"
+  ],
+  "Dimana lokasi kampus UBB?": [
+   "ubb itu di pulau bangka bagian mana sih?",
+   "Saya dari luar Babel, kampus UBB tepatnya ada di kota mana?"
+  ],
+  "Apakah pendaftaran PMB UBB bisa dilakukan offline?": [
+   "aku di palembang, harus datang ke kampus ubb buat daftar ga?",
+   "Saya tinggal di Jakarta, apakah pendaftaran UBB wajib datang ke Bangka?",
+   "daftar ubb dari luar pulau bisa tanpa datang ke kampus?"
+  ],
+  "Apakah ada kuliah online?": [
+   "aku di jakarta, bisa kuliah ubb full online tanpa pindah ke bangka?",
+   "Apakah mahasiswa dari luar daerah bisa kuliah daring penuh tanpa ke Bangka?",
+   "kuliah ubb bisa dari rumah di lampung ga, online gitu"
+  ],
+  "Bagaimana seleksi jalur Talenta Unggul Daerah (TUD)?": [
+   "anak luar babel boleh daftar jalur tud ga?",
+   "Saya lulusan SMA di Palembang, apakah bisa ikut jalur Talenta Unggul Daerah?",
+   "jalur talenta unggul daerah khusus anak bangka belitung aja ya?",
+   "Apakah TUD hanya untuk lulusan sekolah di Provinsi Kepulauan Bangka Belitung?"
+  ],
+  "Bagaimana suasana kampus?": [
+   "buat anak kota dari jakarta, suasana kampus ubb kayak gimana?"
+  ]
+ },
+ "faq_baru": [
+  {
+   "pertanyaan": "Apakah calon mahasiswa dari luar Bangka Belitung boleh mendaftar di UBB?",
+   "jawaban": "Tentu boleh. UBB adalah perguruan tinggi negeri yang dapat dipilih melalui seleksi nasional SNBP dan SNBT, serta jalur SMMPTN-Barat dan Tes Mandiri UBB, sesuai persyaratan masing-masing jalur. Satu-satunya jalur yang khusus bagi lulusan SMA/SMK/MA di Provinsi Kepulauan Bangka Belitung adalah Talenta Unggul Daerah. Untuk memastikan ketentuan terbaru bagi pendaftar dari luar daerah, silakan hubungi panitia PMB UBB.",
+   "kategori": "D. Jalur Masuk",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Orang luar Babel boleh kuliah di UBB?",
+    "aku dari palembang, bisa daftar ubb gak kak?",
+    "ubb nerima mahasiswa dari luar bangka belitung ga?",
+    "Saya siswa SMA di Jakarta, apakah bisa mendaftar ke UBB?",
+    "anak lampung bisa masuk ubb ga min",
+    "Apakah UBB hanya menerima mahasiswa asli Bangka Belitung?",
+    "jalur apa aja yang bisa diikuti camaba dari luar babel?",
+    "Siswa dari luar provinsi bisa ikut jalur mandiri UBB?",
+    "mahasiswa dari jawa atau kalimantan bisa kuliah di ubb?",
+    "kak aku bukan orang bangka, boleh daftar ubb?",
+    "Calon mahasiswa luar daerah bisa masuk UBB lewat jalur apa saja?",
+    "ubb khusus putra daerah aja atau terbuka untuk umum?"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah ada kuota atau prioritas untuk putra daerah Bangka Belitung di UBB?",
+   "jawaban": "UBB memiliki jalur Talenta Unggul Daerah yang khusus diperuntukkan bagi lulusan SMA/SMK/MA di Provinsi Kepulauan Bangka Belitung yang berprestasi tingkat nasional/internasional atau hafiz Al-Qur'an. Kuota setiap jalur ditetapkan per program studi setiap tahun dan informasinya dapat dilihat di https://pmb.ubb.ac.id/pages/infomandiri. Mengenai ada tidaknya prioritas atau kuota khusus putra daerah di jalur lain, silakan tanyakan langsung ke panitia PMB UBB.",
+   "kategori": "D. Jalur Masuk",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "UBB ada kuota khusus putra daerah?",
+    "apakah anak bangka belitung diprioritaskan masuk ubb?",
+    "kalau aku dari luar babel, peluang masuk ubb lebih kecil ga dibanding putra daerah?",
+    "Apakah ada prioritas penerimaan bagi warga asli Bangka Belitung?",
+    "kuota putra daerah ubb ada gak kak",
+    "Apakah pendaftar dari luar daerah bersaing dengan kuota yang sama di UBB?",
+    "min, ubb lebih utamain anak lokal babel ga?",
+    "Berapa persen kursi UBB untuk putra daerah?",
+    "Apakah ada pembatasan kuota bagi mahasiswa luar Bangka Belitung?",
+    "putra daerah babel dapet jatah khusus di ubb?"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah tes masuk UBB harus dilakukan di Bangka?",
+   "jawaban": "Tergantung jalurnya. Pada SNBT, peserta memilih sendiri pusat UTBK saat mendaftar di Portal SNPMB, sehingga dapat memilih lokasi ujian yang sesuai. Untuk Tes Mandiri UBB yang berupa ujian berbasis komputer (CBT), informasi lokasi dan cara pelaksanaannya diumumkan oleh panitia, jadi silakan pastikan ke panitia PMB UBB sebelum merencanakan perjalanan.",
+   "kategori": "D. Jalur Masuk",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Ujian masuk UBB wajib datang ke Bangka?",
+    "aku di palembang, tes ubb harus ke bangka ga?",
+    "lokasi tes mandiri ubb di mana aja?",
+    "Kalau milih UBB di SNBT, UTBK-nya harus di Bangka?",
+    "utbk bisa di jakarta walaupun pilih prodi ubb?",
+    "Apakah Tes Mandiri UBB bisa diikuti dari luar daerah?",
+    "kak, tes cbt ubb dilaksanain di kampus balunijuk aja?",
+    "Apakah ada lokasi ujian Tes Mandiri UBB di luar Pulau Bangka?",
+    "anak lampung ikut tes ubb harus nyebrang ke bangka?",
+    "tempat ujian seleksi masuk ubb dimana",
+    "Pusat UTBK terdekat untuk pendaftar UBB dari luar Babel di mana?"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah daftar ulang mahasiswa baru UBB bisa dilakukan dari luar daerah?",
+   "jawaban": "Proses daftar ulang UBB meliputi pengisian data, unggah dokumen, pembayaran biaya pendidikan, dan verifikasi oleh universitas, dengan jadwal dan tahapan yang diumumkan melalui portal PMB UBB. Apakah ada tahapan yang mengharuskan hadir langsung di kampus dapat berbeda tiap jalur dan tahun, jadi silakan pastikan ke panitia PMB UBB agar dapat menyesuaikan jadwal keberangkatan.",
+   "kategori": "AA. Pertanyaan Administratif",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Daftar ulang UBB harus datang langsung ke kampus?",
+    "aku di jakarta, registrasi ulang ubb bisa online ga?",
+    "maba dari luar pulau daftar ulangnya gimana, wajib ke bangka?",
+    "Apakah registrasi ulang UBB bisa dilakukan dari rumah tanpa ke Bangka?",
+    "kak, verifikasi berkas daftar ulang ubb harus hadir ga?",
+    "Mahasiswa baru dari Palembang perlu ke Bangka saat daftar ulang?",
+    "her-registrasi ubb bisa jarak jauh?",
+    "anak saya di lampung, daftar ulang ubb wajib datang sendiri?",
+    "kapan maba luar daerah harus sudah ada di bangka?",
+    "daftar ulang ubb online semua atau ada yang offline?"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah ada kos di sekitar kampus UBB?",
+   "jawaban": "UBB belum menyediakan asrama untuk mahasiswa secara umum, sehingga mahasiswa dari luar daerah biasanya mencari tempat tinggal sendiri seperti kos. Informasi mengenai ketersediaan dan pilihan kos di sekitar kampus tidak dikelola langsung oleh UBB, jadi silakan tanyakan ke panitia PMB UBB atau organisasi mahasiswa untuk mendapatkan rekomendasi.",
+   "kategori": "J. Asrama Mahasiswa",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Ada kos dekat kampus UBB Balunijuk?",
+    "kos kosan sekitar ubb banyak ga kak?",
+    "Cari kos dekat Universitas Bangka Belitung di mana?",
+    "aku dari palembang, nyari kost deket ubb gimana?",
+    "rekomendasi kos sekitar kampus ubb dong",
+    "Apakah mahasiswa UBB biasanya ngekos di Balunijuk atau Pangkalpinang?",
+    "kost putri dekat ubb ada?",
+    "Bagaimana mencari tempat kos yang dekat dengan kampus UBB?",
+    "min, ada info kontrakan atau kos buat maba ubb?",
+    "kos dekat kampus ubb susah dicari gak?"
+   ]
+  },
+  {
+   "pertanyaan": "Berapa biaya hidup mahasiswa yang kuliah di UBB?",
+   "jawaban": "Biaya hidup mahasiswa di Bangka sangat bergantung pada pilihan tempat tinggal, pola makan, dan transportasi masing-masing. UBB tidak menetapkan angka resmi biaya hidup, sehingga sebaiknya orang tua dan calon mahasiswa menyiapkan anggaran untuk kos, makan, transportasi, dan kebutuhan kuliah. Untuk gambaran lebih rinci, silakan tanyakan ke panitia PMB UBB.",
+   "kategori": "H. Biaya Pendidikan",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Biaya hidup di Bangka untuk mahasiswa berapa per bulan?",
+    "kak, biaya hidup kuliah di ubb brp sebulan?",
+    "anak rantau di ubb butuh uang saku berapa?",
+    "living cost mahasiswa ubb kira-kira berapa",
+    "biaya makan sehari-hari di bangka mahal ga?",
+    "Orang tua perlu menyiapkan uang bulanan berapa untuk anak kuliah di UBB?",
+    "Apakah biaya hidup di Pangkalpinang lebih mahal dari Palembang?",
+    "min, hidup di bangka buat mahasiswa mahal gak?",
+    "uang saku bulanan anak kuliah di ubb kira-kira berapa ya",
+    "biaya hidup sebulan di pangkalpinang buat mahasiswa rantau berapa"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah UKT mahasiswa dari luar Bangka Belitung berbeda?",
+   "jawaban": "Kelompok UKT di UBB ditentukan berdasarkan kemampuan ekonomi mahasiswa dan/atau orang tua/wali melalui dokumen pendukung seperti data penghasilan orang tua dan Kartu Keluarga, sesuai ketentuan Kemendiktisaintek dan kebijakan UBB. Untuk memastikan ada tidaknya perbedaan biaya berdasarkan asal daerah, silakan tanyakan ke panitia PMB UBB.",
+   "kategori": "H. Biaya Pendidikan",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "UKT anak luar Babel lebih mahal?",
+    "apakah ukt mahasiswa dari palembang sama dengan anak bangka?",
+    "Biaya kuliah UBB dibedakan berdasarkan asal daerah?",
+    "kak, ukt ubb buat mahasiswa luar provinsi beda ga?",
+    "Mahasiswa dari Jakarta bayar UKT lebih tinggi di UBB?",
+    "ukt putra daerah dan luar daerah di ubb sama aja?",
+    "Apakah KTP luar Bangka Belitung memengaruhi kelompok UKT?",
+    "min, ada tarif ukt khusus mahasiswa luar daerah?",
+    "orang luar babel kuliah di ubb ukt nya gimana",
+    "Apakah domisili orang tua di luar Babel memengaruhi UKT UBB?"
+   ]
+  }
+ ],
+ "keterangan": "Camaba dari luar Bangka Belitung"
+}
