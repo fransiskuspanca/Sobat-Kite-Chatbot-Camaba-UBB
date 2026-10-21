@@ -1,0 +1,464 @@
+{
+ "variasi": {
+  "Gagal login ke sistem pendaftaran PMB UBB, apa yang harus dilakukan?": [
+   "ngape aku dak pacak login ke pmb ubb padahal akun lah dibuat",
+   "lah dicoba berape kali login daftar ubb tetap gagal kek mane ni",
+   "gabisa log in akun pendaftran ubb muncul tulisan gagal terus",
+   "cant login to pmb ubb account, apa yg harus aku lakukan",
+   "Mohon bantuannya Bapak/Ibu, anak saya tidak dapat masuk ke akun pendaftaran PMB UBB meskipun email dan kata sandinya sudah sesuai. Apa yang sebaiknya dilakukan?",
+   "saya kemarin sudah bikin akun buat tes mandiri, hari ini mau lanjut isi biodata tapi login pmb ubb ditolak, kenapa ya",
+   "login akun pmb ubb lewat hp gagal terus",
+   "akun pmb ubb dak biseh masuk kate e username salah"
+  ],
+  "Password akun PMB UBB salah atau lupa, apa yang harus dilakukan?": [
+   "aku lupe password akun pmb ubb kek mane cara reset e",
+   "lupa pasword akun daftar ubb gmn cara balikinnya",
+   "forgot password akun pendaftaran ubb, ada menu reset ga",
+   "Mohon maaf Bapak/Ibu, anak saya lupa kata sandi akun pendaftaran PMB UBB. Bagaimana cara memulihkannya?",
+   "dulu yang buatin akun pmb ubb kakak saya, sekarang saya gak tau passwordnya, gimana cara ganti password",
+   "kate sandi akun pmb ubb salah terus padahal lah ngetik betul",
+   "cara ganti kata sandi pmb ubb yg kelupaan",
+   "password pendaftaran ubb ga ingat lagi tolong"
+  ],
+  "Email verifikasi PMB UBB tidak masuk, apa yang harus dilakukan?": [
+   "email verifikasi daftar ubb dak masuk-masuk lah setengah ari",
+   "verifikasi emial akun pmb ubb gak dateng dateng",
+   "Mohon informasinya, email aktivasi akun pendaftaran PMB UBB anak saya belum diterima sejak kemarin. Apa langkah yang harus ditempuh?",
+   "verification email pmb ubb belum masuk inbox, harus apa",
+   "saya daftar akun pmb pakai email sekolah, tapi link verifikasinya gak pernah sampai, apa salah email ya",
+   "kode aktivasi akun pmb ubb ke email ga muncul",
+   "ngape email konfirmasi pmb ubb dak ade di gmail aku"
+  ],
+  "Tidak bisa mengunggah berkas di pendaftaran PMB UBB, apa yang harus dilakukan?": [
+   "berkas aku dak pacak diupload di pmb ubb ngape e",
+   "upload dokumen pmb ubb failed terus, ada solusi?",
+   "Mohon bantuan Bapak/Ibu, anak saya mencoba mengunggah dokumen persyaratan di sistem pendaftaran UBB namun selalu gagal. Apa yang perlu kami lakukan?",
+   "unggah berkas pendaftran ubb error mulu",
+   "dokumen ku dak masuk ke sistem pmb ubb lah dicoba upload berulang"
+  ],
+  "File berkas pendaftaran PMB UBB terlalu besar, apa yang harus dilakukan?": [
+   "file scan kk aku kebesaran untuk pmb ubb kek mane ngecilkan e",
+   "max size file upload pmb ubb berapa mb",
+   "Mohon informasinya, berkas yang akan diunggah melebihi batas ukuran file di sistem PMB UBB. Bagaimana cara mengatasinya?",
+   "ukuran pdf berkas daftar ubb lewat batas mksimal",
+   "file size berkas pmb ubb melebihi limit gmn compress nya"
+  ],
+  "Pembayaran pendaftaran PMB UBB belum terverifikasi, apa yang harus dilakukan?": [
+   "lah bayar biaya daftar ubb tapi status e belum terverifikasi kek mane ni",
+   "udh transfer biaya pendaftaran ubb dari kemarin blm terverifikasi jg",
+   "payment pendaftaran ubb udah lunas tapi belum diverifikasi",
+   "Mohon maaf Bapak/Ibu, saya sudah membayar biaya pendaftaran Tes Mandiri UBB untuk anak saya, namun hingga kini belum terverifikasi. Apa yang harus saya lakukan?",
+   "saya bayar pendaftaran lewat teller bank tadi pagi dan sudah ada struknya, tapi di akun pmb ubb masih belum terverifikasi, perlu lapor ke mana",
+   "berape lame verifikasi pembayaran pmb ubb keluar",
+   "bukti bayar pendaftaran ubb udh ada tapi blm dikonfirmasi sistem"
+  ],
+  "Status pendaftaran PMB UBB belum berubah, apa yang harus dilakukan?": [
+   "status pendaftaran aku di pmb ubb dak berubah-ubah lah lame",
+   "status akun daftar ubb masi belum lengkap padhal semua udah diisi",
+   "status registrasi pmb ubb stuck di proses, kenapa ya",
+   "Mohon informasinya Bapak/Ibu, status pendaftaran anak saya di PMB UBB tidak berubah sejak beberapa hari lalu. Apakah ada yang perlu kami lakukan?",
+   "saya sudah upload berkas dan bayar semua, tapi status pendaftaran di pmb ubb masih menunggu, harus nunggu berapa lama",
+   "ngape status pendaftaran ubb aku masih same bae"
+  ],
+  "Website PMB UBB tidak bisa dibuka, apa yang harus dilakukan?": [
+   "web pmb ubb dak pacak dibuke dari tadi kek mane",
+   "situs pmb ubb loading trs gak kebuka2",
+   "pmb.ubb.ac.id site cant be reached, kenapa ya",
+   "Mohon informasinya Bapak/Ibu, laman PMB UBB tidak dapat diakses dari ponsel saya sejak pagi. Apakah sedang ada gangguan?",
+   "saya di desa sinyalnya pas pasan, website pmb ubb gak pernah kebuka padahal web lain bisa, gimana",
+   "website pendaftaran ubb muncul error 502"
+  ],
+  "Bagaimana cara reset akun mahasiswa UBB?": [
+   "akun siakad mahasiswa ubb aku dak pacak masuk lagi kek mane reset e",
+   "Mohon informasinya, akun SIAKAD anak saya yang sudah menjadi mahasiswa UBB tidak dapat diakses. Bagaimana cara mengatur ulang akunnya?",
+   "reset pw siakad ubb hubungi siapa",
+   "akun akademik mhs ubb ke lock gmn buka nya"
+  ],
+  "Bagaimana aktivasi akun mahasiswa baru UBB?": [
+   "kek mane cara aktifkan akun siakad maba ubb",
+   "Mohon informasinya, setelah anak saya selesai registrasi, bagaimana cara mengaktifkan akun mahasiswa barunya di UBB?",
+   "aktivasi akun mhs baru ubb lewat mn"
+  ],
+  "Bagaimana cara mendapatkan NIM UBB?": [
+   "NIM ubb kapan dapet e lah daftar ulang",
+   "Mohon informasinya, kapan anak saya akan memperoleh Nomor Induk Mahasiswa UBB?",
+   "nim maba ubb keluar nya stelah registrasi kah"
+  ],
+  "Bagaimana cara mendapatkan KTM UBB?": [
+   "ktm ubb kapan dibagi kek mane ngambil e",
+   "Mohon informasinya, bagaimana prosedur memperoleh Kartu Tanda Mahasiswa UBB?",
+   "kartu mahasiswa ubb jadi nya kpn",
+   "student id card ubb dapetnya gimana"
+  ],
+  "Bagaimana cara daftar ulang mahasiswa baru UBB?": [
+   "aku lah lulus tes mandiri, kek mane cara daftar ulang e",
+   "Mohon informasinya Bapak/Ibu, anak saya dinyatakan lulus seleksi UBB. Bagaimana tata cara daftar ulangnya?",
+   "langkah2 registrasi ulang maba ubb apa aja",
+   "how to daftar ulang ubb abis lulus seleksi"
+  ],
+  "Bagaimana cara membuat akun pendaftaran PMB UBB?": [
+   "kek mane cara buat akun di daftar ubb aku belum pernah",
+   "Mohon informasinya, bagaimana langkah membuat akun pendaftaran PMB UBB untuk anak saya?",
+   "bikin akun pmb ubb pake email apa aja bole",
+   "saya mau daftar tes mandiri tapi belum punya akun di sistem pmb, registrasi akunnya dimana"
+  ],
+  "Di mana link pendaftaran PMB UBB?": [
+   "ape link website untuk daftar ubb",
+   "Mohon dibagikan tautan resmi pendaftaran mahasiswa baru UBB, Bapak/Ibu.",
+   "link daftr maba ubb yg asli mana"
+  ],
+  "Bagaimana cara daftar online PMB UBB?": [
+   "kek mane cara daftar online di ubb dari awal",
+   "Mohon dijelaskan langkah-langkah pendaftaran online mahasiswa baru UBB, Bapak/Ibu.",
+   "step by step daftar online ubb gimana",
+   "saya baru lulus smk dan belum pernah daftar kuliah, alur daftar online pmb ubb itu gimana ya"
+  ],
+  "Apakah pendaftaran PMB UBB bisa dilakukan offline?": [
+   "pacak dak daftar ubb langsung datang ke kampus",
+   "Mohon informasinya, apakah pendaftaran dapat dilakukan langsung di kampus UBB karena kami kurang paham internet?",
+   "daftar ubb harus online kah atau ada offline"
+  ],
+  "Di mana tempat melakukan pendaftaran mahasiswa baru UBB?": [
+   "daftar maba ubb tu dimane tempat e",
+   "Mohon informasinya, di mana tempat pendaftaran mahasiswa baru UBB untuk setiap jalur?",
+   "tmpt daftar snbp snbt sama mandiri ubb di mana aja"
+  ],
+  "Kapan pendaftaran dibuka?": [
+   "bile pendaftaran ubb dibuke",
+   "Mohon informasinya, kapan pendaftaran mahasiswa baru UBB dibuka tahun ini?",
+   "kapn pmb ubb open registration",
+   "saya rencana gap year dulu, kira kira pendaftaran ubb tahun depan dibuka kapan"
+  ],
+  "Kapan pendaftaran mahasiswa baru UBB ditutup?": [
+   "bile pendaftaran ubb ditutup",
+   "Mohon informasinya, kapan batas akhir pendaftaran mahasiswa baru UBB?",
+   "deadline pendaftran mandiri ubb tgl brp"
+  ],
+  "Kapan pengumuman hasil seleksi PMB UBB?": [
+   "bile pengumuman lulus ubb keluar",
+   "Mohon informasinya, kapan hasil seleksi penerimaan mahasiswa baru UBB diumumkan?",
+   "kapn pengumuman hasil seleksi ubb",
+   "announcement hasil tes ubb kapan"
+  ],
+  "Kapan daftar ulang mahasiswa baru UBB?": [
+   "bile jadwal daftar ulang maba ubb",
+   "Mohon informasinya, kapan jadwal registrasi ulang bagi anak saya yang lulus di UBB?",
+   "tanggal regis ulang ubb kpn ya"
+  ],
+  "Kapan perkuliahan mahasiswa baru UBB dimulai?": [
+   "bile mulai kuliah maba ubb",
+   "Mohon informasinya, kapan perkuliahan mahasiswa baru UBB dimulai?"
+  ],
+  "Kapan jadwal tes masuk UBB?": [
+   "bile tes masuk ubb dilaksanakan",
+   "Mohon informasinya, kapan jadwal ujian seleksi masuk UBB?",
+   "jadwl tes ubb kpn"
+  ],
+  "Apakah PMB UBB ada gelombang kedua?": [
+   "ade dak gelombang due pendaftaran ubb",
+   "Mohon informasinya, apakah UBB membuka penerimaan gelombang kedua?",
+   "pmb ubb ada gel 2 ga"
+  ],
+  "Apa saja syarat pendaftaran mahasiswa baru UBB?": [
+   "ape bae syarat daftar maba ubb",
+   "Mohon informasinya, apa saja persyaratan pendaftaran mahasiswa baru di UBB?",
+   "requirement daftar ubb apa aja",
+   "saya anak smk jurusan tkj nilai pas pasan, syarat umum buat daftar ubb apa aja"
+  ],
+  "Dokumen apa saja yang harus disiapkan untuk mendaftar di UBB?": [
+   "berkas ape bae yang disiapkan untuk daftar ubb",
+   "Mohon informasinya, dokumen apa saja yang perlu kami siapkan untuk pendaftaran anak kami di UBB?",
+   "list dokumen buat daftar ubb apa aja"
+  ],
+  "Apakah mendaftar di UBB perlu ijazah asli?": [
+   "ijazah asli perlu dak untuk daftar ubb",
+   "Mohon informasinya, apakah pendaftaran UBB mewajibkan ijazah asli?",
+   "ijazah yg diupload daftar ubb harus asli kah"
+  ],
+  "Apakah bisa mendaftar di UBB memakai SKL?": [
+   "ijazah aku belum keluar, pacak dak pakai skl untuk daftar ubb",
+   "Mohon informasinya, apakah anak saya dapat mendaftar di UBB menggunakan Surat Keterangan Lulus?",
+   "daftar ubb pake skl boleh ga"
+  ],
+  "Apakah mendaftar di UBB perlu Kartu Keluarga (KK)?": [
+   "kk perlu dak untuk daftar ubb",
+   "Mohon informasinya, apakah Kartu Keluarga wajib diunggah saat pendaftaran UBB?"
+  ],
+  "Apakah mendaftar di UBB perlu KTP?": [
+   "aku belum ade ktp, pacak dak daftar ubb",
+   "Mohon informasinya, anak saya belum memiliki KTP. Apakah pendaftaran UBB tetap bisa dilakukan?",
+   "ktp wajib ga buat daftr ubb"
+  ],
+  "Apakah pas foto harus warna tertentu?": [
+   "pas foto untuk daftar ubb latar e warna ape",
+   "Mohon informasinya, pas foto pendaftaran UBB harus berlatar warna apa?",
+   "foto selfie boleh ga buat pas foto daftar ubb"
+  ],
+  "Berapa ukuran pas foto untuk pendaftaran UBB?": [
+   "ukuran pas foto daftar ubb berape piksel",
+   "Mohon informasinya, berapa ukuran pas foto yang diminta untuk pendaftaran UBB?",
+   "pas foto pmb ubb resolusinya brp"
+  ],
+  "Apakah harus mengunggah sertifikat saat mendaftar di UBB?": [
+   "sertifikat lomba wajib diupload dak waktu daftar ubb",
+   "Mohon informasinya, apakah sertifikat prestasi harus diunggah saat pendaftaran di UBB?"
+  ],
+  "Berapa UKT di UBB?": [
+   "berape ukt di ubb kalau ambil teknik",
+   "Mohon informasinya Bapak/Ibu, berapa besaran Uang Kuliah Tunggal di UBB?",
+   "ukt fee ubb range nya brp",
+   "saya dari keluarga petani lada, kira kira ukt di ubb berapa ya"
+  ],
+  "Berapa uang pangkal (IPI) di UBB?": [
+   "berape uang pangkal masuk ubb",
+   "Mohon informasinya, berapa besar Iuran Pengembangan Institusi di UBB?",
+   "ipi ubb brp sih"
+  ],
+  "Apakah UBB memungut SPI?": [
+   "ade dak spi di ubb",
+   "Mohon informasinya, apakah UBB mengenakan Sumbangan Pengembangan Institusi (SPI)?"
+  ],
+  "Berapa biaya kuliah per semester di UBB?": [
+   "biaya kuliah per semester di ubb berape",
+   "Mohon informasinya, berapa biaya kuliah yang harus dibayar setiap semester di UBB?",
+   "fee per smester ubb brp"
+  ],
+  "Bagaimana sistem pembayaran UKT di UBB?": [
+   "kek mane cara bayar ukt ubb",
+   "Mohon informasinya, melalui bank apa pembayaran UKT di UBB dilakukan?",
+   "bayar ukt ubb pake va bank apa"
+  ],
+  "Apakah UKT di UBB bisa dicicil?": [
+   "ukt ubb pacak dicicil dak",
+   "Mohon informasinya, apakah UKT anak saya di UBB dapat dibayar secara angsuran?",
+   "ukt ubb bisa installment ga",
+   "orang tua saya kerja serabutan, kalau ukt ubb dibayar nyicil 3 kali boleh ga"
+  ],
+  "Bagaimana cara melihat kelompok UKT saya di UBB?": [
+   "kek mane cara liat golongan ukt aku di ubb",
+   "Mohon informasinya, di mana kami dapat melihat kelompok UKT anak kami di UBB?",
+   "cek klompok ukt ubb dmn"
+  ],
+  "Bagaimana UBB menentukan kelompok UKT?": [
+   "kek mane ubb nentukan golongan ukt",
+   "Mohon informasinya, apa dasar penetapan kelompok UKT mahasiswa di UBB?",
+   "golongan ukt ubb ditentuin dari apa"
+  ],
+  "Apakah ada biaya praktikum di UBB?": [
+   "ade dak biaya praktikum di ubb",
+   "Mohon informasinya, apakah ada biaya tambahan untuk praktikum di UBB?"
+  ],
+  "Bagaimana jika mahasiswa gagal daftar ulang karena kendala ekonomi?": [
+   "aku lah lulus ubb tapi dak de duit untuk daftar ulang kek mane",
+   "Mohon maaf Bapak/Ibu, kami belum mampu membayar biaya daftar ulang anak kami di UBB. Apakah ada solusinya?"
+  ],
+  "Apakah besaran UKT (Uang Kuliah Tunggal) mahasiswa dapat berubah selama masa perkuliahan?": [
+   "ukt ubb pacak berubah dak selama kuliah",
+   "Mohon informasinya, apakah UKT anak saya dapat diturunkan jika kondisi ekonomi keluarga berubah?"
+  ],
+  "Beasiswa apa saja yang disediakan UBB?": [
+   "beasiswa ape bae yang ade di ubb",
+   "Mohon informasinya, jenis beasiswa apa saja yang tersedia di UBB?",
+   "list beasiswa di ubb apa aja"
+  ],
+  "Bagaimana cara mendapatkan beasiswa di UBB?": [
+   "Mohon informasinya, bagaimana prosedur agar anak saya bisa memperoleh beasiswa di UBB?"
+  ],
+  "Siapa yang bisa mendaftar beasiswa di UBB?": [
+   "sape yang pacak daftar beasiswa di ubb",
+   "Mohon informasinya, siapa saja yang berhak mendaftar beasiswa di UBB?"
+  ],
+  "Apa syarat KIP Kuliah?": [
+   "ape syarat kip kuliah untuk masuk ubb",
+   "Mohon informasinya, apa saja persyaratan KIP Kuliah bagi anak kami?",
+   "requirement kip-k apa aja",
+   "syrat kipk apaan aja"
+  ],
+  "Apakah ada Beasiswa Bank Indonesia?": [
+   "ade dak beasiswa bank indonesia di ubb",
+   "Mohon informasinya, apakah UBB memiliki program Beasiswa Bank Indonesia (GenBI)?"
+  ],
+  "Apakah ada Beasiswa Baznas?": [
+   "ade dak beasiswa baznas di ubb",
+   "Mohon informasinya, apakah UBB membuka Beasiswa BAZNAS?",
+   "bsiswa baznas ubb ada ga"
+  ],
+  "Apakah UBB punya beasiswa prestasi?": [
+   "ade dak beasiswa prestasi di ubb",
+   "Mohon informasinya, apakah UBB memiliki beasiswa berdasarkan prestasi?"
+  ],
+  "Apakah UBB punya beasiswa untuk hafiz Al-Qur'an?": [
+   "ade dak beasiswa khusus hafiz quran di ubb",
+   "Mohon informasinya, apakah UBB menyediakan beasiswa bagi hafiz Al-Qur'an?"
+  ],
+  "Apakah beasiswa di UBB menanggung biaya kuliah penuh?": [
+   "beasiswa di ubb nanggung kuliah penuh dak",
+   "Mohon informasinya, apakah beasiswa di UBB membiayai kuliah secara penuh?",
+   "beasiswa ubb full cover ga"
+  ],
+  "Dimanakah saya dapat melihat informasi mengenai beasiswa yang tersedia?": [
+   "info beasiswa ubb diliat dimane",
+   "Mohon informasinya, di mana kami bisa memantau pengumuman beasiswa UBB?"
+  ],
+  "Apa saja beasiswa yang dapat didaftar oleh calon mahasiswa baru?": [
+   "aku masih camaba, beasiswa ape yang pacak didaftar",
+   "Mohon informasinya, beasiswa apa yang bisa didaftar anak saya sebagai calon mahasiswa baru UBB?"
+  ],
+  "Bagaimana cara mengetahui tingkatan desil untuk menerima beasiswa KIP-K?": [
+   "kek mane cara tau desil aku untuk kip-k",
+   "Mohon informasinya, bagaimana cara mengetahui tingkatan desil keluarga kami untuk KIP-K?",
+   "cek desil kipk dmn"
+  ],
+  "Bagaimana tahapan dalam permohonan beasiswa bagi mahasiswa yang kurang mampu?": [
+   "aku dari keluarga dak mampu, kek mane cara ngajukan beasiswa di ubb",
+   "Mohon informasinya, bagaimana tahapan pengajuan beasiswa bagi mahasiswa kurang mampu di UBB?"
+  ],
+  "Apa saja jalur masuk ke Universitas Bangka Belitung?": [
+   "jalur masuk ubb ape bae",
+   "Mohon informasinya, melalui jalur apa saja anak saya bisa masuk UBB?",
+   "jalur admission ubb apa aja"
+  ],
+  "Ada berapa jalur masuk ke UBB?": [
+   "berape banyak jalur masuk ubb"
+  ],
+  "Bagaimana alur penerimaan mahasiswa baru di UBB dari mendaftar sampai menjadi mahasiswa?": [
+   "alur e kek mane dari daftar sampai jadi mahasiswa ubb",
+   "Mohon dijelaskan, bagaimana alur dari pendaftaran sampai anak saya resmi menjadi mahasiswa UBB?",
+   "flow dari daftar sampe jadi mhs ubb gmn"
+  ],
+  "Apakah boleh mendaftar lebih dari satu jalur masuk UBB?": [
+   "pacak dak daftar due jalur sekaligus di ubb",
+   "Mohon informasinya, apakah anak saya boleh mengikuti lebih dari satu jalur seleksi UBB?"
+  ],
+  "Saya lulusan SMA tahun lalu, apakah masih bisa mendaftar ke UBB?": [
+   "aku lulus taun lalu masih pacak dak daftar ubb",
+   "Mohon informasinya, anak saya lulus SMA dua tahun lalu. Apakah masih bisa mendaftar di UBB?"
+  ],
+  "Apa itu jalur mandiri UBB?": [
+   "jalur mandiri ubb tu ape sebener e",
+   "Mohon dijelaskan, apa yang dimaksud jalur mandiri UBB?"
+  ],
+  "Apakah UBB membuka jalur mandiri?": [
+   "ubb buke jalur mandiri dak",
+   "Mohon informasinya, apakah UBB menerima mahasiswa melalui jalur mandiri tahun ini?"
+  ],
+  "Apa perbedaan UKT dan IPI di UBB?": [
+   "ape beda ukt same ipi di ubb",
+   "Mohon dijelaskan perbedaan UKT dan IPI di UBB, Bapak/Ibu."
+  ],
+  "Jenjang pendidikan apa saja yang dibuka di UBB?": [
+   "jenjang ape bae yang ade di ubb d3 s1 s2",
+   "Mohon informasinya, jenjang pendidikan apa saja yang tersedia di UBB?"
+  ],
+  "Apa itu SNBP?": [
+   "snbp tu ape",
+   "Mohon dijelaskan, apa yang dimaksud dengan SNBP?"
+  ],
+  "Apa itu SNBT?": [
+   "snbt tu ape"
+  ],
+  "Bagaimana syarat SNBP?": [
+   "ape syarat ikut snbp",
+   "Mohon informasinya, apa saja persyaratan mengikuti SNBP?",
+   "requirement snbp apa aja"
+  ],
+  "Bagaimana syarat SNBT?": [
+   "ape syarat ikut snbt",
+   "Mohon informasinya, apa saja persyaratan mengikuti SNBT?",
+   "requirement snbt apa aja"
+  ],
+  "Kapan SNBP dibuka?": [
+   "bile snbp dibuke",
+   "Mohon informasinya, kapan pendaftaran SNBP dibuka?"
+  ],
+  "Kapan SNBT dibuka?": [
+   "bile snbt dibuke",
+   "Mohon informasinya, kapan pendaftaran SNBT dibuka?"
+  ],
+  "Bagaimana cara daftar SNBP?": [
+   "kek mane cara daftar snbp",
+   "Mohon informasinya, bagaimana langkah pendaftaran SNBP?"
+  ],
+  "Bagaimana cara daftar SNBT?": [
+   "kek mane cara daftar snbt",
+   "Mohon informasinya, bagaimana langkah pendaftaran SNBT?"
+  ],
+  "Berapa biaya SNBT?": [
+   "berape biaya daftar utbk snbt",
+   "Mohon informasinya, berapa biaya pendaftaran UTBK-SNBT?"
+  ],
+  "Berapa biaya pendaftaran Tes Mandiri UBB?": [
+   "berape biaya daftar tes mandiri ubb",
+   "Mohon informasinya, berapa biaya pendaftaran Tes Mandiri UBB?",
+   "registration fee tes mandiri ubb brp"
+  ],
+  "Kapan jadwal jalur mandiri UBB?": [
+   "bile jadwal jalur mandiri ubb",
+   "Mohon informasinya, kapan jadwal pendaftaran jalur mandiri UBB?"
+  ],
+  "Apakah ada jalur afirmatif seperti khusus daerah tertinggal atau kurang mampu?": [
+   "ade dak jalur afirmasi untuk anak dak mampu di ubb",
+   "Mohon informasinya, apakah UBB memiliki jalur afirmasi untuk daerah tertinggal?"
+  ]
+ },
+ "faq_baru": [
+  {
+   "pertanyaan": "Pembayaran biaya pendaftaran PMB UBB gagal atau kode bayar kedaluwarsa, apa yang harus dilakukan?",
+   "jawaban": "Pastikan nominal dan kode pembayaran yang dimasukkan sesuai dengan yang tertera di akun PMB, lalu periksa apakah saldo Anda sudah terpotong. Jika transaksi gagal tetapi saldo terpotong, atau kode pembayaran sudah kedaluwarsa, simpan bukti transaksi dan hubungi Helpdesk PMB UBB melalui WhatsApp 0813-6543-4222 untuk pengecekan. Ketentuan rinci mengenai masa berlaku kode pembayaran dapat ditanyakan langsung ke panitia PMB.",
+   "kategori": "AB. Pertanyaan Teknis Website PMB",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "pembayaran pendaftaran pmb ubb gagal terus",
+    "kode bayar pendaftaran ubb aku lah expired kek mane",
+    "transaksi bayar daftar ubb ditolak di m-banking",
+    "virtual account pendaftaran ubb kadaluarsa sebelum sempat bayar",
+    "payment failed pas bayar biaya pendaftaran ubb",
+    "Mohon bantuan Bapak/Ibu, pembayaran biaya pendaftaran anak saya gagal namun saldo rekening sudah terpotong. Apa yang harus dilakukan?",
+    "saya mau bayar pendaftaran tes mandiri di atm tapi kode bayarnya dibilang tidak valid, harus gimana",
+    "bayar daftar ubb gagal tapi duit kepotong",
+    "ngape kode pembayaran pmb ubb dak pacak dipakai",
+    "kode va pendaftaran ubb udh lewat batas waktu bisa minta baru ga",
+    "Bagaimana jika transaksi pembayaran pendaftaran PMB UBB gagal?"
+   ]
+  },
+  {
+   "pertanyaan": "Bagaimana jika salah mengisi data pendaftaran PMB UBB?",
+   "jawaban": "Selama pendaftaran belum difinalisasi, periksa apakah data masih dapat diperbaiki melalui menu biodata di akun PMB UBB. Jika data sudah terkunci atau tidak bisa diubah sendiri, segera hubungi Helpdesk PMB UBB melalui WhatsApp 0813-6543-4222 dengan menyertakan nomor pendaftaran dan data yang perlu diperbaiki. Ketentuan perubahan data setelah finalisasi dapat ditanyakan langsung ke panitia PMB.",
+   "kategori": "AB. Pertanyaan Teknis Website PMB",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "salah isi data di pendaftaran pmb ubb bisa diedit ga",
+    "nama aku salah ketik di biodata pmb ubb kek mane benerin e",
+    "cara ubah biodata pendaftaran ubb yang udah tersimpan",
+    "typo nik waktu daftar pmb ubb gmn benerinnya",
+    "Mohon bantuannya Bapak/Ibu, tanggal lahir anak saya salah diinput pada formulir pendaftaran UBB. Bagaimana cara memperbaikinya?",
+    "saya sudah finalisasi pendaftaran mandiri tapi ternyata nama sekolah salah, masih bisa diganti ga",
+    "edit data pendaftaran ubb setelah submit bisa kah",
+    "data diri di akun pmb ubb keliru mau diperbaiki",
+    "salah pilih prodi di formulir pmb ubb bisa diubah dak",
+    "ingin mengoreksi data yang salah pada pendaftaran PMB UBB",
+    "wrong input data di form pendaftaran ubb"
+   ]
+  },
+  {
+   "pertanyaan": "Kartu peserta ujian PMB UBB tidak bisa dicetak atau diunduh, apa yang harus dilakukan?",
+   "jawaban": "Kartu peserta umumnya baru dapat dicetak setelah seluruh tahapan pendaftaran selesai, termasuk unggah berkas dan verifikasi pembayaran. Pastikan status pendaftaran Anda sudah lengkap, lalu coba unduh ulang menggunakan browser lain atau perangkat lain. Jika tetap tidak bisa, hubungi Helpdesk PMB UBB melalui WhatsApp 0813-6543-4222; informasi rinci mengenai jadwal pencetakan kartu dapat ditanyakan ke panitia PMB.",
+   "kategori": "AB. Pertanyaan Teknis Website PMB",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "kartu peserta tes mandiri ubb gak bisa dicetak",
+    "ngape kartu ujian pmb ubb dak muncul untuk diunduh",
+    "cetak kartu peserta pendaftaran ubb error",
+    "tombol print kartu peserta pmb ubb gak ada",
+    "Mohon bantuan Bapak/Ibu, kartu peserta ujian anak saya belum bisa diunduh dari akun PMB UBB. Apa yang harus kami lakukan?",
+    "saya udah bayar dan upload semua berkas tapi kartu peserta tes ubb belum bisa di download, kenapa ya",
+    "download kartu ujian ubb failed",
+    "kartu peserta pmb ubb kek mane cara cetak e",
+    "kartu tes ubb hilang bisa cetak ulang ga",
+    "kartu peserta ujian ubb blm keluar di akun",
+    "Bagaimana cara mengunduh kartu peserta ujian PMB UBB?"
+   ]
+  }
+ ],
+ "keterangan": "Putaran 2: pendaftaran, biaya, teknis website (logat Bangka, typo, campur Inggris)"
+}

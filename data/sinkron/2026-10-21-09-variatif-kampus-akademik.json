@@ -1,0 +1,531 @@
+{
+ "variasi": {
+  "Apakah tersedia asrama?": [
+   "ubb ade asrama dak untuk mahasiswa",
+   "Mohon informasinya Bapak/Ibu, apakah UBB menyediakan asrama bagi mahasiswa baru?",
+   "saya dari belitung mau kuliah di balunijuk tp gk ada keluarga di bangka, kampus nyediain asrama gak",
+   "is there any dormitory for students at ubb",
+   "asrama kampus ubb buat maba ade lah",
+   "wisma ubb tu buat sape bisa ditempati mahasiswa biasa dak"
+  ],
+  "Apakah ada laboratorium komputer?": [
+   "lab komputer ubb ade dak buat praktikum",
+   "saya anak SMK jurusan TKJ, di rumah gak punya laptop bagus, di ubb ada lab komputer yang bisa dipakai gak",
+   "ada computer lab gak buat anak jurusan IT di ubb",
+   "lab komputer ubb bisa dipake mahasiswa praktikum ngoding ga"
+  ],
+  "Apakah ada laboratorium bahasa?": [
+   "lab bahasa ubb ade dak",
+   "Mohon informasi, apakah UBB memiliki laboratorium bahasa untuk latihan listening bahasa Inggris?",
+   "lab bahasa di ubb dikelola upa bahasa ya"
+  ],
+  "Apakah ada laboratorium teknik?": [
+   "anak teknik mesin praktikum di lab teknik mana di ubb",
+   "lab teknik sipil sama elektro di fst ubb ade dak",
+   "fasilitas laboratorium teknik pertambangan ubb ada ga",
+   "saya lulusan SMK otomotif mau ambil teknik mesin, lab teknik buat praktikumnya ada gak di ubb"
+  ],
+  "Apakah ada perpustakaan digital?": [
+   "perpustakaan digital ubb bisa diakses dari rumah dak",
+   "e library ubb bisa download jurnal ga",
+   "Mohon informasinya, apakah tersedia perpustakaan digital yang dapat diakses mahasiswa secara daring?",
+   "saya kerja sambil kuliah jadi jarang ke perpus, ada perpustakaan digital ubb yang bisa diakses online gak",
+   "cari skripsi kakak tingkat di repository perpus digital ubb bisa ga"
+  ],
+  "Apakah ada klinik kesehatan?": [
+   "klinik kesehatan di kampus ubb ade dak",
+   "Mohon informasinya, apabila anak saya sakit di kampus, apakah ada klinik kesehatan UBB?",
+   "anak saya punya maag kambuhan, di kampus ubb ada klinik kesehatan buat berobat gak",
+   "klinik ubb buat mahasiswa periksa kesehatan bisa ga"
+  ],
+  "Apakah ada masjid?": [
+   "masjid di kampus ubb ade dak",
+   "Mohon informasi Bapak/Ibu, apakah di kampus UBB terdapat masjid untuk salat Jumat?",
+   "masjid al ikhlas ubb itu di dalam kampus ya",
+   "tempat sholat jumat di kampus ubb balunijuk ada masjid ga"
+  ],
+  "Apakah ada kantin?": [
+   "kantin kampus ubb ade dak",
+   "kantin ubb makanannya murah ga buat anak kos",
+   "Mohon informasinya, apakah di lingkungan kampus UBB tersedia kantin untuk makan siang mahasiswa?",
+   "jeda kuliah mau makan siang kantin ubb ada di kampus ga"
+  ],
+  "Apakah ada ATM?": [
+   "atm di dalam kampus ubb ade dak",
+   "Mohon informasinya, apakah tersedia mesin ATM di kampus UBB untuk anak saya mengambil uang kiriman?",
+   "ortu transfer uang saku, ambilnya di atm kampus ubb bisa ga",
+   "atm bni ade dak di kampus ubb"
+  ],
+  "Apakah ada minimarket?": [
+   "minimarket di kampus ubb ade dak",
+   "beli alat tulis sama print tugas di ubb mart atau gubuk printing ya",
+   "ubb mart jual kebutuhan sehari hari ga",
+   "tempat fotokopi dan print di kampus ubb ada ga"
+  ],
+  "Apakah ada fasilitas olahraga?": [
+   "lapangan futsal kampus ubb ade dak",
+   "fasilitas olahraga ubb ada jogging track ga",
+   "saya atlet basket di sekolah, di ubb ada lapangan basket buat latihan gak"
+  ],
+  "Apakah ada auditorium?": [
+   "auditorium ubb ade dak buat acara seminar",
+   "gedung auditorium ubb muat banyak orang ga buat kuliah umum",
+   "Mohon informasinya, apakah UBB memiliki auditorium untuk kegiatan seminar dan wisuda?"
+  ],
+  "Apakah mahasiswa mendapatkan fasilitas akun seperti SIAKAD, Edlink, dan email kampus?": [
+   "maba ubb dapet akun siakad sama edlink dak",
+   "akun edlink ubb buat kuliah online dikasih kampus ga",
+   "mahasiswa ubb dapet email kampus kek @ubb dak",
+   "Mohon informasinya, akun apa saja seperti SIAKAD dan Edlink yang diberikan kepada mahasiswa baru UBB?",
+   "student account siakad edlink ubb dapet kapan"
+  ],
+  "Apa saja UKM?": [
+   "ukm di ubb ape bae",
+   "saya suka main musik sama pecinta alam, ukm di ubb ada apa aja ya",
+   "list ukm ubb dong",
+   "Mohon informasi, Unit Kegiatan Mahasiswa apa saja yang tersedia di UBB?",
+   "ukm seni dan olahraga ubb apa aja"
+  ],
+  "Bagaimana cara bergabung UKM?": [
+   "kek mane cara masuk ukm di ubb",
+   "daftar ukm ubb pas pkkmb atau expo organisasi",
+   "how to join ukm at ubb",
+   "aku maba pengen ikut ukm fotografi, caranya daftar gmn",
+   "gabung ukm ubb harus nunggu jadi mahasiswa dulu ya"
+  ],
+  "Apa saja organisasi mahasiswa?": [
+   "organisasi kemahasiswaan ubb ape bae selain ukm",
+   "Mohon informasinya, organisasi kemahasiswaan apa saja yang dapat diikuti mahasiswa UBB?",
+   "jenis organisasi mahasiswa di ubb apa aja"
+  ],
+  "Apakah ada Himpunan Mahasiswa?": [
+   "hima prodi di ubb ade dak",
+   "himpunan mahasiswa jurusan ubb itu ngapain aja",
+   "tiap jurusan di ubb punya himpunan mahasiswa sendiri ga",
+   "Mohon informasinya, apakah setiap program studi di UBB memiliki himpunan mahasiswa?"
+  ],
+  "Ada berapa Organisasi Kemahasiswaan (Ormawa) di Universitas Bangka Belitung?": [
+   "ormawa di ubb ade berape",
+   "jumlah organisasi kemahasiswaan tingkat universitas di ubb ada brp",
+   "berapa total ormawa ubb termasuk ukm"
+  ],
+  "Apa saja prestasi yang telah diperoleh oleh Organisasi Kemahasiswaan UBB?": [
+   "prestasi ormawa ubb ape bae",
+   "ukm ubb pernah menang lomba tingkat nasional ga",
+   "achievement organisasi mahasiswa ubb apa aja"
+  ],
+  "Bagaimana Universitas Bangka Belitung menelusuri minat dan bakat bagi mahasiswa baru?": [
+   "minat bakat maba ubb didata kek mane",
+   "saya pernah juara lomba pas sma, nanti data prestasinya diisi pas daftar ulang ubb buat minat bakat ya",
+   "pendataan minat dan bakat mahasiswa baru ubb lewat apa"
+  ],
+  "Bagaimana Universitas Bangka Belitung mendukung prestasi yang diperoleh oleh mahasiswa?": [
+   "mahasiswa ubb yang juara lomba dapet penghargaan ape",
+   "katanya juara lomba bisa bebas skripsi di fppk ubb bener ga",
+   "reward buat mahasiswa berprestasi di ubb apa aja"
+  ],
+  "Apakah ada komunitas IT?": [
+   "komunitas it di ubb ade dak",
+   "study club cybersecurity ubb bisa diikuti anak jurusan IT",
+   "saya anak SMK RPL suka ngoding, di ubb ada komunitas IT atau study club gak",
+   "komunitas AI atau kecerdasan buatan di ubb ada ga"
+  ],
+  "Apakah ada komunitas robotik?": [
+   "komunitas robotik ubb ade dak",
+   "saya pernah ikut lomba robot di sma, di ubb ada komunitas robotik buat lanjut gak"
+  ],
+  "Apakah ada komunitas bahasa?": [
+   "komunitas bahasa inggris di ubb ade dak",
+   "english club ubb di bawah sastra inggris ya",
+   "saya pengen lancar ngomong inggris, ada komunitas bahasa di ubb buat latihan gak"
+  ],
+  "Bagaimana suasana kampus?": [
+   "suasana kampus ubb kek mane",
+   "kampus balunijuk itu hijau asri apa panas gersang",
+   "how is the campus vibe at ubb",
+   "Mohon informasinya, bagaimana suasana lingkungan Kampus Terpadu Balunijuk untuk belajar?",
+   "kampus ubb jauh dari keramaian kota ga suasananya"
+  ],
+  "Apakah banyak kegiatan mahasiswa?": [
+   "kegiatan mahasiswa di ubb banyak dak",
+   "selain kuliah, di ubb ada kegiatan lomba seminar sama pkm ga",
+   "saya pengen kuliah yang aktif ga cuma belajar, kegiatan mahasiswa ubb banyak gak"
+  ],
+  "Apakah mahasiswa wajib mengikuti organisasi?": [
+   "wajib dak ikut organisasi di ubb",
+   "saya mau kuliah sambil kerja jadi gak sempat ikut organisasi, apa organisasi wajib di ubb",
+   "Mohon informasinya, apakah anak saya diwajibkan mengikuti organisasi kemahasiswaan di UBB?",
+   "ikut organisasi kampus ubb itu wajib atau pilihan aja"
+  ],
+  "Apakah ada ospek?": [
+   "ospek ubb ade dak",
+   "ospek di ubb ada perpeloncoan gak takut",
+   "Mohon informasinya, apakah mahasiswa baru UBB mengikuti ospek atau orientasi?",
+   "is there ospek for new students at ubb"
+  ],
+  "Apa itu PKKMB?": [
+   "pkkmb tu ape",
+   "kepanjangan pkkmb ubb apa",
+   "Mohon penjelasannya, kegiatan PKKMB di UBB itu seperti apa?",
+   "pkkmb ubb isinya kegiatan apa aja"
+  ],
+  "Berapa lama masa studi di UBB?": [
+   "kuliah s1 di ubb berape taun",
+   "s1 ubb normalnya 4 tahun ya atau bisa lebih",
+   "Mohon informasinya, berapa lama masa studi program sarjana di UBB?",
+   "saya mau kuliah sambil kerja, kalau lambat lulus batas maksimal masa studi di ubb berapa tahun"
+  ],
+  "Berapa SKS maksimal per semester di UBB?": [
+   "sks maksimal semester di ubb berape",
+   "ambil sks paling banyak per semester di ubb tergantung ips gak",
+   "max sks per semester di ubb berapa"
+  ],
+  "Bagaimana sistem KRS di UBB?": [
+   "isi krs di ubb kek mane",
+   "krs ubb isi online di siakad tiap awal semester ya",
+   "how to fill krs ubb",
+   "krs ubb harus disetujui dosen wali dulu"
+  ],
+  "Bagaimana sistem KHS di UBB?": [
+   "khs ubb liat di mane",
+   "kartu hasil studi ubb muncul kapan setelah uas",
+   "cek ips ipk di khs siakad ubb gimana",
+   "nilai ips ipk semester ubb muncul di khs siakad kapan"
+  ],
+  "Apakah mahasiswa UBB punya dosen wali?": [
+   "dosen wali di ubb ade dak",
+   "Mohon informasinya, apakah setiap mahasiswa UBB dibimbing oleh dosen wali?",
+   "kalau ada masalah kuliah konsultasi ke dosen pembimbing akademik ubb",
+   "dosen pa ubb itu tugasnya apa aja"
+  ],
+  "Bagaimana sistem perkuliahan di UBB?": [
+   "sistem perkuliahan di ubb kek mane",
+   "kuliah di ubb ada praktikum seminar sama studi lapangan juga ga",
+   "Mohon informasinya, bagaimana sistem perkuliahan yang diterapkan di UBB?",
+   "kuliah ubb pake lms juga ga selain tatap muka"
+  ],
+  "Apakah perkuliahan di UBB memakai sistem hybrid?": [
+   "kuliah hybrid di ubb masih ade dak",
+   "ubb masih pake hybrid learning sampe sekarang",
+   "saya kerja shift, kuliah ubb ada yang hybrid campur online gak"
+  ],
+  "Berapa IPK minimal untuk lulus dari UBB?": [
+   "ipk minimal lulus ubb berape",
+   "minimum gpa to graduate ubb",
+   "syarat ipk minimal jadi sarjana di ubb berapa"
+  ],
+  "Apa syarat mengambil skripsi di UBB?": [
+   "syarat ambil skripsi ubb ape bae",
+   "requirement buat mulai skripsi di ubb apa aja",
+   "skripsi ubb harus lulus mata kuliah prasyarat dulu ya"
+  ],
+  "Apakah ada program magang?": [
+   "program magang di ubb ade dak",
+   "Mohon informasinya, apakah UBB menyediakan program magang bagi mahasiswa?",
+   "ada internship program buat mahasiswa ubb ga"
+  ],
+  "Apakah mahasiswa UBB wajib magang?": [
+   "magang tu wajib dak di ubb",
+   "magang wajib semua prodi ubb atau tergantung kurikulum",
+   "saya udah kerja, apa tetap wajib magang atau pkl di ubb"
+  ],
+  "Berapa lama magang mahasiswa UBB?": [
+   "magang ubb berape lame",
+   "durasi pkl mahasiswa ubb berapa bulan",
+   "magang kuliah luar kampus ubb bisa satu semester penuh ga"
+  ],
+  "Di mana mahasiswa UBB bisa magang?": [
+   "magang ubb bisa di mane bae",
+   "tempat magang mahasiswa ubb bisa di perusahaan tambang timah ga",
+   "lokasi magang mahasiswa ubb boleh di luar bangka belitung ga"
+  ],
+  "Apakah kampus membantu mencari tempat magang?": [
+   "kampus bantu carikan tempat magang dak",
+   "prodi ubb kasih surat pengantar magang ga",
+   "boleh ngajuin tempat magang sendiri dengan persetujuan prodi di ubb"
+  ],
+  "Apakah ada MBKM?": [
+   "mbkm di ubb ade dak",
+   "Mohon informasinya, apakah UBB melaksanakan program Merdeka Belajar Kampus Merdeka?",
+   "ubb ikut program kampus merdeka dari kementerian ga"
+  ],
+  "Program MBKM apa saja?": [
+   "program mbkm ape bae yang bisa diikut",
+   "bentuk kegiatan mbkm ada asistensi mengajar sama proyek kemanusiaan ga",
+   "list program mbkm buat mahasiswa ubb apa aja",
+   "mbkm ada program wirausaha sama studi independen ga"
+  ],
+  "Bagaimana cara ikut MBKM?": [
+   "cara daftar mbkm kek mane",
+   "how to apply mbkm program at ubb",
+   "langkah langkah daftar mbkm dari pengumuman sampai seleksi gmn",
+   "mau ikut mbkm harus siapin dokumen persyaratan apa"
+  ],
+  "Berapa SKS kegiatan MBKM yang bisa dikonversi di UBB?": [
+   "mbkm bisa dikonversi berape sks",
+   "konversi sks mbkm maksimal 20 sks per semester ya",
+   "total sks kegiatan di luar prodi lewat mbkm bisa sampai 40 sks"
+  ],
+  "Apa syarat wisuda di UBB?": [
+   "syarat wisuda ubb ape bae",
+   "requirement buat ikut wisuda di ubb apa aja",
+   "biar bisa ikut wisuda harus lulus skripsi dan beres administrasi ya"
+  ],
+  "Adakah biaya yang harus dikeluarkan untuk wisuda?": [
+   "wisuda ubb bayar dak",
+   "Mohon informasinya, apakah orang tua perlu menyiapkan biaya wisuda di UBB?",
+   "graduation fee di ubb ada ga",
+   "wisuda ubb gratis gak dipungut biaya"
+  ],
+  "Kapan wisuda UBB dilaksanakan?": [
+   "wisuda ubb bulan ape",
+   "jadwal wisuda ubb periode berikutnya kapan",
+   "Mohon informasinya, kapan jadwal pelaksanaan wisuda UBB diumumkan?"
+  ],
+  "Bagaimana prosedur wisuda di UBB?": [
+   "daftar wisuda ubb kek mane",
+   "alur pendaftaran wisuda ubb dari verifikasi berkas sampe prosesi",
+   "tahap tahap daftar wisuda ubb setelah sidang skripsi"
+  ],
+  "Bagaimana peluang kerja alumni?": [
+   "lulusan ubb gampang dapet kerja dak",
+   "Mohon informasinya, bagaimana prospek kerja lulusan UBB setelah lulus nanti?",
+   "saya ragu kuliah di daerah, peluang kerja alumni ubb bagus gak dibanding kampus di jawa"
+  ],
+  "Alumni bekerja di mana?": [
+   "alumni ubb kerja di mane bae",
+   "lulusan ubb ada yang jadi pns sama wirausaha"
+  ],
+  "Berapa lama alumni UBB mendapatkan pekerjaan?": [
+   "rata rata waktu tunggu kerja lulusan ubb berapa",
+   "Mohon informasinya, berapa lama rata-rata masa tunggu alumni UBB hingga memperoleh pekerjaan?"
+  ],
+  "Apakah ada tracer study?": [
+   "tracer study ubb ade dak",
+   "survei tracer study alumni ubb buat apa",
+   "ubb ngadain survei penelusuran lulusan buat evaluasi mutu ga"
+  ],
+  "Apakah ada Career Center?": [
+   "career center ubb ade dak",
+   "career development center ubb ada di kampus ga",
+   "cdc ubb itu pusat layanan karier ya"
+  ],
+  "Apakah ada job fair?": [
+   "job fair di ubb ade dak",
+   "bursa kerja ubb diadakan tiap tahun ga",
+   "ubb pernah ngadain job fair sama perusahaan ga"
+  ],
+  "Apakah kampus membantu mencari kerja?": [
+   "kampus bantu carikan kerja dak abis lulus",
+   "ada pelatihan bikin cv sama wawancara kerja dari ubb ga",
+   "Mohon informasinya, apakah UBB membantu lulusannya mendapatkan pekerjaan?",
+   "saya mau sambil kuliah cari kerja part time, ubb ada info lowongan kerja dari cdc gak"
+  ],
+  "Apakah menerima mahasiswa asing?": [
+   "ubb terima mahasiswa luar negeri dak",
+   "mahasiswa asing full degree s1 bisa kuliah di ubb ga"
+  ],
+  "Apakah ada pertukaran pelajar?": [
+   "pertukaran pelajar ke luar negeri dari ubb ade dak",
+   "student exchange ubb ke kampus luar negeri berapa lama",
+   "Mohon informasinya, apakah mahasiswa UBB dapat mengikuti program pertukaran pelajar ke luar negeri?"
+  ],
+  "Apakah ada double degree?": [
+   "double degree di ubb ade dak",
+   "program dua gelar dengan kampus luar negeri di ubb ada ga",
+   "ubb punya dual degree program gak"
+  ],
+  "Apakah ada kelas internasional?": [
+   "kelas internasional di ubb ade dak",
+   "kelas internasional pake bahasa inggris di ubb ada ga",
+   "international class ubb sudah dibuka belum"
+  ],
+  "Mahasiswa bisa ikut penelitian?": [
+   "mahasiswa s1 boleh ikut penelitian dak di ubb",
+   "mahasiswa ubb bisa terlibat riset selain skripsi ga",
+   "saya suka riset dari sma, nanti di ubb mahasiswa bisa ikut kegiatan penelitian gak"
+  ],
+  "Apakah ada hibah penelitian mahasiswa?": [
+   "dana hibah penelitian buat mahasiswa ade dak",
+   "hibah pkm mahasiswa ubb dapet pendanaan dari kementerian ya",
+   "research grant buat mahasiswa ubb ada ga"
+  ],
+  "Bagaimana cara ikut penelitian dosen?": [
+   "cara ikut penelitian dosen kek mane",
+   "mau jadi anggota tim riset dosen ubb hubungi siapa",
+   "gabung proyek penelitian dosen harus daftar lewat prodi ya"
+  ],
+  "Apakah ada KKN?": [
+   "kkn di ubb ade dak",
+   "Mohon informasinya, apakah UBB menyelenggarakan Kuliah Kerja Nyata bagi mahasiswa?",
+   "ada program kkn pengabdian masyarakat di ubb ga"
+  ],
+  "Kapan KKN mahasiswa UBB dilaksanakan?": [
+   "kkn ubb dilaksanakan bulan ape",
+   "jadwal kkn ubb diumumkan lppm kapan",
+   "KKN di UBB biasanya pas semester berapa dan bulan apa"
+  ],
+  "Berapa lama KKN di UBB?": [
+   "kkn ubb berape lame",
+   "durasi kkn tematik ubb berapa minggu",
+   "saya kerja sambil kuliah, nanti kkn di ubb makan waktu berapa lama"
+  ],
+  "Apakah wajib melaksanakan KKN di UBB?": [
+   "kkn wajib dak di ubb",
+   "kkn mata kuliah wajib semua prodi ubb ga",
+   "is kkn mandatory at ubb"
+  ],
+  "Apakah kampus UBB aman?": [
+   "kampus ubb aman dak",
+   "Mohon informasinya Bapak/Ibu, apakah lingkungan kampus UBB aman bagi anak perempuan saya?",
+   "pulang kuliah sore kampus ubb aman ga",
+   "is ubb campus safe for students"
+  ],
+  "Apakah kampus UBB dijaga satpam 24 jam?": [
+   "satpam ubb jaga 24 jam dak",
+   "kalau malam ada security jaga di kampus ubb ga",
+   "petugas keamanan ubb berjaga siang malam di area utama ya"
+  ],
+  "Apakah kampus UBB dilengkapi CCTV?": [
+   "cctv di gedung ubb ade dak",
+   "motor ilang di kampus bisa dicek cctv ubb ga",
+   "gedung kuliah ubb dipasangi kamera cctv gak"
+  ],
+  "Apakah kampus ramah disabilitas?": [
+   "kampus ubb ramah difabel dak",
+   "Mohon informasinya Bapak/Ibu, anak saya pengguna kursi roda, apakah kampus UBB ramah disabilitas?",
+   "saya tunanetra mau kuliah di ubb, kampusnya ramah disabilitas gak",
+   "is ubb campus disability friendly",
+   "ubb nyediain kursi roda sama jalur pedestrian buat difabel ga",
+   "fasilitas ramah disabilitas di kampus ubb apa aja",
+   "penyandang disabilitas bisa kuliah di ubb dak"
+  ],
+  "Apakah boleh bekerja sambil kuliah?": [
+   "kuliah sambil kerja di ubb boleh dak",
+   "saya lulusan SMK sudah kerja di toko, kalau kuliah di ubb sambil tetap kerja boleh gak",
+   "Mohon informasinya, apakah anak saya diizinkan bekerja paruh waktu selama kuliah di UBB?",
+   "boleh kuliah ubb sambil kerja asal tetap ikut jadwal kuliah ya"
+  ],
+  "Apakah tersedia kelas malam?": [
+   "kelas malam di ubb ade dak",
+   "saya kerja dari pagi sampe sore, ubb ada kelas malam buat s1 gak"
+  ],
+  "Apakah tersedia kelas karyawan?": [
+   "kelas karyawan di ubb ade dak",
+   "saya karyawan pln mau lanjut s1, ubb ada kelas karyawan lewat rpl gak",
+   "kuliah khusus pekerja di ubb ada kelas karyawan ga"
+  ]
+ },
+ "faq_baru": [
+  {
+   "pertanyaan": "Apakah calon mahasiswa penyandang disabilitas bisa mendapat pendampingan atau akomodasi khusus saat seleksi dan perkuliahan di UBB?",
+   "jawaban": "Universitas Bangka Belitung berupaya menyediakan layanan yang ramah bagi penyandang disabilitas, termasuk sarana seperti kursi roda dan jalur pedestrian. Bentuk pendampingan atau akomodasi khusus saat seleksi maupun perkuliahan (misalnya bantuan pendamping, waktu tambahan, atau penyesuaian materi) perlu dikonfirmasi lebih dahulu. Calon mahasiswa disarankan menyampaikan kebutuhannya dan menanyakan informasi rinci kepada panitia PMB UBB.",
+   "kategori": "Z. Layanan Disabilitas",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Apakah ada pendamping khusus untuk mahasiswa disabilitas di UBB?",
+    "saya tunanetra, nanti pas tes masuk ubb boleh dibantu pendamping gak",
+    "Mohon informasinya Bapak/Ibu, apakah anak saya yang tunarungu bisa mendapat penyesuaian saat perkuliahan di UBB?",
+    "ada unit layanan disabilitas di ubb dak",
+    "peserta disabilitas tes mandiri ubb dapet waktu tambahan ga",
+    "mahasiswa tuli di ubb ada juru bahasa isyarat gak pas kuliah",
+    "akomodasi khusus buat camaba disabilitas waktu seleksi ubb ada ga",
+    "saya low vision, materi kuliah di ubb bisa dikasih versi huruf besar atau digital gak",
+    "is there disability support service at ubb",
+    "pendampingan belajar untuk mahasiswa berkebutuhan khusus di ubb kek mane",
+    "anak saya autis ringan, apakah ubb punya layanan pendampingan selama kuliah"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah ada layanan konseling atau bimbingan psikologis bagi mahasiswa UBB?",
+   "jawaban": "Setiap mahasiswa UBB memiliki dosen pembimbing akademik (dosen wali) yang dapat menjadi tempat berkonsultasi mengenai masalah akademik dan perencanaan studi. Ketersediaan layanan konseling atau bimbingan psikologis secara khusus perlu dikonfirmasi lebih lanjut. Informasi rinci dapat ditanyakan kepada panitia PMB atau bagian kemahasiswaan UBB.",
+   "kategori": "M. Kehidupan Kampus",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Apakah UBB menyediakan layanan konseling untuk mahasiswa?",
+    "kalau stres kuliah ada tempat konseling di ubb gak",
+    "ade dak layanan psikolog buat mahasiswa di kampus ubb",
+    "counseling service ubb ada ga",
+    "Mohon informasinya, apakah tersedia bimbingan psikologis bagi mahasiswa UBB yang mengalami masalah pribadi?",
+    "saya anak rantau takut homesick, ubb ada layanan konseling mahasiswa gak",
+    "curhat masalah pribadi ke bimbingan konseling kampus ubb bisa ga",
+    "layanan kesehatan mental mahasiswa ubb ada dak",
+    "ada konselor kampus di ubb buat mahasiswa baru",
+    "mental health support buat mahasiswa ubb gimana"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah mahasiswa UBB bisa bekerja paruh waktu di dalam kampus?",
+   "jawaban": "Mahasiswa UBB pada prinsipnya boleh bekerja sambil kuliah selama tetap memenuhi kewajiban akademik. Mahasiswa juga berkesempatan terlibat sebagai asisten penelitian dosen sesuai kebutuhan penelitian yang sedang berjalan. Ketersediaan lowongan kerja paruh waktu di dalam kampus beserta ketentuannya perlu dikonfirmasi lebih dahulu dan dapat ditanyakan kepada panitia PMB atau bagian kemahasiswaan UBB.",
+   "kategori": "M. Kehidupan Kampus",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Apakah ada lowongan kerja paruh waktu di dalam kampus UBB untuk mahasiswa?",
+    "kerja part time di kampus ubb ade dak buat mahasiswa",
+    "bisa jadi asisten lab berbayar di ubb gak",
+    "saya harus bantu biaya kuliah sendiri, ada kerjaan part time di dalam kampus ubb gak",
+    "on campus part time job ubb ada ga",
+    "mahasiswa bisa kerja di ubb mart atau unit usaha kampus ga",
+    "Mohon informasinya, apakah mahasiswa dapat bekerja paruh waktu di lingkungan kampus UBB?",
+    "ada program kerja di kampus buat mahasiswa kurang mampu di ubb",
+    "lowongan part time di perpustakaan atau kantor kampus ubb ada dak",
+    "kerja sambilan di dalam kampus ubb buat maba bisa gak"
+   ]
+  },
+  {
+   "pertanyaan": "Kuliah di UBB berlangsung hari apa saja dan jam berapa?",
+   "jawaban": "Perkuliahan di UBB dilaksanakan sesuai kalender akademik dengan metode tatap muka, praktikum, seminar, dan bentuk pembelajaran lainnya. UBB tidak menyediakan kelas malam secara umum. Hari dan jam perkuliahan mengikuti jadwal yang disusun masing-masing program studi setiap semester, sehingga informasi rinci dapat ditanyakan kepada program studi atau panitia PMB UBB.",
+   "kategori": "N. Akademik",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Jadwal kuliah di UBB dari jam berapa sampai jam berapa?",
+    "kuliah ubb ade hari sabtu dak",
+    "kuliah di ubb senin sampai jumat aja ya",
+    "saya kerja pagi, kuliah s1 ubb mulai jam berapa biasanya",
+    "Mohon informasinya, perkuliahan mahasiswa UBB dilaksanakan pada hari dan jam apa saja?",
+    "class schedule ubb biasanya jam berapa",
+    "kuliah ubb sampe sore ga tiap hari",
+    "jam masuk kuliah pagi di ubb pukul berapa",
+    "hari kuliah di ubb ada yang weekend gak",
+    "jadwal kuliah per minggu di ubb padat ga"
+   ]
+  },
+  {
+   "pertanyaan": "Apakah ada aturan minimal kehadiran kuliah di UBB?",
+   "jawaban": "Ketentuan akademik di UBB, termasuk hal-hal yang berkaitan dengan perkuliahan, diatur dalam Peraturan Akademik Universitas Bangka Belitung. Batas minimal kehadiran kuliah dan akibatnya terhadap ujian perlu dikonfirmasi pada peraturan yang berlaku, dan informasi rinci dapat ditanyakan kepada program studi maupun panitia PMB UBB.",
+   "kategori": "N. Akademik",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Berapa persen minimal kehadiran kuliah di UBB?",
+    "absen kuliah ubb minimal berape persen biar bisa ikut uas",
+    "kalau sering bolos karena kerja, bisa ikut ujian ga di ubb",
+    "minimum attendance kuliah di ubb berapa",
+    "Mohon informasinya, apakah ada batas minimal kehadiran mahasiswa di setiap mata kuliah UBB?",
+    "aturan absensi kuliah di ubb kek mane",
+    "boleh izin gak masuk kuliah berapa kali di ubb",
+    "syarat kehadiran 75 persen buat ikut ujian berlaku di ubb ga",
+    "presensi kuliah ubb ngaruh ke nilai gak",
+    "saya kerja shift malam kadang telat, ada toleransi kehadiran kuliah di ubb gak"
+   ]
+  },
+  {
+   "pertanyaan": "Bagaimana orang tua dapat memantau perkembangan akademik anaknya di UBB?",
+   "jawaban": "Hasil belajar mahasiswa setiap semester tercantum dalam Kartu Hasil Studi (KHS) yang dapat diakses melalui Sistem Informasi Akademik (Siakad) UBB, dan setiap mahasiswa memiliki dosen wali yang memantau perkembangan akademiknya. Apakah orang tua mendapat akses tersendiri atau dapat berkomunikasi langsung dengan dosen wali perlu dikonfirmasi lebih dahulu. Informasi rinci dapat ditanyakan kepada program studi atau panitia PMB UBB.",
+   "kategori": "N. Akademik",
+   "butuh_verifikasi": true,
+   "variasi": [
+    "Apakah orang tua bisa memantau nilai anak yang kuliah di UBB?",
+    "Mohon informasinya Bapak/Ibu, bagaimana kami sebagai orang tua dapat mengetahui perkembangan kuliah anak kami di UBB?",
+    "ortu bisa dapet akun siakad buat liat nilai anak dak",
+    "orang tua bisa menghubungi dosen wali anaknya di ubb ga",
+    "parents can monitor student grades at ubb",
+    "saya ibu dari mahasiswa baru, apakah ada laporan nilai yang dikirim ke orang tua",
+    "kek mane ortu tau anak rajin kuliah atau dak di ubb",
+    "ada pertemuan orang tua mahasiswa dengan prodi di ubb gak",
+    "Dengan hormat, apakah UBB menyediakan sarana bagi orang tua untuk memantau kehadiran dan nilai mahasiswa?",
+    "ortu di luar daerah mau pantau kuliah anak di ubb caranya gimana"
+   ]
+  }
+ ],
+ "keterangan": "Putaran 2: kehidupan kampus, akademik, fasilitas (gaya variatif)"
+}
