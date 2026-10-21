@@ -5,8 +5,9 @@
     python manage.py sinkron_data --tanpa-reindex
 
 Dijalankan cron tiap 15 menit. Tanpa paket baru, perintah ini hanya membaca
-daftar.json lalu selesai. Reindex memakai regression gate biasa: kalau gagal,
-paket itu dibatalkan dan index lama tetap melayani. Lihat faq/sinkron.py.
+daftar.json lalu selesai. Setelah tiap paket, reindex dengan regression gate
+yang ambangnya akurasi index aktif: kalau akurasi turun, paket itu dibatalkan
+dan index lama tetap melayani. Lihat faq/sinkron.py.
 """
 
 from django.conf import settings
@@ -35,10 +36,20 @@ class Command(BaseCommand):
             raise CommandError(f"Gagal membaca paket dari {opts['sumber']}: {e}")
 
     def _uji(self):
-        """Reindex dengan regression gate. Lolos = index baru sudah aktif."""
+        """Reindex dengan regression gate. Lolos = index baru sudah aktif.
+
+        Ambangnya akurasi index yang sedang aktif (minimal ambang biasa):
+        paket boleh tidak menambah akurasi, tetapi tidak boleh menguranginya.
+        Tanpa ini, tiap paket yang lolos sendiri-sendiri bisa menggerus
+        akurasi sedikit demi sedikit sampai tepat di ambang.
+        """
         from faq import actions
+        from faq.models import IndexVersion
+        aktif = (IndexVersion.objects.filter(aktif=True)
+                 .values_list("acc_at_1", flat=True).first())
+        ambang = max(actions.ambang_default(), (aktif or 0) - 1e-9)
         try:
-            st = actions.jalankan_reindex(pengguna="sinkron")
+            st = actions.jalankan_reindex(ambang=ambang, pengguna="sinkron")
         except RuntimeError as e:
             return False, {"pesan": str(e)[:300]}
         info = {"pesan": st.pesan[:300], "acc_at_1": st.acc_at_1,
