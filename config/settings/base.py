@@ -94,6 +94,12 @@ ARTIFACTS_DIR = Path(os.environ.get("ARTIFACTS_DIR", BASE_DIR / "artifacts"))
 TAU_HIGH = os.environ.get("TAU_HIGH")
 TAU_LOW = os.environ.get("TAU_LOW")
 
+# Paket data tambahan hasil simulasi (manage.py sinkron_data).
+SINKRON_SUMBER = os.environ.get(
+    "SINKRON_SUMBER",
+    "https://raw.githubusercontent.com/fransiskuspanca/"
+    "Sobat-Kite-Chatbot-Camaba-UBB/main/data/sinkron/")
+
 # Fase 0 belum menjalankan server; model dimuat mulai Fase 2.
 MUAT_MODEL = os.environ.get("MUAT_MODEL", "0") == "1"
 

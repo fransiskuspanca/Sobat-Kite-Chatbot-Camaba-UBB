@@ -32,7 +32,7 @@ cp .env.example .env
 
 .venv/bin/python manage.py migrate
 .venv/bin/python manage.py import_colab "FAQ_Sobat_Kite_Fix.xlsx"   # sheet Variasi ikut diimpor
-.venv/bin/python -m pytest                # 592 tes
+.venv/bin/python -m pytest                # 601 tes
 ```
 
 Definition of done Fase 0 — pencarian dari shell:
@@ -48,6 +48,7 @@ Simulasi pertanyaan (tidak mengubah index aktif):
 ```bash
 .venv/bin/python manage.py simulasi                                # variasi rawan direbut + hard eval
 .venv/bin/python manage.py simulasi --berkas uji.xlsx --log-hari 7 --keluar laporan.xlsx
+.venv/bin/python manage.py sinkron_data                            # paket data/sinkron/ dari GitHub + reindex (cron 15 menit)
 ```
 
 Pertanyaan yang gagal dijawab atau diberi 👎 tampil di admin *Antrean konten*

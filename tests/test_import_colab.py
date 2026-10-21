@@ -232,3 +232,26 @@ def test_impor_json_backup_kb_membawa_variasi(tmp_path):
     ])
     call_command("import_colab", str(p))
     assert Faq.objects.get().variasi.count() == 2
+
+
+def test_hapus_dulu_memulihkan_variasi_log_dan_sinkron(tmp_path):
+    """Variasi dari tombol Tautkan dan paket sinkron tidak ada di Excel."""
+    from faq.models import FaqVariasi
+    p = tulis_kb(tmp_path, [{"pertanyaan": "Apa itu UBB?", "jawaban": "PTN."},
+                            {"pertanyaan": "Dibuang?", "jawaban": "Ya."}])
+    call_command("import_colab", str(p))
+    ubb = Faq.objects.get(pertanyaan="Apa itu UBB?")
+    FaqVariasi.objects.create(faq=ubb, teks="ubb itu apa", asal="log")
+    FaqVariasi.objects.create(faq=ubb, teks="ubb kampus apa", asal="augmentasi")
+    FaqVariasi.objects.create(faq=ubb, teks="variasi admin lama", asal="admin")
+    FaqVariasi.objects.create(faq=Faq.objects.get(pertanyaan="Dibuang?"),
+                              teks="ikut terbuang", asal="log")
+
+    p2 = tmp_path / "kb2.json"
+    p2.write_text(json.dumps([{"pertanyaan": "Apa itu UBB?", "jawaban": "PTN baru."}]),
+                  encoding="utf-8")
+    call_command("import_colab", str(p2), "--hapus-dulu")
+
+    ubb = Faq.objects.get()
+    assert dict(ubb.variasi.values_list("teks", "asal")) == {
+        "ubb itu apa": "log", "ubb kampus apa": "augmentasi"}
