@@ -45,7 +45,7 @@
       <tbody>
         {% for p in paket %}
         <tr style="border-top:1px solid #f1f5f9">
-          <td style="padding:.6rem 1rem;white-space:nowrap">{{ p.waktu|slice:":16"|cut:"T"|default:"—" }}</td>
+          <td style="padding:.6rem 1rem;white-space:nowrap">{% if p.waktu %}{{ p.waktu|date:"d M Y H:i" }}{% else %}—{% endif %}</td>
           <td style="padding:.6rem 1rem">{{ p.keterangan|default:p.nama }}
             <div style="color:#94a3b8;font-size:.75rem">{{ p.nama }}</div></td>
           <td style="padding:.6rem 1rem;color:{% if p.hasil == 'ok' %}#15803d{% else %}#dc2626{% endif %}">

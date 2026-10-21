@@ -314,6 +314,15 @@ class FaqVariasiAdmin(ModelAdmin):
         if not self.has_view_permission(request):
             raise PermissionDenied
         ring = sinkron.ringkasan_status()
+        # Waktu disimpan dalam UTC; tampilkan dalam zona waktu server (WIB).
+        from datetime import datetime
+
+        from django.utils import timezone
+        for p in ring["paket"]:
+            try:
+                p["waktu"] = timezone.localtime(datetime.fromisoformat(p["waktu"]))
+            except (KeyError, TypeError, ValueError):
+                p["waktu"] = None
         konteks = {
             **self.admin_site.each_context(request),
             "title": "Laporan data simulasi",
