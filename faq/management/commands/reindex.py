@@ -17,7 +17,8 @@ class Command(BaseCommand):
         parser.add_argument("--ambang", type=float, default=None,
                             help="Ambang Acc@1 regression gate (default 0.85)")
         parser.add_argument("--paksa", action="store_true",
-                            help="Pasang index walau regression gate gagal")
+                            help="Pasang index walau regression gate gagal "
+                                 "atau isinya sama dengan index aktif")
         parser.add_argument("--rollback", type=int, metavar="VERSI",
                             help="Aktifkan kembali versi index lama")
 

@@ -87,6 +87,25 @@ def kumpulkan_entri() -> tuple[list[dict], dict[str, int]]:
 
 # --- reindex ---------------------------------------------------------------
 
+def sama_dengan(iv: IndexVersion, snapshot) -> bool:
+    """Apakah `snapshot` berisi vektor yang sama dengan versi index `iv`?
+
+    Dibandingkan langsung pada vektornya, bukan pada teks FAQ: perubahan
+    model atau prefix juga terhitung perubahan. Encode di CPU deterministik,
+    jadi toleransi kecil cukup untuk menyerap selisih pembulatan.
+    """
+    import numpy as np
+
+    from retrieval.indexer import dari_bytes
+
+    if (iv.dim != snapshot.dim or iv.jumlah_vektor != snapshot.jumlah_vektor
+            or list(iv.pemilik) != list(snapshot.pemilik)):
+        return False
+    lama = dari_bytes(bytes(iv.vektor), iv.dim)
+    return lama.shape == snapshot.vektor.shape and bool(
+        np.allclose(lama, snapshot.vektor, atol=1e-5))
+
+
 def jalankan_reindex(*, ambang: float | None = None, paksa: bool = False,
                      pengguna: str = "") -> StatusReindex:
     """Bangun index kandidat, uji, pasang bila lolos.
@@ -120,6 +139,17 @@ def jalankan_reindex(*, ambang: float | None = None, paksa: bool = False,
 
     _status.acc_at_1 = hasil.acc_at_1
     _status.gagal = hasil.gagal or []
+
+    # Reindex terjadwal berjalan tiap malam. Bila isi index identik dengan
+    # yang sedang aktif, jangan buat versi baru: daftar versi jadi penuh
+    # salinan yang sama dan rollback kehilangan maknanya.
+    aktif = IndexVersion.objects.filter(aktif=True).first()
+    if not paksa and aktif is not None and sama_dengan(aktif, hasil.snapshot):
+        _status.berhasil = True
+        _status.versi_baru = aktif.versi
+        _status.pesan = (f"Tidak ada perubahan sejak index v{aktif.versi} — "
+                         "index itu tetap dipakai, tidak ada versi baru.")
+        return _status
 
     if not hasil.lolos and not paksa:
         # Regression gate menolak: versi lama TETAP melayani.
