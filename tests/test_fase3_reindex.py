@@ -94,6 +94,50 @@ def test_hanya_satu_index_aktif(kb, engine_tiruan):
     assert IndexVersion.objects.get(aktif=True).versi == 2
 
 
+@pytest.fixture
+def tanpa_hard_eval(monkeypatch, tmp_path):
+    """Gate dilewati supaya yang diuji hanya deteksi perubahan."""
+    from django.conf import settings
+    monkeypatch.setattr(settings, "ARTIFACTS_DIR", tmp_path)
+
+
+def test_reindex_tanpa_perubahan_tidak_membuat_versi(kb, engine_tiruan, tanpa_hard_eval):
+    """Reindex malam tanpa perubahan data: versi aktif tetap dipakai."""
+    actions.jalankan_reindex()
+    st = actions.jalankan_reindex()
+    assert st.berhasil is True
+    assert st.versi_baru == 1
+    assert "Tidak ada perubahan" in st.pesan
+    assert IndexVersion.objects.count() == 1
+    assert IndexVersion.objects.get(aktif=True).versi == 1
+
+
+def test_reindex_dengan_perubahan_membuat_versi(kb, engine_tiruan, tanpa_hard_eval):
+    actions.jalankan_reindex()
+    FaqVariasi.objects.create(faq=kb["b"], teks="ukt berapa ya")
+    st = actions.jalankan_reindex()
+    assert st.versi_baru == 2
+    assert IndexVersion.objects.get(aktif=True).versi == 2
+
+
+def test_variasi_diganti_jumlah_sama_tetap_terdeteksi(kb, engine_tiruan, tanpa_hard_eval):
+    actions.jalankan_reindex()
+    FaqVariasi.objects.filter(faq=kb["a"]).update(teks="kampus ubb itu apa sih")
+    actions.jalankan_reindex()
+    assert IndexVersion.objects.get(aktif=True).versi == 2
+
+
+def test_rollback_lalu_reindex_memasang_isi_terbaru(kb, engine_tiruan, tanpa_hard_eval):
+    """Setelah rollback ke versi lama, isi basis data berbeda dari versi
+    aktif, jadi reindex tetap membuat versi baru."""
+    actions.jalankan_reindex()
+    FaqVariasi.objects.create(faq=kb["b"], teks="ukt berapa ya")
+    actions.jalankan_reindex()
+    actions.rollback(1)
+    actions.jalankan_reindex()
+    assert IndexVersion.objects.get(aktif=True).versi == 3
+
+
 def test_reindex_tanpa_faq_ditolak(engine_tiruan):
     with pytest.raises(RuntimeError, match="Tidak ada FAQ aktif"):
         actions.jalankan_reindex(paksa=True)
